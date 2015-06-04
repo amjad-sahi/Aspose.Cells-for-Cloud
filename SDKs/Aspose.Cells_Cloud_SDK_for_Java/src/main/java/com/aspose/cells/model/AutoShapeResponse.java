@@ -1,8 +1,27 @@
-package com.aspose.storage.model;
+package com.aspose.cells.model;
 
-public class MoveFileResponse {
+public class AutoShapeResponse {
+  private AutoShape AutoShape = null;
   private String Code = null;
   private String Status = null;
+  /**
+	 * getAutoShape
+	 * Gets AutoShape
+	 * @return AutoShape
+	 */
+  public AutoShape getAutoShape() {
+    return AutoShape;
+  }
+
+	/**
+	 * setAutoShape
+	 * Sets AutoShape
+	 * @param AutoShapes AutoShape
+	 */
+  public void setAutoShape(AutoShape AutoShape) {
+    this.AutoShape = AutoShape;
+  }
+
   /**
 	 * getCode
 	 * Gets String
@@ -42,7 +61,8 @@ public class MoveFileResponse {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MoveFileResponse {\n");
+    sb.append("class AutoShapesResponse {\n");
+    sb.append("  AutoShape: ").append(AutoShape).append("\n");
     sb.append("  Code: ").append(Code).append("\n");
     sb.append("  Status: ").append(Status).append("\n");
     sb.append("}\n");

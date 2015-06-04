@@ -1,79 +1,79 @@
 package com.aspose.cells.model;
 
 public class Color {
-  private String A = null;
-  private String R = null;
-  private String G = null;
-  private String B = null;
+  private Integer A = null;
+  private Integer R = null;
+  private Integer G = null;
+  private Integer B = null;
   /**
 	 * getA
-	 * Gets String
+	 * Gets Integer
 	 * @return A
 	 */
-  public String getA() {
+  public Integer getA() {
     return A;
   }
 
 	/**
 	 * setA
-	 * Sets String
-	 * @param A String
+	 * Sets Integer
+	 * @param A Integer
 	 */
-  public void setA(String A) {
+  public void setA(Integer A) {
     this.A = A;
   }
 
   /**
 	 * getR
-	 * Gets String
+	 * Gets Integer
 	 * @return R
 	 */
-  public String getR() {
+  public Integer getR() {
     return R;
   }
 
 	/**
 	 * setR
-	 * Sets String
-	 * @param R String
+	 * Sets Integer
+	 * @param R Integer
 	 */
-  public void setR(String R) {
+  public void setR(Integer R) {
     this.R = R;
   }
 
   /**
 	 * getG
-	 * Gets String
+	 * Gets Integer
 	 * @return G
 	 */
-  public String getG() {
+  public Integer getG() {
     return G;
   }
 
 	/**
 	 * setG
-	 * Sets String
-	 * @param G String
+	 * Sets Integer
+	 * @param G Integer
 	 */
-  public void setG(String G) {
+  public void setG(Integer G) {
     this.G = G;
   }
 
   /**
 	 * getB
-	 * Gets String
+	 * Gets Integer
 	 * @return B
 	 */
-  public String getB() {
+  public Integer getB() {
     return B;
   }
 
 	/**
 	 * setB
-	 * Sets String
-	 * @param B String
+	 * Sets Integer
+	 * @param B Integer
 	 */
-  public void setB(String B) {
+  public void setB(Integer B) {
     this.B = B;
   }
 

@@ -1,11 +1,13 @@
 package com.aspose.cells.model;
 
 import com.aspose.cells.model.Link;
+import com.aspose.cells.model.LinkElement;
 public class Column {
   private Integer GroupLevel = null;
   private Integer Index = null;
   private Boolean IsHidden = null;
   private Double Width = null;
+  private LinkElement Style = null;
   private Link link = null;
   /**
 	 * getGroupLevel
@@ -80,6 +82,24 @@ public class Column {
   }
 
   /**
+	 * getStyle
+	 * Gets LinkElement
+	 * @return Style
+	 */
+  public LinkElement getStyle() {
+    return Style;
+  }
+
+	/**
+	 * setStyle
+	 * Sets LinkElement
+	 * @param Style LinkElement
+	 */
+  public void setStyle(LinkElement Style) {
+    this.Style = Style;
+  }
+
+  /**
 	 * getLink
 	 * Gets Link
 	 * @return link
@@ -105,6 +125,7 @@ public class Column {
     sb.append("  Index: ").append(Index).append("\n");
     sb.append("  IsHidden: ").append(IsHidden).append("\n");
     sb.append("  Width: ").append(Width).append("\n");
+    sb.append("  Style: ").append(Style).append("\n");
     sb.append("  link: ").append(link).append("\n");
     sb.append("}\n");
     return sb.toString();
