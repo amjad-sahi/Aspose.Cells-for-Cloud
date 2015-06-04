@@ -1,8 +1,28 @@
-package com.aspose.storage.model;
+package com.aspose.cells.model;
 
-public class RemoveFileResponse {
+import com.aspose.cells.model.PivotTables;
+public class PivotTablesResponse {
+  private PivotTables PivotTables = null;
   private String Code = null;
   private String Status = null;
+  /**
+	 * getPivotTables
+	 * Gets PivotTables
+	 * @return PivotTables
+	 */
+  public PivotTables getPivotTables() {
+    return PivotTables;
+  }
+
+	/**
+	 * setPivotTables
+	 * Sets PivotTables
+	 * @param PivotTables PivotTables
+	 */
+  public void setPivotTables(PivotTables PivotTables) {
+    this.PivotTables = PivotTables;
+  }
+
   /**
 	 * getCode
 	 * Gets String
@@ -42,7 +62,8 @@ public class RemoveFileResponse {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RemoveFileResponse {\n");
+    sb.append("class PivotTablesResponse {\n");
+    sb.append("  PivotTables: ").append(PivotTables).append("\n");
     sb.append("  Code: ").append(Code).append("\n");
     sb.append("  Status: ").append(Status).append("\n");
     sb.append("}\n");

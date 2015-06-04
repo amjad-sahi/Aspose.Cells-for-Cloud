@@ -2,23 +2,23 @@ package com.aspose.cells.model;
 
 import com.aspose.cells.model.ValueType;
 public class SingleValue {
-  private ValueType ValueType = null;
+  private Integer ValueType = null;
   private String Value = null;
   /**
 	 * getValueType
 	 * Gets ValueType
-	 * @return ValueType
+	 * @return ValueType as Integer
 	 */
-  public ValueType getValueType() {
+  public Integer getValueType() {
     return ValueType;
   }
 
 	/**
 	 * setValueType
 	 * Sets ValueType
-	 * @param ValueType ValueType
+	 * @param Integer ValueType
 	 */
-  public void setValueType(ValueType ValueType) {
+  public void setValueType(Integer ValueType) {
     this.ValueType = ValueType;
   }
 

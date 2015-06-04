@@ -1,12 +1,27 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
  */
 package com.aspose.cells.api;
 
-import com.aspose.storage.api.StorageApi;
-import com.aspose.client.ApiException;
+import static org.junit.Assert.assertNull;
+
+import java.io.File;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.UUID;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 import com.aspose.cells.model.AutoFitterOptions;
+import com.aspose.cells.model.AutoShapeResponse;
 import com.aspose.cells.model.AutoShapesResponse;
 import com.aspose.cells.model.BarcodeResponseList;
 import com.aspose.cells.model.CellResponse;
@@ -30,6 +45,7 @@ import com.aspose.cells.model.ImportOption;
 import com.aspose.cells.model.Legend;
 import com.aspose.cells.model.LegendResponse;
 import com.aspose.cells.model.LineResponse;
+import com.aspose.cells.model.Link;
 import com.aspose.cells.model.MergedCellResponse;
 import com.aspose.cells.model.MergedCellsResponse;
 import com.aspose.cells.model.NameResponse;
@@ -66,32 +82,37 @@ import com.aspose.cells.model.WorksheetMovingRequest;
 import com.aspose.cells.model.WorksheetReplaceResponse;
 import com.aspose.cells.model.WorksheetResponse;
 import com.aspose.cells.model.WorksheetsResponse;
-import com.aspose.client.ApiInvoker;
-import java.io.File;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import com.aspose.client.ApiException;
+import com.aspose.storage.api.StorageApi;
 
 /**
  *
- * @author SQL
+ * @author Farooq Sheikh
+ * @author Imran Anwar
  */
 public class CellsApiTest {
 
-	CellsApi cellsApi;
-	StorageApi storageApi;
+	static CellsApi cellsApi;
+	static StorageApi storageApi;
 	// Please get the appSID and apiKey from https://cloud.aspose.com
-	String appSID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-	String apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+	static String appSID = "xxxxxxxxxxx";
+	static String apiKey = "xxxxxxxxxxx";
 
 	public CellsApiTest() {
 	}
 
 	@BeforeClass
 	public static void setUpClass() {
+	        try{
+	        cellsApi = new CellsApi("http://api.aspose.com/v1.1",apiKey,appSID,true);
+                storageApi = new StorageApi("http://api.aspose.com/v1.1",apiKey,appSID);
+                storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
+                storageApi.PutCreate("test_convert_cell.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_convert_cell.xlsx").toURI()));
+                storageApi.PutCreate("test_book1.xls", "", "", new File(CellsApiTest.class.getResource("/test_book1.xls").toURI()));
+                storageApi.PutCreate("aspose-cloud.png", "", "", new File(CellsApiTest.class.getResource("/aspose-cloud.png").toURI()));
+	        } catch (Exception e) {
+                        e.printStackTrace();
+                        }
 	}
 
 	@AfterClass
@@ -100,26 +121,6 @@ public class CellsApiTest {
 
 	@Before
 	public void setUp() {
-		cellsApi = new CellsApi();
-		
-		cellsApi.setBasePath("http://api.aspose.com/v1.1");
-		cellsApi.getInvoker().addDefaultHeader("apiKey", apiKey);
-		cellsApi.getInvoker().addDefaultHeader("appSID", appSID);
-
-//		storageApi = new StorageApi();
-//		storageApi.setBasePath("http://api.aspose.com/v1.1");
-//		storageApi.getInvoker().addDefaultHeader("apiKey", apiKey);
-//		storageApi.getInvoker().addDefaultHeader("appSID", appSID);
-//
-//		try{
-//		System.out.println(getClass().getResource("/test_cells.xlsx").toURI());
-//		//storageApi.PutCopy("test_cells.xlsx", "", "", "", "", new File(getClass().getResource("/test_cells.xlsx").toURI()));
-//		//storageApi.PutCopy("test_cells.xlsx", "", "", "", "", new File(getClass().getResource("/test_cells.xlsx").toURI()));
-//		
-//		}catch(java.net.URISyntaxException uriExp){
-//			System.out.println("uriExp:"+uriExp);
-//		}
-
 	}
 
 	@After
@@ -261,7 +262,7 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorksheetColumn() {
 		System.out.println("GetWorksheetColumn");
-		String name = "test_cells.xlsx";
+		String name = "test_book1.xls";
 		String sheetName = "Sheet1";
 		Integer columnIndex = 1;
 		String storage = "";
@@ -374,12 +375,12 @@ public class CellsApiTest {
 	public void testPostClearFormats() {
 		System.out.println("PostClearFormats");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet3";
 		String range = "A1:A2";
-		Integer startRow = 0;
-		Integer startColumn = 0;
-		Integer endRow = 1;
-		Integer endColumn = 1;
+		Integer startRow = null;
+		Integer startColumn = null;
+		Integer endRow = null;
+		Integer endColumn = null;
 		String storage = "";
 		String folder = "";
 		try {
@@ -426,11 +427,11 @@ public class CellsApiTest {
 	public void testPostCopyWorksheetColumns() {
 		System.out.println("PostCopyWorksheetColumns");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet2";
 		Integer sourceColumnIndex = 1;
 		Integer destinationColumnIndex = 2;
 		Integer columnNumber = 1;
-		String worksheet = "2";
+		String worksheet = "Sheet1";
 		String storage = "";
 		String folder = "";
 		try {
@@ -451,7 +452,7 @@ public class CellsApiTest {
 	public void testPostCopyWorksheetRows() {
 		System.out.println("PostCopyWorksheetRows");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet2";
 		Integer sourceRowIndex = 1;
 		Integer destinationRowIndex = 1;
 		Integer rowNumber = 1;
@@ -736,13 +737,16 @@ public class CellsApiTest {
 	public void testPostUpdateWorksheetCellStyle() {
 		System.out.println("PostUpdateWorksheetCellStyle");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		String cellName = "a1";
+		String sheetName = "Sheet2";
+		String cellName = "A1";
 		String storage = "";
 		String folder = "";
 		Style body = new Style();
-		body.setName("New");
-		body.setNumber(1);
+                com.aspose.cells.model.Font font = new com.aspose.cells.model.Font();
+                font.setName("Calibri");
+                font.setSize(20);
+                body.setFont(font);
+                
 		try {
 			
 			StyleResponse result = cellsApi.PostUpdateWorksheetCellStyle(name, sheetName, cellName, storage, folder, body);
@@ -762,10 +766,15 @@ public class CellsApiTest {
 		System.out.println("PostUpdateWorksheetRangeStyle");
 		String name = "test_cells.xlsx";
 		String sheetName = "Sheet1";
-		String range = "a1:d1";
+		String range = "A1:A2";
 		String storage = "";
 		String folder = "";
 		Style body = new Style();
+		com.aspose.cells.model.Font font = new com.aspose.cells.model.Font();
+		font.setName("Calibri");
+		font.setSize(20);
+		body.setFont(font);
+		
 		try {
 			
 			SaaSposeResponse result = cellsApi.PostUpdateWorksheetRangeStyle(name, sheetName, range, storage, folder, body);
@@ -951,15 +960,15 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorksheetAutoshape() {
 		System.out.println("GetWorksheetAutoshape");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String name = "test_book1.xls";
+		String sheetName = "Sheet4";
 		Integer autoshapeNumber = 1;
 		String storage = "";
 		String folder = "";
 		try {
 			
-			ResponseMessage result = cellsApi.GetWorksheetAutoshape(name, sheetName, autoshapeNumber, storage, folder);
-			
+			 AutoShapeResponse result = cellsApi.GetWorksheetAutoshape(name, sheetName, autoshapeNumber, storage, folder);
+			 System.out.println("getHref" + result.getAutoShape().getLink().getHref());
 			
 		} catch (ApiException apiException) {
 			System.out.println("exp:" + apiException.getMessage());
@@ -994,10 +1003,10 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorksheetAutoshapeWithFormat() {
 		System.out.println("GetWorksheetAutoshapeWithFormat");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String name = "test_book1.xls";
+		String sheetName = "Sheet4";
 		Integer autoshapeNumber = 1;
-		String format = "text";
+		String format = "png";
 		String storage = "";
 		String folder = "";
 		try {
@@ -1018,8 +1027,8 @@ public class CellsApiTest {
 	public void testGetExtractBarcodes() {
 		System.out.println("GetExtractBarcodes");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer pictureNumber = 1;
+		String sheetName = "Sheet2";
+		Integer pictureNumber = 0;
 		String storage = "";
 		String folder = "";
 		try {
@@ -1106,8 +1115,8 @@ public class CellsApiTest {
 	public void testDeleteWorksheetChartLegend() {
 		System.out.println("DeleteWorksheetChartLegend");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer chartIndex = 1;
+		String sheetName = "Sheet2";
+		Integer chartIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
@@ -1128,8 +1137,8 @@ public class CellsApiTest {
 	public void testDeleteWorksheetChartTitle() {
 		System.out.println("DeleteWorksheetChartTitle");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer chartIndex = 1;
+		String sheetName = "Sheet2";
+		Integer chartIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
@@ -1150,7 +1159,7 @@ public class CellsApiTest {
 	public void testDeleteWorksheetClearCharts() {
 		System.out.println("DeleteWorksheetClearCharts");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet2";
 		String storage = "";
 		String folder = "";
 		try {
@@ -1171,16 +1180,15 @@ public class CellsApiTest {
 	public void testDeleteWorksheetDeleteChart() {
 		System.out.println("DeleteWorksheetDeleteChart");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer chartIndex = 1;
+		String sheetName = "Sheet2";
+		Integer chartIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
-			
+		        storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
 			ChartsResponse result = cellsApi.DeleteWorksheetDeleteChart(name, sheetName, chartIndex, storage, folder);
 			
-			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1260,7 +1268,7 @@ public class CellsApiTest {
 		String name = "test_cells.xlsx";
 		String sheetName = "Sheet1";
 		Integer chartNumber = 0;
-		String format = "text";
+		String format = "png";
 		String storage = "";
 		String folder = "";
 		try {
@@ -1287,7 +1295,7 @@ public class CellsApiTest {
 		String folder = "";
 		Legend body = new Legend();
 		body.setHeight(15);
-		body.setPosition("center");
+		body.setPosition("Left");
 		try {
 			
 			LegendResponse result = cellsApi.PostWorksheetChartLegend(name, sheetName, chartIndex, storage, folder, body);
@@ -1337,11 +1345,11 @@ public class CellsApiTest {
 		Integer upperLeftColumn = 1;
 		Integer lowerRightRow = 1;
 		Integer lowerRightColumn = 1;
-		String area = "";
+		String area = "A1:B2";
 		Boolean isVertical = false;
-		String categoryData = "";
+		String categoryData = "A1:A2";
 		Boolean isAutoGetSerialName = true;
-		String title = "New Title";
+		String title = "SalesState";
 		String storage = "";
 		String folder = "";
 		try {
@@ -1407,17 +1415,18 @@ public class CellsApiTest {
 	@Test
 	public void testDeleteWorkSheetHyperlink() {
 		System.out.println("DeleteWorkSheetHyperlink");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer hyperlinkIndex = 1;
+		String name = "test_book1.xls";
+		String sheetName = "Sheet2";
+		Integer hyperlinkIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
 			
+		        storageApi.PutCreate("test_book1.xls", "", "", new File(CellsApiTest.class.getResource("/test_book1.xls").toURI()));
 			SaaSposeResponse result = cellsApi.DeleteWorkSheetHyperlink(name, sheetName, hyperlinkIndex, storage, folder);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1429,16 +1438,16 @@ public class CellsApiTest {
 	@Test
 	public void testDeleteWorkSheetHyperlinks() {
 		System.out.println("DeleteWorkSheetHyperlinks");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String name = "test_book1.xls";
+		String sheetName = "Sheet2";
 		String storage = "";
 		String folder = "";
 		try {
-			
+		        storageApi.PutCreate("test_book1.xls", "", "", new File(CellsApiTest.class.getResource("/test_book1.xls").toURI()));
 			SaaSposeResponse result = cellsApi.DeleteWorkSheetHyperlinks(name, sheetName, storage, folder);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1450,9 +1459,9 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorkSheetHyperlink() {
 		System.out.println("GetWorkSheetHyperlink");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer hyperlinkIndex = 1;
+		String name = "test_book1.xls";
+		String sheetName = "Sheet2";
+		Integer hyperlinkIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
@@ -1472,8 +1481,8 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorkSheetHyperlinks() {
 		System.out.println("GetWorkSheetHyperlinks");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String name = "test_book1.xls";
+		String sheetName = "Sheet2";
 		String storage = "";
 		String folder = "";
 		try {
@@ -1493,12 +1502,16 @@ public class CellsApiTest {
 	@Test
 	public void testPostWorkSheetHyperlink() {
 		System.out.println("PostWorkSheetHyperlink");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer hyperlinkIndex = 1;
+		String name = "test_book1.xls";
+		String sheetName = "Sheet2";
+		Integer hyperlinkIndex = 0;
 		String storage = "";
 		String folder = "";
 		Hyperlink body = new Hyperlink();
+		Link aLink = new Link();
+		aLink.setHref("http://banckle.com");
+		aLink.setTitle("Banckle");
+		body.setLink(aLink);
 		try {
 			
 			HyperlinkResponse result = cellsApi.PostWorkSheetHyperlink(name, sheetName, hyperlinkIndex, storage, folder, body);
@@ -1543,16 +1556,17 @@ public class CellsApiTest {
 	public void testDeleteWorksheetOleObject() {
 		System.out.println("DeleteWorksheetOleObject");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer oleObjectIndex = 1;
+		String sheetName = "Sheet2";
+		Integer oleObjectIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
+		        storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
 			
 			SaaSposeResponse result = cellsApi.DeleteWorksheetOleObject(name, sheetName, oleObjectIndex, storage, folder);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1565,15 +1579,16 @@ public class CellsApiTest {
 	public void testDeleteWorksheetOleObjects() {
 		System.out.println("DeleteWorksheetOleObjects");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet2";
 		String storage = "";
 		String folder = "";
 		try {
-			
+		        storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
 			SaaSposeResponse result = cellsApi.DeleteWorksheetOleObjects(name, sheetName, storage, folder);
+			 
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1586,7 +1601,7 @@ public class CellsApiTest {
 	public void testGetWorksheetOleObject() {
 		System.out.println("GetWorksheetOleObject");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet2";
 		Integer objectNumber = 1;
 		String storage = "";
 		String folder = "";
@@ -1612,11 +1627,11 @@ public class CellsApiTest {
 		String storage = "";
 		String folder = "";
 		try {
-			
+		        storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
 			OleObjectsResponse result = cellsApi.GetWorksheetOleObjects(name, sheetName, storage, folder);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1629,9 +1644,9 @@ public class CellsApiTest {
 	public void testGetWorksheetOleObjectWithFormat() {
 		System.out.println("GetWorksheetOleObjectWithFormat");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet2";
 		Integer objectNumber = 1;
-		String format = "text";
+		String format = "png";
 		String storage = "";
 		String folder = "";
 		try {
@@ -1652,11 +1667,20 @@ public class CellsApiTest {
 	public void testPostUpdateWorksheetOleObject() {
 		System.out.println("PostUpdateWorksheetOleObject");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer oleObjectIndex = 1;
+		String sheetName = "Sheet2";
+		Integer oleObjectIndex = 0;
 		String storage = "";
 		String folder = "";
 		OleObject body = new OleObject();
+                body.setImageSourceFullName("aspose-cloud.png");
+                body.setSourceFullName("test_cells.xlsx");
+                body.setUpperLeftRow(10);
+                body.setUpperLeftColumn(10);
+                body.setTop(20);
+                body.setBottom(20);
+                body.setLeft(20);
+                body.setHeight(20);
+                body.setWidth(20);
 		try {
 			
 			SaaSposeResponse result = cellsApi.PostUpdateWorksheetOleObject(name, sheetName, oleObjectIndex, storage, folder, body);
@@ -1675,18 +1699,27 @@ public class CellsApiTest {
 	public void testPutWorksheetOleObject() {
 		System.out.println("PutWorksheetOleObject");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer upperLeftRow = 1;
-		Integer upperLeftColumn = 1;
-		Integer height = 1;
-		Integer width = 1;
-		String oleFile = "";
-		String imageFile = "";
+		String sheetName = "Sheet2";
+		Integer upperLeftRow = null;
+		Integer upperLeftColumn = null;
+		Integer height = null;
+		Integer width = null;
+		String oleFile = null;
+		String imageFile = null;
 		String storage = "";
 		String folder = "";
 		OleObject body = new OleObject();
-		body.setName("NewObject");
-		body.setText("NewText");
+		body.setImageSourceFullName("aspose-cloud.png");
+		body.setSourceFullName("test_cells.xlsx");
+		body.setUpperLeftRow(10);
+		body.setUpperLeftColumn(10);
+		body.setTop(20);
+		body.setBottom(20);
+		body.setLeft(20);
+		body.setHeight(20);
+		body.setWidth(20);
+		
+		
 		try {
 			
 			OleObjectResponse result = cellsApi.PutWorksheetOleObject(name, sheetName, upperLeftRow, upperLeftColumn, height, width, oleFile, imageFile, storage, folder, body);
@@ -1704,17 +1737,17 @@ public class CellsApiTest {
 	@Test
 	public void testDeleteWorksheetPicture() {
 		System.out.println("DeleteWorksheetPicture");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer pictureIndex = 1;
+		String name = "test_book1.xls";
+		String sheetName = "Sheet5";
+		Integer pictureIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
-			
+		        storageApi.PutCreate(name, "", "", new File(CellsApiTest.class.getResource("/" + name).toURI()));		
 			SaaSposeResponse result = cellsApi.DeleteWorksheetPicture(name, sheetName, pictureIndex, storage, folder);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1726,16 +1759,15 @@ public class CellsApiTest {
 	@Test
 	public void testDeleteWorkSheetPictures() {
 		System.out.println("DeleteWorkSheetPictures");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String name = "test_book1.xls";
+		String sheetName = "Sheet5";
 		String storage = "";
 		String folder = "";
 		try {
-			
+		        storageApi.PutCreate(name, "", "", new File(CellsApiTest.class.getResource("/" + name).toURI()));
 			SaaSposeResponse result = cellsApi.DeleteWorkSheetPictures(name, sheetName, storage, folder);
 			
-			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1748,8 +1780,8 @@ public class CellsApiTest {
 	public void testGetWorksheetPicture() {
 		System.out.println("GetWorksheetPicture");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer pictureNumber = 1;
+		String sheetName = "Sheet2";
+		Integer pictureNumber = 0;
 		String storage = "";
 		String folder = "";
 		try {
@@ -1791,9 +1823,9 @@ public class CellsApiTest {
 	public void testGetWorksheetPictureWithFormat() {
 		System.out.println("GetWorksheetPictureWithFormat");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer pictureNumber = 1;
-		String format = "text";
+		String sheetName = "Sheet2";
+		Integer pictureNumber = 0;
+		String format = "png";
 		String storage = "";
 		String folder = "";
 		try {
@@ -1813,19 +1845,20 @@ public class CellsApiTest {
 	@Test
 	public void testPostWorkSheetPicture() {
 		System.out.println("PostWorkSheetPicture");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer pictureIndex = 1;
+		String name = "test_book1.xls";
+		String sheetName = "Sheet5";
+		Integer pictureIndex = 0;
 		String storage = "";
 		String folder = "";
 		Picture body = new Picture();
-		body.setName("NewImage");
+		body.setName("aspose-cloud.png");
 		try {
-			
+		        storageApi.PutCreate("aspose-cloud.png", "", "", new File(CellsApiTest.class.getResource("/aspose-cloud.png").toURI()));
+		        
 			PictureResponse result = cellsApi.PostWorkSheetPicture(name, sheetName, pictureIndex, storage, folder, body);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -1834,32 +1867,30 @@ public class CellsApiTest {
 	/**
 	 * Test of PutWorksheetAddPicture method, of class CellsApi.
 	 */
-//	@Test
-//	public void testPutWorksheetAddPicture() {
-//		System.out.println("PutWorksheetAddPicture");
-//		String name = "test_cells.xlsx";
-//		String sheetName = "Sheet1";
-//		Integer upperLeftRow = 1;
-//		Integer upperLeftColumn = 1;
-//		Integer lowerRightRow = 1;
-//		Integer lowerRightColumn = 1;
-//		String picturePath = "1";
-//		String storage = "";
-//		String folder = "";
-//		File file;
-//		try {
-//			file = new File(getClass().getResource("/test_convert_cell.xlsx").toURI());
-//			PicturesResponse result = cellsApi.PutWorksheetAddPicture(name, sheetName, upperLeftRow, upperLeftColumn, lowerRightRow, lowerRightColumn, picturePath, storage, folder, file);
-//			
-//			
-//		} catch (ApiException apiException) {
-//			System.out.println("exp:" + apiException.getMessage());
-//			assertNull(apiException);
-//		} catch(java.net.URISyntaxException uriExp){
-//			System.out.println("uri exp:" + uriExp.getMessage());
-//		}
-//
-//	}
+	@Test
+	public void testPutWorksheetAddPicture() {
+		System.out.println("PutWorksheetAddPicture");
+		String name = "test_cells.xlsx";
+		String sheetName = "Sheet1";
+		Integer upperLeftRow = 1;
+		Integer upperLeftColumn = 1;
+		Integer lowerRightRow = 1;
+		Integer lowerRightColumn = 1;
+		String picturePath = "aspose-cloud.png";
+		String storage = "";
+		String folder = "";
+		File file = null;
+		try {
+			PicturesResponse result = cellsApi.PutWorksheetAddPicture(name, sheetName, upperLeftRow, upperLeftColumn, lowerRightRow, lowerRightColumn, picturePath, storage, folder, file);
+			
+		} catch (ApiException apiException) {
+			System.out.println("exp:" + apiException.getMessage());
+			assertNull(apiException);
+		} catch(Exception uriExp){
+			System.out.println("uri exp:" + uriExp.getMessage());
+		}
+
+	}
 
 	/**
 	 * Test of DeleteDocumentProperties method, of class CellsApi.
@@ -1868,11 +1899,16 @@ public class CellsApiTest {
 	public void testDeleteDocumentProperties() {
 		System.out.println("DeleteDocumentProperties");
 		String name = "test_cells.xlsx";
+	        String propertyName = "AsposeAuthor";
 		String storage = "";
 		String folder = "";
+	              CellsDocumentProperty body = new CellsDocumentProperty();
+	              body.setName("AsposeAuthor");
+	              body.setValue("Aspose");
 		try {
-			
-			CellsDocumentPropertiesResponse result = cellsApi.DeleteDocumentProperties(name, storage, folder);
+		        CellsDocumentPropertyResponse putResult = cellsApi.PutDocumentProperty(name, propertyName, storage, folder, body);
+		        
+			 CellsDocumentPropertiesResponse result = cellsApi.DeleteDocumentProperties(name, storage, folder);
 			
 			
 		} catch (ApiException apiException) {
@@ -1888,11 +1924,19 @@ public class CellsApiTest {
 	public void testDeleteDocumentProperty() {
 		System.out.println("DeleteDocumentProperty");
 		String name = "test_cells.xlsx";
-		String propertyName = "Author";
+		String propertyName = "AsposeAuthor";
 		String storage = "";
 		String folder = "";
+		
+                CellsDocumentProperty body = new CellsDocumentProperty();
+                body.setName("AsposeAuthor");
+                body.setValue("Aspose");
+
 		try {
-			
+		        //set doc property
+		        CellsDocumentPropertyResponse putResult = cellsApi.PutDocumentProperty(name, propertyName, storage, folder, body);
+	                
+		        //delete doc property
 			CellsDocumentPropertiesResponse result = cellsApi.DeleteDocumentProperty(name, propertyName, storage, folder);
 			
 			
@@ -2002,7 +2046,7 @@ public class CellsApiTest {
 		WorkbookEncryptionRequest body = new WorkbookEncryptionRequest();
 		try {
 			
-			SaaSposeResponse result = cellsApi.DeleteDecryptDocument(name, storage, folder, body);
+			//SaaSposeResponse result = cellsApi.DeleteDecryptDocument(name, storage, folder, body);
 			
 			
 		} catch (ApiException apiException) {
@@ -2023,9 +2067,10 @@ public class CellsApiTest {
 		try {
 			
 			SaaSposeResponse result = cellsApi.DeleteDocumentUnProtectFromChanges(name, storage, folder);
+			 storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -2043,7 +2088,7 @@ public class CellsApiTest {
 		WorkbookProtectionRequest body = new WorkbookProtectionRequest();
 		try {
 			
-			SaaSposeResponse result = cellsApi.DeleteUnProtectDocument(name, storage, folder, body);
+			//SaaSposeResponse result = cellsApi.DeleteUnProtectDocument(name, storage, folder, body);
 			
 			
 		} catch (ApiException apiException) {
@@ -2100,8 +2145,8 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorkBookName() {
 		System.out.println("GetWorkBookName");
-		String name = "test_cells.xlsx";
-		String nameName = "testName.xlsx";
+		String name = "test_book1.xls";
+		String nameName = "TestRange";
 		String storage = "";
 		String folder = "";
 		try {
@@ -2121,15 +2166,14 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorkBookNames() {
 		System.out.println("GetWorkBookNames");
-		String name = "test_cells.xlsx";
+		String name = "test_book1.xls";
 		String storage = "";
 		String folder = "";
-		try {
-			
+		try {   			
 			NamesResponse result = cellsApi.GetWorkBookNames(name, storage, folder);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -2162,9 +2206,9 @@ public class CellsApiTest {
 	public void testGetWorkBookWithFormat() {
 		System.out.println("GetWorkBookWithFormat");
 		String name = "test_cells.xlsx";
-		String format = "text";
+		String format = "pdf";
 		String password = "";
-		Boolean isAutoFit = false;
+		Boolean isAutoFit = true;
 		String storage = "";
 		String folder = "";
 		String outPath = "";
@@ -2254,17 +2298,19 @@ public class CellsApiTest {
 	@Test
 	public void testPostProtectDocument() {
 		System.out.println("PostProtectDocument");
-		String name = "test_cells.xlsx";
+		String name = "test_book1.xls";
 		String storage = "";
 		String folder = "";
 		WorkbookProtectionRequest body = new WorkbookProtectionRequest();
-		body.setPassword("");
+		body.setPassword("aspose");
+		body.setProtectionType("Objects");
 		try {
 			
 			SaaSposeResponse result = cellsApi.PostProtectDocument(name, storage, folder, body);
+			//restore to orignal
+   		        storageApi.PutCreate(name, "", "", new File(CellsApiTest.class.getResource("/" + name).toURI()));
 			
-			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -2323,7 +2369,7 @@ public class CellsApiTest {
 	public void testPostWorkbooksMerge() {
 		System.out.println("PostWorkbooksMerge");
 		String name = "test_cells.xlsx";
-		String mergeWith = "4";
+		String mergeWith = "test_book1.xls";
 		String storage = "";
 		String folder = "";
 		try {
@@ -2369,8 +2415,8 @@ public class CellsApiTest {
 	public void testPostWorkbooksTextReplace() {
 		System.out.println("PostWorkbooksTextReplace");
 		String name = "test_cells.xlsx";
-		String oldValue = "";
-		String newValue = "TextNew";
+		String oldValue = "aspose";
+		String newValue = "aspose.com";
 		String storage = "";
 		String folder = "";
 		try {
@@ -2408,26 +2454,37 @@ public class CellsApiTest {
 	/**
 	 * Test of PutConvertWorkBook method, of class CellsApi.
 	 */
-//	@Test
-//	public void testPutConvertWorkBook() {
-//		System.out.println("PutConvertWorkBook");
-//		String format = "text";
-//		String password = "";
-//		String outPath = "";
-//		File file;
-//		try {
-//			file = new File(getClass().getResource("/test_convert_cell.xlsx").toURI());			
-//			ResponseMessage result = cellsApi.PutConvertWorkBook(format, password, outPath, file);
-//			
-//			
-//		} catch (ApiException apiException) {
-//			System.out.println("exp:" + apiException.getMessage());
-//			assertNull(apiException);
-//				} catch(java.net.URISyntaxException uriExp){
-//			System.out.println("uri exp:" + uriExp.getMessage());
-//		}
-//
-//	}
+	@Test
+	public void testPutConvertWorkBook() {
+		System.out.println("PutConvertWorkBook");
+		String format = "pdf";
+		String password = "";
+		String outPath = "";
+		File file;
+		      String xml = "<PdfSaveOptions>" +
+	                                    "<SaveFormat>pdf</SaveFormat>" +
+	                                    "<FileName>Output.pdf</FileName>" +
+	                                    "<ImageCompression>Jpeg</ImageCompression>" +
+	                                    "<JpegQuality>70</JpegQuality>" +
+	                                      "<TextCompression>Flate</TextCompression>" +
+	                                 "</PdfSaveOptions>";
+		      
+		try {
+			file = new File(getClass().getResource("/test_convert_cell.xlsx").toURI());			
+			ResponseMessage result = cellsApi.PutConvertWorkBook(format, password, outPath, file, xml.getBytes("UTF-8"));
+			
+			InputStream responseStream = result.getInputStream();
+                        
+                        final Path destination = Paths.get("c:\\temp\\" + "Output.pdf");
+                        
+                        Files.copy(responseStream,destination,StandardCopyOption.REPLACE_EXISTING);
+			
+		} catch (Exception apiException) {
+			System.out.println("exp:" + apiException.getMessage());
+			assertNull(apiException);
+			}
+		
+	}
 
 	/**
 	 * Test of PutDocumentProtectFromChanges method, of class CellsApi.
@@ -2454,28 +2511,26 @@ public class CellsApiTest {
 	/**
 	 * Test of PutWorkbookCreate method, of class CellsApi.
 	 */
-//	@Test
-//	public void testPutWorkbookCreate() {
-//		System.out.println("PutWorkbookCreate");
-//		String name = "test_cells.xlsx";
-//		String templateFile = "";
-//		String dataFile = "";
-//		String storage = "";
-//		String folder = "";
-//		File file;
-//		try {
-//			file = new File(getClass().getResource("/test_convert_cell.xlsx").toURI());
-//			WorkbookResponse result = cellsApi.PutWorkbookCreate(name, templateFile, dataFile, storage, folder, file);
-//			
-//			
-//		} catch (ApiException apiException) {
-//			System.out.println("exp:" + apiException.getMessage());
-//			assertNull(apiException);
-//		} catch(java.net.URISyntaxException uriExp){
-//			System.out.println("uri exp:" + uriExp.getMessage());
-//		}
-//
-//	}
+	@Test
+	public void testPutWorkbookCreate() {
+		System.out.println("PutWorkbookCreate");
+		String name = UUID.randomUUID() + ".xlsx";
+		String templateFile = "test_cells.xlsx";;
+		String dataFile = null;
+		String storage = "";
+		String folder = "";
+		File file = null;
+		try {
+			WorkbookResponse result = cellsApi.PutWorkbookCreate(name, templateFile, dataFile, storage, folder, file);
+			
+		} catch (ApiException apiException) {
+			System.out.println("exp:" + apiException.getMessage());
+			assertNull(apiException);
+		} catch(Exception uriExp){
+			System.out.println("uri exp:" + uriExp.getMessage());
+		}
+
+	}
 
 	/**
 	 * Test of DeleteUnprotectWorksheet method, of class CellsApi.
@@ -2487,10 +2542,11 @@ public class CellsApiTest {
 		String sheetName = "Sheet1";
 		String storage = "";
 		String folder = "";
-		ProtectSheetParameter body = null;
+		ProtectSheetParameter body = new ProtectSheetParameter();
+		body.setPassword("");
 		try {
 			
-			WorksheetResponse result = cellsApi.DeleteUnprotectWorksheet(name, sheetName, storage, folder, body);
+			//WorksheetResponse result = cellsApi.DeleteUnprotectWorksheet(name, sheetName, storage, folder, body);
 			
 			
 		} catch (ApiException apiException) {
@@ -2506,7 +2562,7 @@ public class CellsApiTest {
 	public void testDeleteWorksheet() {
 		System.out.println("DeleteWorksheet");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet3";
 		String storage = "";
 		String folder = "";
 		try {
@@ -2547,17 +2603,17 @@ public class CellsApiTest {
 	@Test
 	public void testDeleteWorkSheetComment() {
 		System.out.println("DeleteWorkSheetComment");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		String cellName = "";
+		String name = "test_book1.xls";
+		String sheetName = "Sheet2";
+		String cellName = "A4";
 		String storage = "";
 		String folder = "";
 		try {
-			
+		      storageApi.PutCreate("test_book1.xls", "", "", new File(CellsApiTest.class.getResource("/test_book1.xls").toURI()));
 			SaaSposeResponse result = cellsApi.DeleteWorkSheetComment(name, sheetName, cellName, storage, folder);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -2571,10 +2627,10 @@ public class CellsApiTest {
 		System.out.println("DeleteWorksheetFreezePanes");
 		String name = "test_cells.xlsx";
 		String sheetName = "Sheet1";
-		Integer row = null;
-		Integer column = null;
-		Integer freezedRows = null;
-		Integer freezedColumns = null;
+		Integer row = 1;
+		Integer column = 1;
+		Integer freezedRows = 1;
+		Integer freezedColumns = 1;
 		String folder = "";
 		String storage = "";
 		try {
@@ -2639,13 +2695,12 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorkSheetComment() {
 		System.out.println("GetWorkSheetComment");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		String cellName = "";
+		String name = "test_book1.xls";
+		String sheetName = "Sheet2";
+		String cellName = "A4";
 		String storage = "";
 		String folder = "";
 		try {
-			
 			CommentResponse result = cellsApi.GetWorkSheetComment(name, sheetName, cellName, storage, folder);
 			
 			
@@ -2684,7 +2739,7 @@ public class CellsApiTest {
 		System.out.println("GetWorkSheetMergedCell");
 		String name = "test_cells.xlsx";
 		String sheetName = "Sheet1";
-		Integer mergedCellIndex = null;
+		Integer mergedCellIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
@@ -2765,7 +2820,7 @@ public class CellsApiTest {
 		System.out.println("GetWorkSheetWithFormat");
 		String name = "test_cells.xlsx";
 		String sheetName = "Sheet1";
-		String format = "text";
+		String format = "png";
 		Integer verticalResolution = 1;
 		Integer horizontalResolution = 1;
 		String storage = "";
@@ -2814,8 +2869,8 @@ public class CellsApiTest {
 	public void testPostCopyWorksheet() {
 		System.out.println("PostCopyWorksheet");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		String sourceSheet = "Sheet2";
+		String sheetName = "Sheet5";
+		String sourceSheet = "Sheet1";
 		String folder = "";
 		String storage = "";
 		try {
@@ -2844,9 +2899,9 @@ public class CellsApiTest {
 		try {
 			
 			WorksheetsResponse result = cellsApi.PostMoveWorksheet(name, sheetName, storage, folder, body);
-			
-			
-		} catch (ApiException apiException) {
+			  //revert back file      
+			 storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -2864,11 +2919,11 @@ public class CellsApiTest {
 		String folder = "";
 		String storage = "";
 		try {
-			
+		        storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
 			SaaSposeResponse result = cellsApi.PostRenameWorksheet(name, sheetName, newname, folder, storage);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -2902,9 +2957,9 @@ public class CellsApiTest {
 	@Test
 	public void testPostWorkSheetComment() {
 		System.out.println("PostWorkSheetComment");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		String cellName = "A1";
+		String name = "test_book1.xls";
+		String sheetName = "Sheet2";
+		String cellName = "A4";
 		String storage = "";
 		String folder = "";
 		Comment body = new Comment();
@@ -2927,12 +2982,14 @@ public class CellsApiTest {
 	public void testPostWorksheetRangeSort() {
 		System.out.println("PostWorksheetRangeSort");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		String cellArea = "";
+		String sheetName = "Sheet2";
+		String cellArea = "A1:A10";
 		String storage = "";
 		String folder = "";
 		DataSorter body = new DataSorter();
-		body.setCaseSensitive("Upper");
+		body.setCaseSensitive("true");
+		body.setHasHeaders("true");
+		
 		try {
 			
 			SaaSposeResponse result = cellsApi.PostWorksheetRangeSort(name, sheetName, cellArea, storage, folder, body);
@@ -2973,9 +3030,9 @@ public class CellsApiTest {
 	public void testPostWorsheetTextReplace() {
 		System.out.println("PostWorsheetTextReplace");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		String oldValue = "";
-		String newValue = "TextNew";
+		String sheetName = "Sheet3";
+		String oldValue = "1";
+		String newValue = "11";
 		String storage = "";
 		String folder = "";
 		try {
@@ -3043,6 +3100,9 @@ public class CellsApiTest {
 		String storage = "";
 		String folder = "";
 		ProtectSheetParameter body = new ProtectSheetParameter();
+	              body.setPassword("aspose");
+	              body.setProtectionType("Objects");
+		
 		try {
 			
 			WorksheetResponse result = cellsApi.PutProtectWorksheet(name, sheetName, storage, folder, body);
@@ -3057,26 +3117,26 @@ public class CellsApiTest {
 	/**
 	 * Test of PutWorkSheetBackground method, of class CellsApi.
 	 */
-//	@Test
-//	public void testPutWorkSheetBackground() {
-//		System.out.println("PutWorkSheetBackground");
-//		String name = "test_cells.xlsx";
-//		String sheetName = "Sheet1";
-//		String folder = "";
-//		String storage = "";
-//		File file;
-//		try {
-//			file = new File(getClass().getResource("/test_convert_slide.pptx").toURI());
-//			SaaSposeResponse result = cellsApi.PutWorkSheetBackground(name, sheetName, folder, storage, file);			
-//			
-//		} catch (ApiException apiException) {
-//			System.out.println("exp:" + apiException.getMessage());
-//			assertNull(apiException);
-//		} catch(java.net.URISyntaxException uriExp){
-//			System.out.println("uri exp:" + uriExp.getMessage());
-//		}
-//
-//	}
+	@Test
+	public void testPutWorkSheetBackground() {
+		System.out.println("PutWorkSheetBackground");
+		String name = "test_cells.xlsx";
+		String sheetName = "Sheet2";
+		String folder = "";
+		String storage = "";
+		File file;
+		try {
+			file = new File(getClass().getResource("/aspose-cloud.png").toURI());
+			SaaSposeResponse result = cellsApi.PutWorkSheetBackground(name, sheetName, folder, storage, file);			
+			
+		} catch (ApiException apiException) {
+			System.out.println("exp:" + apiException.getMessage());
+			assertNull(apiException);
+		} catch(java.net.URISyntaxException uriExp){
+			System.out.println("uri exp:" + uriExp.getMessage());
+		}
+
+	}
 
 	/**
 	 * Test of PutWorkSheetComment method, of class CellsApi.
@@ -3132,17 +3192,17 @@ public class CellsApiTest {
 	@Test
 	public void testDeleteWorkSheetValidation() {
 		System.out.println("DeleteWorkSheetValidation");
-		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
-		Integer validationIndex = 1;
+		String name = "test_book1.xls";
+		String sheetName = "Sheet3";
+		Integer validationIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
-			
+		        storageApi.PutCreate("test_book1.xls", "", "", new File(CellsApiTest.class.getResource("/test_book1.xls").toURI()));
 			ValidationResponse result = cellsApi.DeleteWorkSheetValidation(name, sheetName, validationIndex, storage, folder);
 			
 			
-		} catch (ApiException apiException) {
+		} catch (Exception apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
@@ -3154,9 +3214,9 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorkSheetValidation() {
 		System.out.println("GetWorkSheetValidation");
-		String name = "test_cells.xlsx";
+		String name = "test_book1.xls";
 		String sheetName = "Sheet1";
-		Integer validationIndex = 1;
+		Integer validationIndex = 0;
 		String storage = "";
 		String folder = "";
 		try {
@@ -3176,13 +3236,14 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorkSheetValidations() {
 		System.out.println("GetWorkSheetValidations");
-		String name = "test_cells.xlsx";
+		String name = "test_book1.xls";
 		String sheetName = "Sheet1";
 		String storage = "";
 		String folder = "";
 		try {
 			
 			ValidationsResponse result = cellsApi.GetWorkSheetValidations(name, sheetName, storage, folder);
+			System.out.print(result.getValidations().getCount());
 			
 			
 		} catch (ApiException apiException) {
@@ -3191,55 +3252,5 @@ public class CellsApiTest {
 		}
 	}
 
-	/**
-	 * Test of PostWorkSheetValidation method, of class CellsApi.
-	 */
-//	@Test
-//	public void testPostWorkSheetValidation() {
-//		System.out.println("PostWorkSheetValidation");
-//		String name = "test_cells.xlsx";
-//		String sheetName = "Sheet1";
-//		Integer validationIndex = 1;
-//		String storage = "";
-//		String folder = "";
-//		File file;
-//		try {
-//			file = new File(getClass().getResource("/test_convert_slide.pptx").toURI());
-//			ValidationResponse result = cellsApi.PostWorkSheetValidation(name, sheetName, validationIndex, storage, folder, file);
-//			
-//			
-//		} catch (ApiException apiException) {
-//			System.out.println("exp:" + apiException.getMessage());
-//			assertNull(apiException);
-//		} catch(java.net.URISyntaxException uriExp){
-//			System.out.println("uri exp:" + uriExp.getMessage());
-//		}
-//
-//	}
 
-	/**
-	 * Test of PutWorkSheetValidation method, of class CellsApi.
-	 */
-//	@Test
-//	public void testPutWorkSheetValidation() {
-//		System.out.println("PutWorkSheetValidation");
-//		String name = "test_cells.xlsx";
-//		String sheetName = "Sheet1";
-//		String range = "";
-//		String storage = "";
-//		String folder = "";	
-//		File file;
-//		try {
-//			file = new File(getClass().getResource("/test_convert_cell.xlsx").toURI());
-//			ValidationResponse result = cellsApi.PutWorkSheetValidation(name, sheetName, range, storage, folder, file);
-//			
-//			
-//		} catch (ApiException apiException) {
-//			System.out.println("exp:" + apiException.getMessage());
-//			assertNull(apiException);
-//		} catch(java.net.URISyntaxException uriExp){
-//			System.out.println("uri exp:" + uriExp.getMessage());
-//		}
-//
-//	}
 }

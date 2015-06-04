@@ -1,6 +1,7 @@
 package com.aspose.cells.model;
 
 import com.aspose.cells.model.Link;
+import com.aspose.cells.model.LinkElement;
 public class Row {
   private Integer GroupLevel = null;
   private Double Height = null;
@@ -8,6 +9,7 @@ public class Row {
   private Boolean IsBlank = null;
   private Boolean IsHeightMatched = null;
   private Boolean IsHidden = null;
+  private LinkElement Style = null;
   private Link link = null;
   /**
 	 * getGroupLevel
@@ -118,6 +120,24 @@ public class Row {
   }
 
   /**
+	 * getStyle
+	 * Gets LinkElement
+	 * @return Style
+	 */
+  public LinkElement getStyle() {
+    return Style;
+  }
+
+	/**
+	 * setStyle
+	 * Sets LinkElement
+	 * @param Style LinkElement
+	 */
+  public void setStyle(LinkElement Style) {
+    this.Style = Style;
+  }
+
+  /**
 	 * getLink
 	 * Gets Link
 	 * @return link
@@ -145,6 +165,7 @@ public class Row {
     sb.append("  IsBlank: ").append(IsBlank).append("\n");
     sb.append("  IsHeightMatched: ").append(IsHeightMatched).append("\n");
     sb.append("  IsHidden: ").append(IsHidden).append("\n");
+    sb.append("  Style: ").append(Style).append("\n");
     sb.append("  link: ").append(link).append("\n");
     sb.append("}\n");
     return sb.toString();

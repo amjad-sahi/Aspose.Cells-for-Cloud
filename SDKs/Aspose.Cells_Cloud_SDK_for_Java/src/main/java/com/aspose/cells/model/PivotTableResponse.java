@@ -1,26 +1,26 @@
-package com.aspose.storage.model;
+package com.aspose.cells.model;
 
-import com.aspose.storage.model.DiscUsage;
-public class DiscUsageResponse {
-  private DiscUsage DiscUsage = null;
+import com.aspose.cells.model.PivotTable;
+public class PivotTableResponse {
+  private PivotTable PivotTable = null;
   private String Code = null;
   private String Status = null;
   /**
-	 * getDiscUsage
-	 * Gets DiscUsage
-	 * @return DiscUsage
+	 * getPivotTable
+	 * Gets PivotTable
+	 * @return PivotTable
 	 */
-  public DiscUsage getDiscUsage() {
-    return DiscUsage;
+  public PivotTable getPivotTable() {
+    return PivotTable;
   }
 
 	/**
-	 * setDiscUsage
-	 * Sets DiscUsage
-	 * @param DiscUsage DiscUsage
+	 * setPivotTable
+	 * Sets PivotTable
+	 * @param PivotTable PivotTable
 	 */
-  public void setDiscUsage(DiscUsage DiscUsage) {
-    this.DiscUsage = DiscUsage;
+  public void setPivotTable(PivotTable PivotTable) {
+    this.PivotTable = PivotTable;
   }
 
   /**
@@ -62,8 +62,8 @@ public class DiscUsageResponse {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DiscUsageResponse {\n");
-    sb.append("  DiscUsage: ").append(DiscUsage).append("\n");
+    sb.append("class PivotTableResponse {\n");
+    sb.append("  PivotTable: ").append(PivotTable).append("\n");
     sb.append("  Code: ").append(Code).append("\n");
     sb.append("  Status: ").append(Status).append("\n");
     sb.append("}\n");
