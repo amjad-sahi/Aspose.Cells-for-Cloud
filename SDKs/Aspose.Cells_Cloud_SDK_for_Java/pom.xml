@@ -2,11 +2,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.aspose</groupId>
-  <artifactId>aspose-cloud-cells-old</artifactId>
+  <artifactId>aspose-cloud-cells</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>aspose-cloud-cells-old</name>
+  <name>aspose-cloud-cells</name>
   <url>http://www.aspose.com/cloud/total-api.aspx</url>
   <description>aspose-cloud-cells Cloud APIs</description>
 
