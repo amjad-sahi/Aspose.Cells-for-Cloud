@@ -396,7 +396,7 @@ try {
    * @param cellOrMethodName  String   The cell's or method name. (Method name like maxrow, maxdatarow, maxcolumn, maxdatacolumn, minrow, mindatarow, mincolumn, mindatacolumn)
    * @param storage  String   Workbook storage.
    * @param folder   String   Document's folder.
-   * @return ResponseMessage
+   * @return Integer
    */
 
   public Integer GetWorksheetCellProperty (String name, String sheetName, String cellOrMethodName, String storage, String folder) {
