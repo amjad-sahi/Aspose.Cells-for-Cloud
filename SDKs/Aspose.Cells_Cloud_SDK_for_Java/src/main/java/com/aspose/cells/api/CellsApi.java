@@ -4,6 +4,7 @@ import com.aspose.client.ApiException;
 import com.aspose.client.ApiInvoker;
 import com.aspose.client.ApiInvokerResponse;
 import com.aspose.cells.model.AutoShapeResponse;
+import com.aspose.cells.model.ChartResponse;
 import com.aspose.cells.model.Worksheet;
 import com.aspose.cells.model.PivotTableFieldRequest;
 import com.aspose.cells.model.HyperlinksResponse;
@@ -332,10 +333,10 @@ try {
 	* @param cellOrMethodName	String	The cell's or method name. (Method name like firstcell, endcell etc.)
 	* @param storage	String	Workbook storage.
 	* @param folder	String	Document's folder.
-	* @return ResponseMessage
+	* @return CellResponse
 	*/
 
-  public ResponseMessage GetWorksheetCell (String name, String sheetName, String cellOrMethodName, String storage, String folder) {
+  public CellResponse GetWorksheetCell (String name, String sheetName, String cellOrMethodName, String storage, String folder) {
     Object postBody = null;
     // verify required params are set
     if(name == null || sheetName == null || cellOrMethodName == null ) {
@@ -376,7 +377,7 @@ try {
 
 try {
 		response = apiInvoker.invokeAPI(basePath, resourcePath, "GET", queryParams, postBody, headerParams, formParams, contentType);
-		return (ResponseMessage) ApiInvoker.deserialize(response, "", ResponseMessage.class);
+		return (CellResponse) ApiInvoker.deserialize(response, "", CellResponse.class);
     } catch (ApiException ex) {
       if(ex.getCode() == 404) {
       	throw new ApiException(404, "");
@@ -386,6 +387,71 @@ try {
       }
     }
   }
+
+  /**
+   * GetWorksheetCellProperty
+   * Read cell data property by cell's name.
+   * @param name  String   Document name.
+   * @param sheetName   String   Worksheet name.
+   * @param cellOrMethodName  String   The cell's or method name. (Method name like maxrow, maxdatarow, maxcolumn, maxdatacolumn, minrow, mindatarow, mincolumn, mindatacolumn)
+   * @param storage  String   Workbook storage.
+   * @param folder   String   Document's folder.
+   * @return ResponseMessage
+   */
+
+  public Integer GetWorksheetCellProperty (String name, String sheetName, String cellOrMethodName, String storage, String folder) {
+    Object postBody = null;
+    // verify required params are set
+    if(name == null || sheetName == null || cellOrMethodName == null ) {
+       throw new ApiException(400, "missing required params");
+    }
+    // create path and map variables
+    String resourcePath = "/cells/{name}/worksheets/{sheetName}/cells/{cellOrMethodName}/?appSid={appSid}&amp;storage={storage}&amp;folder={folder}";
+   resourcePath = resourcePath.replaceAll("\\*", "").replace("&amp;", "&").replace("/?", "?").replace("toFormat={toFormat}", "format={format}");
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    if(name!=null)
+     resourcePath = resourcePath.replace("{" + "name" + "}" , apiInvoker.toPathValue(name));
+     else
+     resourcePath = resourcePath.replaceAll("[&?]name.*?(?=&|\\?|$)", "");
+    if(sheetName!=null)
+     resourcePath = resourcePath.replace("{" + "sheetName" + "}" , apiInvoker.toPathValue(sheetName));
+     else
+     resourcePath = resourcePath.replaceAll("[&?]sheetName.*?(?=&|\\?|$)", "");
+    if(cellOrMethodName!=null)
+     resourcePath = resourcePath.replace("{" + "cellOrMethodName" + "}" , apiInvoker.toPathValue(cellOrMethodName));
+     else
+     resourcePath = resourcePath.replaceAll("[&?]cellOrMethodName.*?(?=&|\\?|$)", "");
+    if(storage!=null)
+     resourcePath = resourcePath.replace("{" + "storage" + "}" , apiInvoker.toPathValue(storage));
+     else
+     resourcePath = resourcePath.replaceAll("[&?]storage.*?(?=&|\\?|$)", "");
+    if(folder!=null)
+     resourcePath = resourcePath.replace("{" + "folder" + "}" , apiInvoker.toPathValue(folder));
+     else
+     resourcePath = resourcePath.replaceAll("[&?]folder.*?(?=&|\\?|$)", "");
+    String[] contentTypes = {
+      "application/json"};
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+try {
+      response = apiInvoker.invokeAPI(basePath, resourcePath, "GET", queryParams, postBody, headerParams, formParams, contentType);
+      return (Integer) ApiInvoker.deserialize(response, "", Integer.class);
+    } catch (ApiException ex) {
+      if(ex.getCode() == 404) {
+         throw new ApiException(404, "");
+      }
+      else {
+        throw ex;
+      }
+    }
+  }
+
+  
   /**
 	* GetWorksheetCells
 	* Get cells info.
@@ -3358,10 +3424,10 @@ try {
 	* @param chartNumber	Integer	The chart number.
 	* @param storage	String	Workbook storage.
 	* @param folder	String	The document folder.
-	* @return ResponseMessage
+	* @return ChartResponse
 	*/
 
-  public ResponseMessage GetWorksheetChart (String name, String sheetName, Integer chartNumber, String storage, String folder) {
+  public ChartResponse GetWorksheetChart (String name, String sheetName, Integer chartNumber, String storage, String folder) {
     Object postBody = null;
     // verify required params are set
     if(name == null || sheetName == null || chartNumber == null ) {
@@ -3402,7 +3468,7 @@ try {
 
 try {
 		response = apiInvoker.invokeAPI(basePath, resourcePath, "GET", queryParams, postBody, headerParams, formParams, contentType);
-		return (ResponseMessage) ApiInvoker.deserialize(response, "", ResponseMessage.class);
+		return (ChartResponse) ApiInvoker.deserialize(response, "", ChartResponse.class);
     } catch (ApiException ex) {
       if(ex.getCode() == 404) {
       	throw new ApiException(404, "");
@@ -4466,10 +4532,10 @@ try {
 	* @param objectNumber	Integer	The object number.
 	* @param storage	String	Workbook storage.
 	* @param folder	String	The document folder.
-	* @return ResponseMessage
+	* @return OleObjectResponse
 	*/
 
-  public ResponseMessage GetWorksheetOleObject (String name, String sheetName, Integer objectNumber, String storage, String folder) {
+  public OleObjectResponse GetWorksheetOleObject (String name, String sheetName, Integer objectNumber, String storage, String folder) {
     Object postBody = null;
     // verify required params are set
     if(name == null || sheetName == null || objectNumber == null ) {
@@ -4510,7 +4576,7 @@ try {
 
 try {
 		response = apiInvoker.invokeAPI(basePath, resourcePath, "GET", queryParams, postBody, headerParams, formParams, contentType);
-		return (ResponseMessage) ApiInvoker.deserialize(response, "", ResponseMessage.class);
+		return (OleObjectResponse) ApiInvoker.deserialize(response, "", OleObjectResponse.class);
     } catch (ApiException ex) {
       if(ex.getCode() == 404) {
       	throw new ApiException(404, "");
@@ -4922,10 +4988,10 @@ try {
 	* @param pictureNumber	Integer	The picture number.
 	* @param storage	String	The document storage.
 	* @param folder	String	The document folder.
-	* @return ResponseMessage
+	* @return PictureResponse
 	*/
 
-  public ResponseMessage GetWorksheetPicture (String name, String sheetName, Integer pictureNumber, String storage, String folder) {
+  public PictureResponse GetWorksheetPicture (String name, String sheetName, Integer pictureNumber, String storage, String folder) {
     Object postBody = null;
     // verify required params are set
     if(name == null || sheetName == null || pictureNumber == null ) {
@@ -4966,7 +5032,7 @@ try {
 
 try {
 		response = apiInvoker.invokeAPI(basePath, resourcePath, "GET", queryParams, postBody, headerParams, formParams, contentType);
-		return (ResponseMessage) ApiInvoker.deserialize(response, "", ResponseMessage.class);
+		return (PictureResponse) ApiInvoker.deserialize(response, "", PictureResponse.class);
     } catch (ApiException ex) {
       if(ex.getCode() == 404) {
       	throw new ApiException(404, "");
@@ -6282,10 +6348,10 @@ try {
 	* @param isAutoFit	Boolean	Set document rows to be autofit.
 	* @param storage	String	The document storage.
 	* @param folder	String	The document folder.
-	* @return ResponseMessage
+	* @return WorkbookResponse
 	*/
 
-  public ResponseMessage GetWorkBook (String name, String password, Boolean isAutoFit, String storage, String folder) {
+  public WorkbookResponse GetWorkBook (String name, String password, Boolean isAutoFit, String storage, String folder) {
     Object postBody = null;
     // verify required params are set
     if(name == null ) {
@@ -6326,7 +6392,7 @@ try {
 
 try {
 		response = apiInvoker.invokeAPI(basePath, resourcePath, "GET", queryParams, postBody, headerParams, formParams, contentType);
-		return (ResponseMessage) ApiInvoker.deserialize(response, "", ResponseMessage.class);
+		return (WorkbookResponse) ApiInvoker.deserialize(response, "", WorkbookResponse.class);
     } catch (ApiException ex) {
       if(ex.getCode() == 404) {
       	throw new ApiException(404, "");
