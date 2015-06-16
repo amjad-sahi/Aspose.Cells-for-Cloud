@@ -30,6 +30,7 @@ import com.aspose.cells.model.CellsDocumentProperty;
 import com.aspose.cells.model.CellsDocumentPropertyResponse;
 import com.aspose.cells.model.CellsResponse;
 import com.aspose.cells.model.ChartAreaResponse;
+import com.aspose.cells.model.ChartResponse;
 import com.aspose.cells.model.ChartsResponse;
 import com.aspose.cells.model.ColumnResponse;
 import com.aspose.cells.model.ColumnsResponse;
@@ -202,14 +203,36 @@ public class CellsApiTest {
 		String folder = "";
 		try {
 			
-			ResponseMessage result = cellsApi.GetWorksheetCell(name, sheetName, cellOrMethodName, storage, folder);
-			
+		   CellResponse result = cellsApi.GetWorksheetCell(name, sheetName, cellOrMethodName, storage, folder);
+			 System.out.println("Name " + result.getCell().getName());
 			
 		} catch (ApiException apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
 		}
 	}
+
+	/**
+    * Test of GetWorksheetCell method, of class CellsApi.
+    */
+   @Test
+   public void testGetWorksheetCellMaxRow() {
+      System.out.println("GetWorksheetCell");
+      String name = "test_book1.xls";
+      String sheetName = "Sheet1";
+      String cellOrMethodName = "maxrow";
+      String storage = "";
+      String folder = "";
+      try {
+         
+           Integer result = cellsApi.GetWorksheetCellProperty(name, sheetName, cellOrMethodName, storage, folder);
+          System.out.println("MaxRow " + result);
+         
+      } catch (ApiException apiException) {
+         System.out.println("exp:" + apiException.getMessage());
+         assertNull(apiException);
+      }
+   }
 
 	/**
 	 * Test of GetWorksheetCells method, of class CellsApi.
@@ -1201,14 +1224,14 @@ public class CellsApiTest {
 	public void testGetWorksheetChart() {
 		System.out.println("GetWorksheetChart");
 		String name = "test_cells.xlsx";
-		String sheetName = "Sheet1";
+		String sheetName = "Sheet2";
 		Integer chartNumber = 0;
 		String storage = "";
 		String folder = "";
 		try {
 			
-			ResponseMessage result = cellsApi.GetWorksheetChart(name, sheetName, chartNumber, storage, folder);
-			
+			 ChartResponse result = cellsApi.GetWorksheetChart(name, sheetName, chartNumber, storage, folder);
+			 System.out.println("Name" + result.getChart().getName());
 			
 		} catch (ApiException apiException) {
 			System.out.println("exp:" + apiException.getMessage());
@@ -1607,9 +1630,8 @@ public class CellsApiTest {
 		String folder = "";
 		try {
 			
-			ResponseMessage result = cellsApi.GetWorksheetOleObject(name, sheetName, objectNumber, storage, folder);
-			
-			
+		   OleObjectResponse result = cellsApi.GetWorksheetOleObject(name, sheetName, objectNumber, storage, folder);
+		   
 		} catch (ApiException apiException) {
 			System.out.println("exp:" + apiException.getMessage());
 			assertNull(apiException);
@@ -1786,8 +1808,8 @@ public class CellsApiTest {
 		String folder = "";
 		try {
 			
-			ResponseMessage result = cellsApi.GetWorksheetPicture(name, sheetName, pictureNumber, storage, folder);
-			
+		   PictureResponse result = cellsApi.GetWorksheetPicture(name, sheetName, pictureNumber, storage, folder);
+		   System.out.println("Image Format :" + result.getPicture().getImageFormat());
 			
 		} catch (ApiException apiException) {
 			System.out.println("exp:" + apiException.getMessage());
@@ -2110,8 +2132,8 @@ public class CellsApiTest {
 		String folder = "";
 		try {
 			
-			ResponseMessage result = cellsApi.GetWorkBook(name, password, isAutoFit, storage, folder);
-			
+		   WorkbookResponse result = cellsApi.GetWorkBook(name, password, isAutoFit, storage, folder);
+		   System.out.println(result.getWorkbook().getFileName());
 			
 		} catch (ApiException apiException) {
 			System.out.println("exp:" + apiException.getMessage());
