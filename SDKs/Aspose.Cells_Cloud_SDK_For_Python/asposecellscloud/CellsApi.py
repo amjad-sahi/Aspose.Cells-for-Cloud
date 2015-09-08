@@ -3853,7 +3853,7 @@ class CellsApi(object):
 
             
 
-        Returns: ResponseMessage
+        Returns: AutoShapeResponse
         """
 
         allParams = dict.fromkeys(['name', 'sheetName', 'autoshapeNumber', 'storage', 'folder'])
@@ -3910,7 +3910,7 @@ class CellsApi(object):
         files = { }
         bodyParam = None
 
-        headerParams['Accept'] = 'application/xml,application/octet-stream'
+        headerParams['Accept'] = 'application/json'
         headerParams['Content-Type'] = 'application/json'
 
         postData = (formParams if formParams else bodyParam)
@@ -3919,7 +3919,7 @@ class CellsApi(object):
 
         try:
             if response.status_code in [200,201,202]:
-                responseObject = self.apiClient.pre_deserialize(response.content, 'ResponseMessage', response.headers['content-type'])
+                responseObject = self.apiClient.pre_deserialize(response.content, 'AutoShapeResponse', response.headers['content-type'])
                 return responseObject
             else:
                 raise ApiException(response.status_code,response.content)
@@ -10295,7 +10295,7 @@ class CellsApi(object):
 
             format (str): Split format. (optional)
 
-            from (int): Start worksheet index. (optional)
+            ffrom (int): Start worksheet index. (optional)
 
             to (int): End worksheet index. (optional)
 
@@ -10312,7 +10312,7 @@ class CellsApi(object):
         Returns: SplitResultResponse
         """
 
-        allParams = dict.fromkeys(['name', 'format', 'from', 'to', 'horizontalResolution', 'verticalResolution', 'storage', 'folder'])
+        allParams = dict.fromkeys(['name', 'format', 'ffrom', 'to', 'horizontalResolution', 'verticalResolution', 'storage', 'folder'])
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -10341,8 +10341,8 @@ class CellsApi(object):
             resourcePath = re.sub("[&?]format.*?(?=&|\\?|$)", "", resourcePath)
         
 
-        if 'from' in allParams and allParams['from'] is not None:
-            resourcePath = resourcePath.replace("{" + "from" + "}" , str(allParams['from']))
+        if 'ffrom' in allParams and allParams['ffrom'] is not None:
+            resourcePath = resourcePath.replace("{" + "from" + "}" , str(allParams['ffrom']))
         else:
             resourcePath = re.sub("[&?]from.*?(?=&|\\?|$)", "", resourcePath)
         
@@ -10580,7 +10580,7 @@ class CellsApi(object):
 
         
 
-    def PutConvertWorkBook(self, file, **kwargs):
+    def PutConvertWorkBook(self, file, data, **kwargs):
         """Convert workbook from request content to some format.
         Args:
             format (str): The format to convert. (optional)
@@ -10590,13 +10590,14 @@ class CellsApi(object):
             outPath (str): Path to save result (optional)
 
             file (File):  (required)
-
             
+            data (File):  (required)
+                        
 
         Returns: ResponseMessage
         """
 
-        allParams = dict.fromkeys(['format', 'password', 'outPath', 'file'])
+        allParams = dict.fromkeys(['format', 'password', 'outPath', 'file', 'data'])
 
         params = locals()
         for (key, val) in params['kwargs'].iteritems():
@@ -10635,11 +10636,14 @@ class CellsApi(object):
         queryParams = {}
         headerParams = {}
         formParams = {}
-        files = { 'file':open(file, 'rb')}
+        files = [
+                ('file', (os.path.basename(file), open(file, 'rb'), 'application/octet-stream')),
+                ('data', (os.path.basename(data), open(data, 'rb'), 'application/xml'))
+            ]
         bodyParam = None
 
         headerParams['Accept'] = 'application/xml,application/octet-stream'
-        headerParams['Content-Type'] = 'multipart/form-data'
+        headerParams['Content-Type'] = None
 
         postData = (formParams if formParams else bodyParam)
 
@@ -10808,7 +10812,10 @@ class CellsApi(object):
         headerParams = {}
         formParams = {}
         files = {}
-        #files = { 'file':open(file, 'rb')}
+        
+        if(file is not None):
+            files = { 'file':open(file, 'rb')}
+            
         bodyParam = None
 
         headerParams['Accept'] = 'application/xml,application/json'
