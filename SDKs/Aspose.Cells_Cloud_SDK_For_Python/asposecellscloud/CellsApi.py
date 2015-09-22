@@ -339,7 +339,7 @@ class CellsApi(object):
 
             
 
-        Returns: ResponseMessage
+        Returns: CellResponse
         """
 
         allParams = dict.fromkeys(['name', 'sheetName', 'cellOrMethodName', 'storage', 'folder'])
@@ -405,15 +405,101 @@ class CellsApi(object):
 
         try:
             if response.status_code in [200,201,202]:
-                responseObject = self.apiClient.pre_deserialize(response.content, 'ResponseMessage', response.headers['content-type'])
+                responseObject = self.apiClient.pre_deserialize(response.content, 'CellResponse', response.headers['content-type'])
                 return responseObject
             else:
                 raise ApiException(response.status_code,response.content)
         except Exception:
             raise ApiException(response.status_code,response.content)
 
+
+    def GetWorksheetCellProperty(self, name, sheetName, cellOrMethodName, **kwargs):
+        """Read cell data by cell's name.
+        Args:
+            name (str): Document name. (required)
+
+            sheetName (str): Worksheet name. (required)
+
+            cellOrMethodName (str): The cell's or method name. (Method name like firstcell, endcell etc.) (required)
+
+            storage (str): Workbook storage. (optional)
+
+            folder (str): Document's folder. (optional)
+
+            
+
+        Returns: int
+        """
+
+        allParams = dict.fromkeys(['name', 'sheetName', 'cellOrMethodName', 'storage', 'folder'])
+
+        params = locals()
+        for (key, val) in params['kwargs'].iteritems():
+            if key not in allParams:
+                raise TypeError("Got an unexpected keyword argument '%s' to method GetWorksheetCell" % key)
+            params[key] = val
+        
+        for (key, val) in params.iteritems():
+            if key in allParams:
+                allParams[key] = val
+        
+        resourcePath = '/cells/{name}/worksheets/{sheetName}/cells/{cellOrMethodName}/?appSid={appSid}&amp;storage={storage}&amp;folder={folder}'
+        
+    
+        resourcePath = resourcePath.replace('&amp;','&').replace("/?","?").replace("toFormat={toFormat}","format={format}").replace("{path}","{Path}")
+
+        if 'name' in allParams and allParams['name'] is not None:
+            resourcePath = resourcePath.replace("{" + "name" + "}" , str(allParams['name']))
+        else:
+            resourcePath = re.sub("[&?]name.*?(?=&|\\?|$)", "", resourcePath)
         
 
+        if 'sheetName' in allParams and allParams['sheetName'] is not None:
+            resourcePath = resourcePath.replace("{" + "sheetName" + "}" , str(allParams['sheetName']))
+        else:
+            resourcePath = re.sub("[&?]sheetName.*?(?=&|\\?|$)", "", resourcePath)
+        
+
+        if 'cellOrMethodName' in allParams and allParams['cellOrMethodName'] is not None:
+            resourcePath = resourcePath.replace("{" + "cellOrMethodName" + "}" , str(allParams['cellOrMethodName']))
+        else:
+            resourcePath = re.sub("[&?]cellOrMethodName.*?(?=&|\\?|$)", "", resourcePath)
+        
+
+        if 'storage' in allParams and allParams['storage'] is not None:
+            resourcePath = resourcePath.replace("{" + "storage" + "}" , str(allParams['storage']))
+        else:
+            resourcePath = re.sub("[&?]storage.*?(?=&|\\?|$)", "", resourcePath)
+        
+
+        if 'folder' in allParams and allParams['folder'] is not None:
+            resourcePath = resourcePath.replace("{" + "folder" + "}" , str(allParams['folder']))
+        else:
+            resourcePath = re.sub("[&?]folder.*?(?=&|\\?|$)", "", resourcePath)
+        
+
+        method = 'GET'
+        queryParams = {}
+        headerParams = {}
+        formParams = {}
+        files = { }
+        bodyParam = None
+
+        headerParams['Accept'] = 'application/xml,application/json'
+        headerParams['Content-Type'] = 'application/json'
+
+        postData = (formParams if formParams else bodyParam)
+
+        response =  self.apiClient.callAPI(resourcePath, method, queryParams, postData, headerParams, files=files)
+
+        try:
+            if response.status_code in [200,201,202]:
+                responseObject = self.apiClient.pre_deserialize(response.content, 'int', response.headers['content-type'])
+                return responseObject
+            else:
+                raise ApiException(response.status_code,response.content)
+        except Exception:
+            raise ApiException(response.status_code,response.content)
         
 
     def GetWorksheetCells(self, name, sheetName, **kwargs):
@@ -1122,7 +1208,7 @@ class CellsApi(object):
             if key in allParams:
                 allParams[key] = val
         
-        resourcePath = '/cells/{name}/worksheets/{sheetName}/cells/cleartoFormats/?appSid={appSid}&amp;range={range}&amp;startRow={startRow}&amp;startColumn={startColumn}&amp;endRow={endRow}&amp;endColumn={endColumn}&amp;storage={storage}&amp;folder={folder}'
+        resourcePath = '/cells/{name}/worksheets/{sheetName}/cells/clearformats/?appSid={appSid}&amp;range={range}&amp;startRow={startRow}&amp;startColumn={startColumn}&amp;endRow={endRow}&amp;endColumn={endColumn}&amp;storage={storage}&amp;folder={folder}'
         
     
         resourcePath = resourcePath.replace('&amp;','&').replace("/?","?").replace("toFormat={toFormat}","format={format}").replace("{path}","{Path}")
@@ -4854,10 +4940,9 @@ class CellsApi(object):
             storage (str): Workbook storage. (optional)
 
             folder (str): The document folder. (optional)
-
             
 
-        Returns: ResponseMessage
+        Returns: ChartResponse
         """
 
         allParams = dict.fromkeys(['name', 'sheetName', 'chartNumber', 'storage', 'folder'])
@@ -4911,10 +4996,10 @@ class CellsApi(object):
         queryParams = {}
         headerParams = {}
         formParams = {}
-        files = { }
+        files = {}
         bodyParam = None
 
-        headerParams['Accept'] = 'application/xml,application/octet-stream'
+        headerParams['Accept'] = 'application/json'
         headerParams['Content-Type'] = 'application/json'
 
         postData = (formParams if formParams else bodyParam)
@@ -4923,7 +5008,7 @@ class CellsApi(object):
 
         try:
             if response.status_code in [200,201,202]:
-                responseObject = self.apiClient.pre_deserialize(response.content, 'ResponseMessage', response.headers['content-type'])
+                responseObject = self.apiClient.pre_deserialize(response.content, 'ChartResponse', response.headers['content-type'])
                 return responseObject
             else:
                 raise ApiException(response.status_code,response.content)
@@ -6509,7 +6594,7 @@ class CellsApi(object):
 
             
 
-        Returns: ResponseMessage
+        Returns: OleObjectResponse
         """
 
         allParams = dict.fromkeys(['name', 'sheetName', 'objectNumber', 'storage', 'folder'])
@@ -6566,7 +6651,7 @@ class CellsApi(object):
         files = { }
         bodyParam = None
 
-        headerParams['Accept'] = 'application/xml,application/octet-stream'
+        headerParams['Accept'] = 'application/json'
         headerParams['Content-Type'] = 'application/json'
 
         postData = (formParams if formParams else bodyParam)
@@ -6575,7 +6660,7 @@ class CellsApi(object):
 
         try:
             if response.status_code in [200,201,202]:
-                responseObject = self.apiClient.pre_deserialize(response.content, 'ResponseMessage', response.headers['content-type'])
+                responseObject = self.apiClient.pre_deserialize(response.content, 'OleObjectResponse', response.headers['content-type'])
                 return responseObject
             else:
                 raise ApiException(response.status_code,response.content)
@@ -6891,7 +6976,7 @@ class CellsApi(object):
 
             
 
-        Returns: OleObjectResponse
+        Returns: SaaSposeResponse
         """
 
         allParams = dict.fromkeys(['name', 'sheetName', 'upperLeftRow', 'upperLeftColumn', 'height', 'width', 'oleFile', 'imageFile', 'storage', 'folder', 'body'])
@@ -6987,7 +7072,7 @@ class CellsApi(object):
 
         try:
             if response.status_code in [200,201,202]:
-                responseObject = self.apiClient.pre_deserialize(response.content, 'OleObjectResponse', response.headers['content-type'])
+                responseObject = self.apiClient.pre_deserialize(response.content, 'SaaSposeResponse', response.headers['content-type'])
                 return responseObject
             else:
                 raise ApiException(response.status_code,response.content)
@@ -7189,7 +7274,7 @@ class CellsApi(object):
 
             
 
-        Returns: ResponseMessage
+        Returns: PictureResponse
         """
 
         allParams = dict.fromkeys(['name', 'sheetName', 'pictureNumber', 'storage', 'folder'])
@@ -7246,7 +7331,7 @@ class CellsApi(object):
         files = { }
         bodyParam = None
 
-        headerParams['Accept'] = 'application/xml,application/octet-stream'
+        headerParams['Accept'] = 'application/json'
         headerParams['Content-Type'] = 'application/json'
 
         postData = (formParams if formParams else bodyParam)
@@ -7255,7 +7340,7 @@ class CellsApi(object):
 
         try:
             if response.status_code in [200,201,202]:
-                responseObject = self.apiClient.pre_deserialize(response.content, 'ResponseMessage', response.headers['content-type'])
+                responseObject = self.apiClient.pre_deserialize(response.content, 'PictureResponse', response.headers['content-type'])
                 return responseObject
             else:
                 raise ApiException(response.status_code,response.content)
@@ -7647,7 +7732,11 @@ class CellsApi(object):
         queryParams = {}
         headerParams = {}
         formParams = {}
-        files = { 'file':open(file, 'rb')}
+        files = {}
+        
+        if file is not None:
+            files = { 'file':open(file, 'rb')}
+            
         bodyParam = None
 
         headerParams['Accept'] = 'application/xml,application/json'
@@ -9201,7 +9290,7 @@ class CellsApi(object):
 
             
 
-        Returns: ResponseMessage
+        Returns: WorkbookResponse
         """
 
         allParams = dict.fromkeys(['name', 'password', 'isAutoFit', 'storage', 'folder'])
@@ -9258,7 +9347,7 @@ class CellsApi(object):
         files = { }
         bodyParam = None
 
-        headerParams['Accept'] = 'application/xml,application/octet-stream'
+        headerParams['Accept'] = 'application/json'
         headerParams['Content-Type'] = 'application/json'
 
         postData = (formParams if formParams else bodyParam)
@@ -9267,7 +9356,7 @@ class CellsApi(object):
 
         try:
             if response.status_code in [200,201,202]:
-                responseObject = self.apiClient.pre_deserialize(response.content, 'ResponseMessage', response.headers['content-type'])
+                responseObject = self.apiClient.pre_deserialize(response.content, 'WorkbookResponse', response.headers['content-type'])
                 return responseObject
             else:
                 raise ApiException(response.status_code,response.content)
@@ -10127,7 +10216,7 @@ class CellsApi(object):
 
             
 
-        Returns: ResponseMessage
+        Returns: SmartMarkerResultResponse
         """
 
         allParams = dict.fromkeys(['name', 'xmlFile', 'storage', 'folder', 'outPath', 'file'])
@@ -10184,7 +10273,7 @@ class CellsApi(object):
         files = { 'file':open(file, 'rb')}
         bodyParam = None
 
-        headerParams['Accept'] = 'application/xml,application/octet-stream'
+        headerParams['Accept'] = 'application/json,application/xml,application/octet-stream'
         headerParams['Content-Type'] = 'multipart/form-data'
 
         postData = (formParams if formParams else bodyParam)
@@ -10193,7 +10282,7 @@ class CellsApi(object):
 
         try:
             if response.status_code in [200,201,202]:
-                responseObject = self.apiClient.pre_deserialize(response.content, 'ResponseMessage', response.headers['content-type'])
+                responseObject = self.apiClient.pre_deserialize(response.content, 'SmartMarkerResultResponse', response.headers['content-type'])
                 return responseObject
             else:
                 raise ApiException(response.status_code,response.content)
