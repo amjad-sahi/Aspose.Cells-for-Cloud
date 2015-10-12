@@ -1,0 +1,6 @@
+<PdfSaveOptions>
+	<desiredPPI>300</desiredPPI>
+    <jpegQuality>70</jpegQuality>
+    <OnePagePerSheet>true</OnePagePerSheet>
+    <SaveFormat>Pdf</SaveFormat>
+</PdfSaveOptions>
