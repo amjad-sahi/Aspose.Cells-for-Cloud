@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     
 #warning Get App key and App SID from https://cloud.aspose.com
-    [ASPApiClient setAppKey:@"da77c9f5da014d91faf2961ecec2de66" andAppSID:@"b01a15e5-1b83-4b9a-8eb3-0f2bfa6ac766"];
+    [ASPApiClient setAppKey:@"" andAppSID:@""];
     
     return YES;
 }
