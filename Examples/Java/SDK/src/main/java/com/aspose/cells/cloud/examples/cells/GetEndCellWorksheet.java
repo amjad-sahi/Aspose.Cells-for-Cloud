@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.cells;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -8,25 +8,25 @@ public class GetEndCellWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(GetEndCellWorksheet.class, input);
+        Path inputFile = Utils.getPath(GetEndCellWorksheet.class, input);
 
         String sheetName = "Sheet1";
         String cellOrMethodName = "endcell";
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
         com.aspose.cells.model.CellResponse apiResponse
-                = Common.getCellsSdk().GetWorksheetCell(
+                = Utils.getCellsSdk().GetWorksheetCell(
                         input,
                         sheetName,
                         cellOrMethodName,
-                        Common.STORAGE,
-                        Common.FOLDER
+                        Utils.STORAGE,
+                        Utils.FOLDER
                 );
         com.aspose.cells.model.Cell cell = apiResponse.getCell();
         System.out.println("Cell Name :: " + cell.getName());

@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.worksheet;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,34 +11,34 @@ public class MoveWorksheet {
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
         String output = "Sample2.xlsx";
-        Path inputFile = Common.getPath(MoveWorksheet.class, input);
-        Path outputFile = Common.getPath(MoveWorksheet.class, output);
+        Path inputFile = Utils.getPath(MoveWorksheet.class, input);
+        Path outputFile = Utils.getPath(MoveWorksheet.class, output);
         String sheet = "Sheet2";
         com.aspose.cells.model.WorksheetMovingRequest move = new com.aspose.cells.model.WorksheetMovingRequest();
         move.setDestinationWorksheet("Sheet5");
         move.setPosition("after");
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
         com.aspose.cells.model.WorksheetsResponse wr
-                = Common.getCellsSdk().PostMoveWorksheet(
+                = Utils.getCellsSdk().PostMoveWorksheet(
                         input,
                         sheet,
-                        Common.STORAGE,
+                        Utils.STORAGE,
                         null,
                         move
                 );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

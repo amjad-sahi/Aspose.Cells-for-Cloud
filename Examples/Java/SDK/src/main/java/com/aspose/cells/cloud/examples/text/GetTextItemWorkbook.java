@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.text;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -8,9 +8,9 @@ public class GetTextItemWorkbook {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(GetTextItemWorkbook.class, input);
+        Path inputFile = Utils.getPath(GetTextItemWorkbook.class, input);
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
                 null,
@@ -18,7 +18,7 @@ public class GetTextItemWorkbook {
         );
 
         com.aspose.cells.model.TextItemsResponse apiResponse
-            = Common.getCellsSdk().GetWorkBookTextItems(
+            = Utils.getCellsSdk().GetWorkBookTextItems(
                     input,
                     null,
                     null

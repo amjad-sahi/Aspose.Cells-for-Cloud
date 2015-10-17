@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.worksheet;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,31 +11,31 @@ public class CopyWorksheet {
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
         String output = "Sample2.xlsx";
-        Path inputFile = Common.getPath(CopyWorksheet.class, input);
-        Path outputFile = Common.getPath(CopyWorksheet.class, output);
+        Path inputFile = Utils.getPath(CopyWorksheet.class, input);
+        Path outputFile = Utils.getPath(CopyWorksheet.class, output);
         String sourceSheet = "Sheet1";
         String copySheet = "Sheet2";
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PostCopyWorksheet(
+        Utils.getCellsSdk().PostCopyWorksheet(
                 input,
                 copySheet,
                 sourceSheet,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.properties;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -8,22 +8,22 @@ public class GetParticularProperty {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(GetParticularProperty.class, input);
+        Path inputFile = Utils.getPath(GetParticularProperty.class, input);
         String propertyName = "Author";
         
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
-                Common.STORAGE,
+                Utils.STORAGE,
                 null,
                 inputFile.toFile()
         );
 
         com.aspose.cells.model.CellsDocumentPropertyResponse  apiResponse
-                = Common.getCellsSdk().GetDocumentProperty(
+                = Utils.getCellsSdk().GetDocumentProperty(
                         input,
                         propertyName,
-                        Common.STORAGE,
+                        Utils.STORAGE,
                         null
                 );
 

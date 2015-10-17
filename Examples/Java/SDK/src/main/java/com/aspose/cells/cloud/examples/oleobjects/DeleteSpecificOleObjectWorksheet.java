@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.oleobjects;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,32 +10,32 @@ public class DeleteSpecificOleObjectWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(DeleteSpecificOleObjectWorksheet.class, input);
+        Path inputFile = Utils.getPath(DeleteSpecificOleObjectWorksheet.class, input);
         String sheetName = "Sheet1";
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(DeleteSpecificOleObjectWorksheet.class, output);
+        Path outputFile = Utils.getPath(DeleteSpecificOleObjectWorksheet.class, output);
 
         Integer objectNumber = 0;
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().DeleteWorksheetOleObject(
+        Utils.getCellsSdk().DeleteWorksheetOleObject(
                 input,
                 sheetName,
                 objectNumber,
-                Common.STORAGE,
-                Common.FOLDER
+                Utils.STORAGE,
+                Utils.FOLDER
         );
 
-        com.aspose.storage.model.ResponseMessage sr = Common.getStorageSdk().GetDownload(
+        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
                 input,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

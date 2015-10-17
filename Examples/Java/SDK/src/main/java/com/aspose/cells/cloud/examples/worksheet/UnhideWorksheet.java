@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.worksheet;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,34 +11,34 @@ public class UnhideWorksheet {
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
         String output = "Sample2.xlsx";
-        Path inputFile = Common.getPath(UnhideWorksheet.class, input);
-        Path outputFile = Common.getPath(UnhideWorksheet.class, output);
+        Path inputFile = Utils.getPath(UnhideWorksheet.class, input);
+        Path outputFile = Utils.getPath(UnhideWorksheet.class, output);
         String sheet = "Sheet1";
         boolean isVisible = true;
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
         com.aspose.cells.model.WorksheetResponse wr
-                = Common.getCellsSdk().PutChangeVisibilityWorksheet(
+                = Utils.getCellsSdk().PutChangeVisibilityWorksheet(
                         input,
                         sheet,
                         isVisible,
-                        Common.STORAGE,
+                        Utils.STORAGE,
                         null
                 );
 
         System.out.println("Visibility Type: " + wr.getWorksheet().getVisibilityType());
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

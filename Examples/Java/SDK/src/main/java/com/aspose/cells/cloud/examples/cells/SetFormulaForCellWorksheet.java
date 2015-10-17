@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.cells;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,9 +10,9 @@ public class SetFormulaForCellWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(SetFormulaForCellWorksheet.class, input);
+        Path inputFile = Utils.getPath(SetFormulaForCellWorksheet.class, input);
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(SetFormulaForCellWorksheet.class, output);
+        Path outputFile = Utils.getPath(SetFormulaForCellWorksheet.class, output);
 
         String sheetName = "Sheet1";
         String cellName = "A12";
@@ -20,29 +20,29 @@ public class SetFormulaForCellWorksheet {
         String type = "int";
         String formula = "sum(a5:a10)";
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PostWorksheetCellSetValue(
+        Utils.getCellsSdk().PostWorksheetCellSetValue(
                 input,
                 sheetName,
                 cellName,
                 value,
                 type,
                 formula,
-                Common.STORAGE,
-                Common.FOLDER
+                Utils.STORAGE,
+                Utils.FOLDER
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

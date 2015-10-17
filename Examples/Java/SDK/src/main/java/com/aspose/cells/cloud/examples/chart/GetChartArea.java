@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.chart;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -8,24 +8,24 @@ public class GetChartArea {
 
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
-        Path inputFile = Common.getPath(GetChartArea.class, input);
+        Path inputFile = Utils.getPath(GetChartArea.class, input);
         String sheet = "Sheet1";
         int chartIndex = 0;
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
         com.aspose.cells.model.ChartAreaResponse apiResponse
-                = Common.getCellsSdk().GetChartArea(
+                = Utils.getCellsSdk().GetChartArea(
                         input,
                         sheet,
                         chartIndex,
-                        Common.STORAGE,
-                        Common.FOLDER
+                        Utils.STORAGE,
+                        Utils.FOLDER
                 );
 
         System.out.println("Area X: " + apiResponse.getChartArea().getX());

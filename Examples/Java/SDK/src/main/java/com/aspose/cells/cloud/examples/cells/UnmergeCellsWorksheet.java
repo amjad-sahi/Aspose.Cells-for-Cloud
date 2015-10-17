@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.cells;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,9 +10,9 @@ public class UnmergeCellsWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(UnmergeCellsWorksheet.class, input);
+        Path inputFile = Utils.getPath(UnmergeCellsWorksheet.class, input);
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(UnmergeCellsWorksheet.class, output);
+        Path outputFile = Utils.getPath(UnmergeCellsWorksheet.class, output);
 
         String sheetName = "Sheet1";
         Integer startRow = 1;
@@ -20,29 +20,29 @@ public class UnmergeCellsWorksheet {
         Integer totalRows = 1;
         Integer totalColumns = 5;
         
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PostWorksheetUnmerge(
+        Utils.getCellsSdk().PostWorksheetUnmerge(
                 input, 
                 sheetName, 
                 startRow, 
                 startColumn, 
                 totalRows, 
                 totalColumns, 
-                Common.STORAGE, 
-                Common.FOLDER
+                Utils.STORAGE,
+                Utils.FOLDER
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

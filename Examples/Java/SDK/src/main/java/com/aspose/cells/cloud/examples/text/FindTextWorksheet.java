@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.text;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -8,9 +8,9 @@ public class FindTextWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(FindTextWorksheet.class, input);
+        Path inputFile = Utils.getPath(FindTextWorksheet.class, input);
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
                 null,
@@ -20,12 +20,12 @@ public class FindTextWorksheet {
         String sheetName = "Sheet1";
 
         com.aspose.cells.model.TextItemsResponse apiResponse
-                = Common.getCellsSdk().PostWorkSheetTextSearch(
+                = Utils.getCellsSdk().PostWorkSheetTextSearch(
                         input,
                         sheetName,
                         text,
-                        Common.STORAGE,
-                        Common.FOLDER
+                        Utils.STORAGE,
+                        Utils.FOLDER
                 );
 
         for (com.aspose.cells.model.TextItem item : apiResponse.getTextItems().getTextItemList()) {

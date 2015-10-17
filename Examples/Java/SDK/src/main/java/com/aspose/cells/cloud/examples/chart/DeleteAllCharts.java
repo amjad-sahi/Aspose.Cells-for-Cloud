@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.chart;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,29 +11,29 @@ public class DeleteAllCharts {
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
         String output = "Sample2.xlsx";
-        Path inputFile = Common.getPath(DeleteAllCharts.class, input);
-        Path outputFile = Common.getPath(DeleteAllCharts.class, output);
+        Path inputFile = Utils.getPath(DeleteAllCharts.class, input);
+        Path outputFile = Utils.getPath(DeleteAllCharts.class, output);
         String sheet = "Sheet1";
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().DeleteWorksheetClearCharts(
+        Utils.getCellsSdk().DeleteWorksheetClearCharts(
                 input,
                 sheet,
-                Common.STORAGE,
-                Common.FOLDER
+                Utils.STORAGE,
+                Utils.FOLDER
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

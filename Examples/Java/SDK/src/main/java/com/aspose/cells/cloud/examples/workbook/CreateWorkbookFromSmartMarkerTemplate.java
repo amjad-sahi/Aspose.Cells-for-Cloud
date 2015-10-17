@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.workbook;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,40 +11,40 @@ public class CreateWorkbookFromSmartMarkerTemplate {
 
     public static void main(String... args) throws IOException {
         String template ="Designer.xlsx";
-        Path templateFile = Common.getPath(CreateWorkbookFromSmartMarkerTemplate.class, template);
+        Path templateFile = Utils.getPath(CreateWorkbookFromSmartMarkerTemplate.class, template);
         String output = "output-"+UUID.randomUUID()+".xlsx";
-        Path outputFile = Common.getPath(CreateWorkbookFromSmartMarkerTemplate.class, output);
+        Path outputFile = Utils.getPath(CreateWorkbookFromSmartMarkerTemplate.class, output);
         String data = "ReportData.xml";
-                Path dataFile = Common.getPath(CreateWorkbookFromSmartMarkerTemplate.class, data);
+                Path dataFile = Utils.getPath(CreateWorkbookFromSmartMarkerTemplate.class, data);
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 template, 
                 null,
-                Common.STORAGE, 
+                Utils.STORAGE,
                 templateFile.toFile()
         );
         
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 data, 
                 null,
-                Common.STORAGE, 
+                Utils.STORAGE,
                 dataFile.toFile()
         );
         
-        Common.getCellsSdk().PutWorkbookCreate(
+        Utils.getCellsSdk().PutWorkbookCreate(
                 output, 
                 template, 
                 data, 
-                Common.STORAGE, 
-                Common.FOLDER, 
+                Utils.STORAGE,
+                Utils.FOLDER,
                 null
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         output,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

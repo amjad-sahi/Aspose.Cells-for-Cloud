@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.workbook;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import com.aspose.cells.model.ResponseMessage;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,8 +10,8 @@ import java.nio.file.StandardCopyOption;
 public class ConvertWorkbookWithAdditionalSettings {
 
     public static void main(String... args) throws IOException {
-        Path inputFile = Common.getPath(ConvertWorkbookWithAdditionalSettings.class, "Workbook1.xlsx");
-        Path outputFile = Common.getPath(ConvertWorkbookWithAdditionalSettings.class, "Workbook1.pdf");
+        Path inputFile = Utils.getPath(ConvertWorkbookWithAdditionalSettings.class, "Workbook1.xlsx");
+        Path outputFile = Utils.getPath(ConvertWorkbookWithAdditionalSettings.class, "Workbook1.pdf");
 
         String format = "pdf";
         String password = "";
@@ -25,7 +25,7 @@ public class ConvertWorkbookWithAdditionalSettings {
                 + "<TextCompression>Flate</TextCompression>"
                 + "</PdfSaveOptions>";
 
-        ResponseMessage cr = Common.getCellsSdk().PutConvertWorkBook(
+        ResponseMessage cr = Utils.getCellsSdk().PutConvertWorkBook(
                 format,
                 password,
                 outPath,

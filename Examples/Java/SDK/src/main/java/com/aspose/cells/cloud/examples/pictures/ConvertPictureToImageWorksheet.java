@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.pictures;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import com.aspose.cells.model.ResponseMessage;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,28 +11,28 @@ public class ConvertPictureToImageWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(ConvertPictureToImageWorksheet.class, input);
+        Path inputFile = Utils.getPath(ConvertPictureToImageWorksheet.class, input);
         String output = "output.png";
-        Path outputFile = Common.getPath(ConvertPictureToImageWorksheet.class, output);
+        Path outputFile = Utils.getPath(ConvertPictureToImageWorksheet.class, output);
 
         String sheetName = "Sheet1";
         Integer pictureNumber = 0;
         String format = "png";
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        ResponseMessage sr = Common.getCellsSdk().GetWorksheetPictureWithFormat(
+        ResponseMessage sr = Utils.getCellsSdk().GetWorksheetPictureWithFormat(
                 input,
                 sheetName,
                 pictureNumber,
                 format,
-                Common.STORAGE,
-                Common.FOLDER
+                Utils.STORAGE,
+                Utils.FOLDER
         );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

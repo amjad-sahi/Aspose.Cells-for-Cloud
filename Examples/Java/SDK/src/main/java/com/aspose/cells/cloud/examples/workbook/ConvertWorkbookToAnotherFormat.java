@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.workbook;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import com.aspose.cells.model.ResponseMessage;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,23 +10,23 @@ import java.nio.file.StandardCopyOption;
 public class ConvertWorkbookToAnotherFormat {
 
     public static void main(String... args) throws IOException {
-        Path inputFile = Common.getPath(ConvertWorkbookToAnotherFormat.class, "Workbook1.xlsx");
-        Path outputFile = Common.getPath(ConvertWorkbookToAnotherFormat.class, "Workbook1.pdf");
+        Path inputFile = Utils.getPath(ConvertWorkbookToAnotherFormat.class, "Workbook1.xlsx");
+        Path outputFile = Utils.getPath(ConvertWorkbookToAnotherFormat.class, "Workbook1.pdf");
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 inputFile.getFileName().toString(),
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        ResponseMessage cr = Common.getCellsSdk().GetWorkBookWithFormat(
+        ResponseMessage cr = Utils.getCellsSdk().GetWorkBookWithFormat(
                 inputFile.getFileName().toString(),
                 "pdf",
                 null,
                 true,
-                Common.STORAGE,
-                Common.FOLDER,
+                Utils.STORAGE,
+                Utils.FOLDER,
                 null
         );
 

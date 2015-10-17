@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.pivottables;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,10 +10,10 @@ public class AddPivottableWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(AddPivottableWorksheet.class, input);
+        Path inputFile = Utils.getPath(AddPivottableWorksheet.class, input);
         
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(AddPivottableWorksheet.class, output);
+        Path outputFile = Utils.getPath(AddPivottableWorksheet.class, output);
         
         String sheetName = "Sheet1";
         String sourceData = "";
@@ -30,18 +30,18 @@ public class AddPivottableWorksheet {
         body.getPivotFieldColumns().add(1);
         body.getPivotFieldRows().add(1);
         
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PutWorksheetPivotTable(
+        Utils.getCellsSdk().PutWorksheetPivotTable(
                 input, 
                 sheetName, 
-                Common.STORAGE, 
-                Common.FOLDER, 
+                Utils.STORAGE,
+                Utils.FOLDER,
                 sourceData, 
                 destCellName, 
                 tableName, 
@@ -49,10 +49,10 @@ public class AddPivottableWorksheet {
                 body
         );
         
-        com.aspose.storage.model.ResponseMessage sr = Common.getStorageSdk().GetDownload(
+        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
                 input,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.text;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -8,24 +8,24 @@ public class ReplaceTextWorkbook {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(ReplaceTextWorkbook.class, input);
+        Path inputFile = Utils.getPath(ReplaceTextWorkbook.class, input);
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
         String oldValue = "aspose";
         String newValue = "aspose.com";
 
         com.aspose.cells.model.WorkbookReplaceResponse apiResponse
-                = Common.getCellsSdk().PostWorkbooksTextReplace(
+                = Utils.getCellsSdk().PostWorkbooksTextReplace(
                         input,
                         oldValue,
                         newValue,
-                        Common.STORAGE,
-                        Common.FOLDER
+                        Utils.STORAGE,
+                        Utils.FOLDER
                 );
 
         if (apiResponse != null && apiResponse.getStatus().equals("OK")) {

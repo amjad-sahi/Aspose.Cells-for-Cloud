@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.oleobjects;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,33 +10,33 @@ public class AddOleObjectsWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(AddOleObjectsWorksheet.class, input);
+        Path inputFile = Utils.getPath(AddOleObjectsWorksheet.class, input);
         String sheetName = "Sheet1";
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(AddOleObjectsWorksheet.class, output);
+        Path outputFile = Utils.getPath(AddOleObjectsWorksheet.class, output);
         String sourceFileName = "ole.docx";
-        Path sourceFile = Common.getPath(AddOleObjectsWorksheet.class, sourceFileName);
+        Path sourceFile = Utils.getPath(AddOleObjectsWorksheet.class, sourceFileName);
         String imageFileName = "picture.png";
-        Path imageFile = Common.getPath(AddOleObjectsWorksheet.class, imageFileName);
+        Path imageFile = Utils.getPath(AddOleObjectsWorksheet.class, imageFileName);
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 sourceFileName,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 sourceFile.toFile()
         );
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 imageFileName,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 imageFile.toFile()
         );
 
@@ -58,7 +58,7 @@ public class AddOleObjectsWorksheet {
         body.setWidth(200);
         body.setIsAutoSize(true);
 
-        Common.getCellsSdk().PutWorksheetOleObject(
+        Utils.getCellsSdk().PutWorksheetOleObject(
                 input,
                 sheetName,
                 upperLeftRow,
@@ -67,15 +67,15 @@ public class AddOleObjectsWorksheet {
                 width,
                 oleFile,
                 imageFileName,
-                Common.STORAGE,
-                Common.FOLDER,
+                Utils.STORAGE,
+                Utils.FOLDER,
                 body
         );
 
-        com.aspose.storage.model.ResponseMessage sr = Common.getStorageSdk().GetDownload(
+        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
                 input,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

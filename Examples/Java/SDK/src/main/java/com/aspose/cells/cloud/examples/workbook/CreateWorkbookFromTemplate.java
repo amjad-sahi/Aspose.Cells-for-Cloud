@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.workbook;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,31 +11,31 @@ public class CreateWorkbookFromTemplate {
 
     public static void main(String... args) throws IOException {
         String template ="Sample3.xls";
-        Path templateFile = Common.getPath(CreateWorkbookFromTemplate.class, template);
+        Path templateFile = Utils.getPath(CreateWorkbookFromTemplate.class, template);
         String output = "output-"+UUID.randomUUID()+".xlsx";
-        Path outputFile = Common.getPath(CreateWorkbookFromTemplate.class, output);
+        Path outputFile = Utils.getPath(CreateWorkbookFromTemplate.class, output);
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 template, 
                 null,
-                Common.STORAGE, 
+                Utils.STORAGE,
                 templateFile.toFile()
         );
         
-        Common.getCellsSdk().PutWorkbookCreate(
+        Utils.getCellsSdk().PutWorkbookCreate(
                 output, 
                 template, 
                 null, 
-                Common.STORAGE, 
-                Common.FOLDER, 
+                Utils.STORAGE,
+                Utils.FOLDER,
                 null
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         output,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

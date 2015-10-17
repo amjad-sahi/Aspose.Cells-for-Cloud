@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.pictures;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,29 +10,29 @@ public class DeleteAllPicturesWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(DeleteAllPicturesWorksheet.class, input);
+        Path inputFile = Utils.getPath(DeleteAllPicturesWorksheet.class, input);
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(DeleteAllPicturesWorksheet.class, output);
+        Path outputFile = Utils.getPath(DeleteAllPicturesWorksheet.class, output);
         String sheetName = "Sheet1";
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().DeleteWorkSheetPictures(
+        Utils.getCellsSdk().DeleteWorkSheetPictures(
                 input,
                 sheetName,
-                Common.STORAGE,
-                Common.FOLDER
+                Utils.STORAGE,
+                Utils.FOLDER
         );
 
-        com.aspose.storage.model.ResponseMessage sr = Common.getStorageSdk().GetDownload(
+        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
                 input,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
         
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

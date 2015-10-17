@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.properties;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,29 +10,29 @@ public class RemoveParticularProperty {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(RemoveParticularProperty.class, input);
+        Path inputFile = Utils.getPath(RemoveParticularProperty.class, input);
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(RemoveParticularProperty.class, output);
+        Path outputFile = Utils.getPath(RemoveParticularProperty.class, output);
         String propertyName = "Author";
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
-                Common.STORAGE,
+                Utils.STORAGE,
                 null,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().DeleteDocumentProperty(
+        Utils.getCellsSdk().DeleteDocumentProperty(
                 input,
                 propertyName,
-                Common.STORAGE,
+                Utils.STORAGE,
                 null
         );
 
-        com.aspose.storage.model.ResponseMessage sr = Common.getStorageSdk().GetDownload(
+        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
                 input,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

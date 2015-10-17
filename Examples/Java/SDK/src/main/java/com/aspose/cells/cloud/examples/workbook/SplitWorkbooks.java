@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.workbook;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,10 +10,10 @@ public class SplitWorkbooks {
 
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
-        Path inputFile = Common.getPath(SplitWorkbooks.class, input);
+        Path inputFile = Utils.getPath(SplitWorkbooks.class, input);
         
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(SplitWorkbooks.class, output);
+        Path outputFile = Utils.getPath(SplitWorkbooks.class, output);
         
         String format = "png";
         Integer from = 0;
@@ -21,31 +21,31 @@ public class SplitWorkbooks {
         Integer horizontalResolution = null;
         Integer verticalResolution = null;
         
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
-                Common.STORAGE,
+                Utils.STORAGE,
                 null,
                 inputFile.toFile()
         );
         
         
-        Common.getCellsSdk().PostWorkbookSplit(
+        Utils.getCellsSdk().PostWorkbookSplit(
                 input, 
                 format, 
                 from, 
                 to, 
                 horizontalResolution, 
                 verticalResolution, 
-                Common.STORAGE, 
+                Utils.STORAGE,
                 null
         );
                 
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

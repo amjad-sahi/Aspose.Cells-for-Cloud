@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.cells;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,9 +10,9 @@ public class ClearCellContentStyleWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(ClearCellContentStyleWorksheet.class, input);
+        Path inputFile = Utils.getPath(ClearCellContentStyleWorksheet.class, input);
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(ClearCellContentStyleWorksheet.class, output);
+        Path outputFile = Utils.getPath(ClearCellContentStyleWorksheet.class, output);
         
         String sheetName = "Sheet1";
         String range = "A1:A10";
@@ -21,14 +21,14 @@ public class ClearCellContentStyleWorksheet {
         Integer endRow = 2;
         Integer endColumn = 2;
         
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
         
-        Common.getCellsSdk().PostClearContents(
+        Utils.getCellsSdk().PostClearContents(
                 input, 
                 sheetName, 
                 range, 
@@ -36,15 +36,15 @@ public class ClearCellContentStyleWorksheet {
                 startColumn, 
                 endRow, 
                 endColumn, 
-                Common.STORAGE,
-                Common.FOLDER
+                Utils.STORAGE,
+                Utils.FOLDER
         );
         
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

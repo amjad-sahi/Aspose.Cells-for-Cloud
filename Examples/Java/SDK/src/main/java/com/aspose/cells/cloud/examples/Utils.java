@@ -6,7 +6,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
-public class Common {
+public class Utils {
 
     public static final String APP_SID = null;
     public static final String APP_KEY = null;
@@ -20,7 +20,7 @@ public class Common {
     public static final String FOLDER = null;
     public static final String BASE_PATH = null;
 
-    private static final Logger LOGGER = Logger.getLogger(Common.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(Utils.class.getName());
 
     public static Path getPath(Class example, String filename) {
         Path p = FileSystems.getDefault().getPath(System.getProperty("user.dir"), "src", "main", "resources");

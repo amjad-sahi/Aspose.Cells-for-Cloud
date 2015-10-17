@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.properties;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,13 +10,13 @@ public class SetParticularProperty {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(SetParticularProperty.class, input);
+        Path inputFile = Utils.getPath(SetParticularProperty.class, input);
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(SetParticularProperty.class, output);
+        Path outputFile = Utils.getPath(SetParticularProperty.class, output);
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
-                Common.STORAGE,
+                Utils.STORAGE,
                 null,
                 inputFile.toFile()
         );
@@ -27,18 +27,18 @@ public class SetParticularProperty {
         body.setValue("Aspose Plugin Developer");
         body.setBuiltIn("false");
 
-        Common.getCellsSdk().PutDocumentProperty(
+        Utils.getCellsSdk().PutDocumentProperty(
                 input,
                 propertyName,
-                Common.STORAGE,
-                Common.FOLDER,
+                Utils.STORAGE,
+                Utils.FOLDER,
                 body
         );
 
-        com.aspose.storage.model.ResponseMessage sr = Common.getStorageSdk().GetDownload(
+        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
                 input,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

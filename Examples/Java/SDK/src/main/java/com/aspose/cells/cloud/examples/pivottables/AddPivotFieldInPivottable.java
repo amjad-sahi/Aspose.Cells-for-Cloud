@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.pivottables;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,10 +10,10 @@ public class AddPivotFieldInPivottable {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(AddPivotFieldInPivottable.class, input);
+        Path inputFile = Utils.getPath(AddPivotFieldInPivottable.class, input);
         
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(AddPivotFieldInPivottable.class, output);
+        Path outputFile = Utils.getPath(AddPivotFieldInPivottable.class, output);
         
         String sheetName = "Sheet1";
         Integer pivotTableIndex = 0;
@@ -24,28 +24,28 @@ public class AddPivotFieldInPivottable {
         body.getData().add(1);
 
         
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PutPivotTableField(
+        Utils.getCellsSdk().PutPivotTableField(
                 input, 
                 sheetName, 
                 pivotTableIndex, 
                 pivotFieldType, 
-                Common.STORAGE, 
-                Common.FOLDER, 
+                Utils.STORAGE,
+                Utils.FOLDER,
                 body
         );
                 
         
-        com.aspose.storage.model.ResponseMessage sr = Common.getStorageSdk().GetDownload(
+        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
                 input,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

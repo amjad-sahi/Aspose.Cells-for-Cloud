@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.worksheet;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,31 +11,31 @@ public class RenameWorksheet {
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
         String output = "Sample2.xlsx";
-        Path inputFile = Common.getPath(RenameWorksheet.class, input);
-        Path outputFile = Common.getPath(RenameWorksheet.class, output);
+        Path inputFile = Utils.getPath(RenameWorksheet.class, input);
+        Path outputFile = Utils.getPath(RenameWorksheet.class, output);
         String oldName = "Sheet1";
         String newName = "Sheet2";
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PostRenameWorksheet(
+        Utils.getCellsSdk().PostRenameWorksheet(
                 input,
                 oldName,
                 newName,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

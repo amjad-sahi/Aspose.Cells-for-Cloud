@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.hyperlinks;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,9 +10,9 @@ public class UpdateHyperlinkWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(UpdateHyperlinkWorksheet.class, input);
+        Path inputFile = Utils.getPath(UpdateHyperlinkWorksheet.class, input);
         String output = "sample2.xlsx";
-        Path outputFile = Common.getPath(UpdateHyperlinkWorksheet.class, output);
+        Path outputFile = Utils.getPath(UpdateHyperlinkWorksheet.class, output);
 
         String sheetName = "Sheet1";
         Integer hyperlinkIndex = 0;
@@ -20,27 +20,27 @@ public class UpdateHyperlinkWorksheet {
         body.setAddress("http://www.aspose.com/cloud/total-api.aspx");
         body.setTextToDisplay("Aspose Cloud APIs");
         
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PostWorkSheetHyperlink(
+        Utils.getCellsSdk().PostWorkSheetHyperlink(
                 input, 
                 sheetName, 
                 hyperlinkIndex, 
-                Common.STORAGE, 
-                Common.FOLDER, 
+                Utils.STORAGE,
+                Utils.FOLDER,
                 body
         );
                 
 
-        com.aspose.storage.model.ResponseMessage sr = Common.getStorageSdk().GetDownload(
+        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
                 input,
                 null,
-                Common.STORAGE
+                Utils.STORAGE
         );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

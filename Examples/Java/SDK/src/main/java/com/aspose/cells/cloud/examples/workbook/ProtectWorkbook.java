@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.workbook;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,32 +11,32 @@ public class ProtectWorkbook {
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
         String output = "Sample2.xlsx";
-        Path inputFile = Common.getPath(ProtectWorkbook.class, input);
-        Path outputFile = Common.getPath(ProtectWorkbook.class, output);
+        Path inputFile = Utils.getPath(ProtectWorkbook.class, input);
+        Path outputFile = Utils.getPath(ProtectWorkbook.class, output);
 
         com.aspose.cells.model.WorkbookProtectionRequest properties = new com.aspose.cells.model.WorkbookProtectionRequest();
         properties.setPassword("12345678");
         properties.setProtectionType("All");
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
-                Common.STORAGE,
+                Utils.STORAGE,
                 null,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PostProtectDocument(
+        Utils.getCellsSdk().PostProtectDocument(
                 input,
-                Common.STORAGE,
+                Utils.STORAGE,
                 null,
                 properties
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);

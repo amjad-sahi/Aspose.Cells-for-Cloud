@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.pivottables;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -8,11 +8,11 @@ public class GetPivotTableIndexWorksheet {
 
     public static void main(String... args) throws IOException {
         String input = "sample1.xlsx";
-        Path inputFile = Common.getPath(GetPivotTableIndexWorksheet.class, input);
+        Path inputFile = Utils.getPath(GetPivotTableIndexWorksheet.class, input);
         String sheetName = "Sheet1";
         Integer pivottableIndex = 0;
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
                 null,
@@ -20,7 +20,7 @@ public class GetPivotTableIndexWorksheet {
         );
 
         com.aspose.cells.model.PivotTableResponse apiResponse
-                = Common.getCellsSdk().GetWorksheetPivotTable(
+                = Utils.getCellsSdk().GetWorksheetPivotTable(
                         input,
                         sheetName,
                         pivottableIndex,

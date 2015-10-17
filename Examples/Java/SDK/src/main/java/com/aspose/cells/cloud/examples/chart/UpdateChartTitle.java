@@ -1,6 +1,6 @@
 package com.aspose.cells.cloud.examples.chart;
 
-import com.aspose.cells.cloud.examples.Common;
+import com.aspose.cells.cloud.examples.Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,8 +11,8 @@ public class UpdateChartTitle {
     public static void main(String... args) throws IOException {
         String input = "Sample1.xlsx";
         String output = "Sample2.xlsx";
-        Path inputFile = Common.getPath(UpdateChartTitle.class, input);
-        Path outputFile = Common.getPath(UpdateChartTitle.class, output);
+        Path inputFile = Utils.getPath(UpdateChartTitle.class, input);
+        Path outputFile = Utils.getPath(UpdateChartTitle.class, output);
         String sheet = "Sheet1";
         Integer chartIndex = 0;
         
@@ -20,27 +20,27 @@ public class UpdateChartTitle {
         body.setHeight(15);
         body.setText("asposeAlpha");
 
-        Common.getStorageSdk().PutCreate(
+        Utils.getStorageSdk().PutCreate(
                 input,
                 null,
-                Common.STORAGE,
+                Utils.STORAGE,
                 inputFile.toFile()
         );
 
-        Common.getCellsSdk().PutWorksheetChartTitle(
+        Utils.getCellsSdk().PutWorksheetChartTitle(
                 input,
                 sheet,
                 chartIndex,
-                Common.STORAGE,
-                Common.FOLDER,
+                Utils.STORAGE,
+                Utils.FOLDER,
                 body
         );
 
         com.aspose.storage.model.ResponseMessage sr
-                = Common.getStorageSdk().GetDownload(
+                = Utils.getStorageSdk().GetDownload(
                         input,
                         null,
-                        Common.STORAGE
+                        Utils.STORAGE
                 );
 
         Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
