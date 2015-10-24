@@ -5,7 +5,7 @@ This SDK allows you to work with Aspose.Cells for Cloud APIs in your iOS app qui
 
 [CocoaPods](http://cocoapods.org) is the recommended way to add Aspose-Cells-SDK to your project.
 
-1. Add a pod entry for Aspose-Cells-SDK to your Podfile `pod 'Aspose-Cells-SDK'`
+1. Add a pod entry for Aspose-Cells-SDK to your Podfile `pod 'AsposeCellsCloud'`
 2. Install the pod(s) by running `pod install`.
 3. Include Aspose-Cells-SDK wherever you need it with `#import "ASPCellsApi.h"`.
 
