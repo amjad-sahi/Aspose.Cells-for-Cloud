@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "ASPCellsApi.h"
+#import "ASPStorageApi.h"
 
 @interface ASPCellsTestCase : XCTestCase
 @property(nonatomic, strong) ASPCellsApi *cellsApi;
@@ -28,16 +29,40 @@
     [super tearDown];
 }
 
-- (void)testPutConvertWorkBook
-{
+- (void)uploadFile:(NSString *) fileName {
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
+    
+    ASPStorageApi *storageApi = [[ASPStorageApi alloc] init];
+    
+    NSURL *pathToFile = [[NSBundle mainBundle] URLForResource:[fileName stringByDeletingPathExtension] withExtension:[fileName pathExtension]];
+    [storageApi putCreateWithCompletionBlock:fileName
+                                        file:pathToFile
+                                   versionId:nil
+                                     storage:nil
+                           completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                               XCTAssertNotNil(output, @"Failed to upload a specific file.");
+                               [expectation fulfill];
+                           }];
+    
+    [self waitForExpectationsWithTimeout:180.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+
+- (void)testPutConvertWorkBook {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     NSURL *pathToFile = [[NSBundle mainBundle] URLForResource:@"myWorkbook" withExtension:@"xlsx"];
     
-    [self.cellsApi putConvertWorkBookWithCompletionBlock:pathToFile format:@"pdf" password:nil outPath:nil completionHandler:^(NSURL *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to convert workbook from request content to some format");
-        
-        [expectation fulfill];
+    [self.cellsApi putConvertWorkBookWithCompletionBlock:pathToFile
+                                                  format:@"pdf"
+                                                password:nil
+                                                 outPath:nil
+                                       completionHandler:^(NSURL *output, NSError *error) {
+                                           XCTAssertNotNil(output, @"Failed to convert workbook from request content to some format");
+                                           [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -47,12 +72,21 @@
     }];
 }
 
-- (void)testGetWorkBookWithFormatWithCompletionBlock
-{
+- (void)testGetWorkBookWithFormatWithCompletionBlock {
+    NSString *fileName = @"myWorkbook.xlsx";
+    [self uploadFile:fileName];
+    
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    [self.cellsApi getWorkBookWithFormatWithCompletionBlock:@"myWorkBook.xlsx" format:@"pdf" outPath:@"myWorkbook.pdf" password:nil isAutoFit:[NSNumber numberWithBool:YES] storage:nil folder:nil completionHandler:^(ASPWorkbookResponse *output, NSError *error) {
-        XCTAssertNil(error, @"Failed to convert excel workbook to different file formats");
-        [expectation fulfill];
+    [self.cellsApi getWorkBookWithFormatWithCompletionBlock:fileName
+                                                     format:@"pdf"
+                                                    outPath:@"myWorkbook.pdf"
+                                                   password:nil
+                                                  isAutoFit:[NSNumber numberWithBool:YES]
+                                                    storage:nil
+                                                     folder:nil
+                                          completionHandler:^(ASPWorkbookResponse *output, NSError *error) {
+                                              XCTAssertNil(error, @"Failed to convert excel workbook to different file formats");
+                                              [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -62,13 +96,18 @@
     }];
 }
 
-- (void)testGetWorkBook
-{
+- (void)testGetWorkBook {
+    
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    [self.cellsApi getWorkBookWithCompletionBlock:@"August-2015-Calendar.xlsx" password:nil isAutoFit:nil storage:nil folder:nil completionHandler:^(ASPWorkbookResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to read workbook info");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi getWorkBookWithCompletionBlock:@"August-2015-Calendar.xlsx"
+                                         password:nil
+                                        isAutoFit:nil
+                                          storage:nil
+                                           folder:nil
+                                completionHandler:^(ASPWorkbookResponse *output, NSError *error) {
+                                    XCTAssertNotNil(output, @"Failed to read workbook info");
+                                    XCTAssertEqualObjects(output.status, @"OK");
+                                    [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -81,10 +120,15 @@
 - (void)testPutWorkbookCreate
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    [self.cellsApi putWorkbookCreateWithCompletionBlock:@"newworkbook.xlsx" templateFile:@"2014-calendar.xlsx" dataFile:@"SmartMarker.xml" storage:nil folder:nil completionHandler:^(ASPWorkbookResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to create new workbook using different methods");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi putWorkbookCreateWithCompletionBlock:@"newworkbook.xlsx"
+                                           templateFile:@"2014-calendar.xlsx"
+                                               dataFile:@"SmartMarker.xml"
+                                                storage:nil
+                                                 folder:nil
+                                      completionHandler:^(ASPWorkbookResponse *output, NSError *error) {
+                                          XCTAssertNotNil(output, @"Failed to create new workbook using different methods");
+                                          XCTAssertEqualObjects(output.status, @"OK");
+                                          [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -101,11 +145,17 @@
     ASPSavingSaveOptions *saveOptions = [[ASPSavingSaveOptions alloc] init];
     saveOptions.clearData = [NSNumber numberWithBool:YES];
     
-    [self.cellsApi postDocumentSaveAsWithCompletionBlock:@"myWorkBook.xlsx" saveOptions:saveOptions
-                                                        newfilename:@"updatedWorkbook.xlsx" isAutoFitRows:[NSNumber numberWithBool:YES] isAutoFitColumns:[NSNumber numberWithBool:YES] storage:nil folder:nil completionHandler:^(ASPSaveResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to convert document and save result to storage");
-        XCTAssertEqualObjects(output.status, @"OK");                                                    
-        [expectation fulfill];
+    [self.cellsApi postDocumentSaveAsWithCompletionBlock:@"myWorkBook.xlsx"
+                                             saveOptions:saveOptions
+                                                        newfilename:@"updatedWorkbook.xlsx"
+                                           isAutoFitRows:[NSNumber numberWithBool:YES]
+                                        isAutoFitColumns:[NSNumber numberWithBool:YES]
+                                                 storage:nil
+                                                  folder:nil
+                                       completionHandler:^(ASPSaveResponse *output, NSError *error) {
+                                           XCTAssertNotNil(output, @"Failed to convert document and save result to storage");
+                                           XCTAssertEqualObjects(output.status, @"OK");
+                                           [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -123,10 +173,17 @@
     autoFitterOptions.autoFitMergedCells = [NSNumber numberWithBool:YES];
     autoFitterOptions.ignoreHidden = [NSNumber numberWithBool:YES];
     
-    [self.cellsApi postAutofitWorkbookRowsWithCompletionBlock:@"myWorkBook.xlsx" autoFitterOptions:autoFitterOptions startRow:[NSNumber numberWithInt:1] endRow:[NSNumber numberWithInt:300] onlyAuto:[NSNumber numberWithBool:YES] storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to autofit workbook rows");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi postAutofitWorkbookRowsWithCompletionBlock:@"myWorkBook.xlsx"
+                                            autoFitterOptions:autoFitterOptions
+                                                     startRow:[NSNumber numberWithInt:1]
+                                                       endRow:[NSNumber numberWithInt:300]
+                                                     onlyAuto:[NSNumber numberWithBool:YES]
+                                                      storage:nil
+                                                       folder:nil
+                                            completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                                XCTAssertNotNil(output, @"Failed to autofit workbook rows");
+                                                XCTAssertEqualObjects(output.status, @"OK");
+                                                [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -140,10 +197,13 @@
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
-    [self.cellsApi postWorkbookCalculateFormulaWithCompletionBlock:@"myWorkBook.xlsx" storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to calculate all formulas in workbook");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi postWorkbookCalculateFormulaWithCompletionBlock:@"myWorkBook.xlsx"
+                                                           storage:nil
+                                                            folder:nil
+                                                 completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                                     XCTAssertNotNil(output, @"Failed to calculate all formulas in workbook");
+                                                     XCTAssertEqualObjects(output.status, @"OK");
+                                                     [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -157,10 +217,13 @@
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
-    [self.cellsApi getWorkBookDefaultStyleWithCompletionBlock:@"myWorkBook.xlsx" storage:nil folder:nil completionHandler:^(ASPStyleResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to read workbook default style info");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi getWorkBookDefaultStyleWithCompletionBlock:@"myWorkBook.xlsx"
+                                                      storage:nil
+                                                       folder:nil
+                                            completionHandler:^(ASPStyleResponse *output, NSError *error) {
+                                                XCTAssertNotNil(output, @"Failed to read workbook default style info");
+                                                XCTAssertEqualObjects(output.status, @"OK");
+                                                [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -174,10 +237,13 @@
 {
      XCTestExpectation *expectation = [self expectationWithDescription:@""];
      
-     [self.cellsApi getDocumentPropertiesWithCompletionBlock:@"myWorkBook.xlsx" storage:nil folder:nil completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
-         XCTAssertNotNil(output, @"Failed to read document properties");
-         XCTAssertEqualObjects(output.status, @"OK");
-         [expectation fulfill];
+     [self.cellsApi getDocumentPropertiesWithCompletionBlock:@"myWorkBook.xlsx"
+                                                     storage:nil
+                                                      folder:nil
+                                           completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
+                                               XCTAssertNotNil(output, @"Failed to read document properties");
+                                               XCTAssertEqualObjects(output.status, @"OK");
+                                               [expectation fulfill];
      }];
      
      [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -191,10 +257,13 @@
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
-    [self.cellsApi deleteDocumentPropertiesWithCompletionBlock:@"myWorkBook.xlsx" storage:nil folder:nil completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to delete all custom document properties and clean built-in ones");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi deleteDocumentPropertiesWithCompletionBlock:@"myWorkBook.xlsx"
+                                                       storage:nil
+                                                        folder:nil
+                                             completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
+                                                 XCTAssertNotNil(output, @"Failed to delete all custom document properties and clean built-in ones");
+                                                 XCTAssertEqualObjects(output.status, @"OK");
+                                                 [expectation fulfill];
     }];
 
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -208,10 +277,14 @@
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
-    [self.cellsApi getDocumentPropertyWithCompletionBlock:@"myWorkBook.xlsx" propertyName:@"Title" storage:nil folder:nil completionHandler:^(ASPCellsDocumentPropertyResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to read document property by name");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi getDocumentPropertyWithCompletionBlock:@"myWorkBook.xlsx"
+                                             propertyName:@"Title"
+                                                  storage:nil
+                                                   folder:nil
+                                        completionHandler:^(ASPCellsDocumentPropertyResponse *output, NSError *error) {
+                                            XCTAssertNotNil(output, @"Failed to read document property by name");
+                                            XCTAssertEqualObjects(output.status, @"OK");
+                                            [expectation fulfill];
     }];
 
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -229,10 +302,15 @@
      cellsDocumentProperty.name = @"Title";
      cellsDocumentProperty.value = @"Tax Reforms";
      
-    [self.cellsApi putDocumentPropertyWithCompletionBlock:@"myWorkBook.xlsx" propertyName:@"Title" _property:cellsDocumentProperty storage:nil folder:nil completionHandler:^(ASPCellsDocumentPropertyResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to set/create document property");
-        XCTAssertEqualObjects(output.status, @"Created");
-        [expectation fulfill];
+    [self.cellsApi putDocumentPropertyWithCompletionBlock:@"myWorkBook.xlsx"
+                                             propertyName:@"Title"
+                                                _property:cellsDocumentProperty
+                                                  storage:nil
+                                                   folder:nil
+                                        completionHandler:^(ASPCellsDocumentPropertyResponse *output, NSError *error) {
+                                            XCTAssertNotNil(output, @"Failed to set/create document property");
+                                            XCTAssertEqualObjects(output.status, @"Created");
+                                            [expectation fulfill];
     }];
 
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -246,10 +324,14 @@
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
-    [self.cellsApi deleteDocumentPropertyWithCompletionBlock:@"myWorkBook.xlsx" propertyName:@"author" storage:nil folder:nil completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to delete document property");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi deleteDocumentPropertyWithCompletionBlock:@"myWorkBook.xlsx"
+                                                propertyName:@"author"
+                                                     storage:nil
+                                                      folder:nil
+                                           completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
+                                               XCTAssertNotNil(output, @"Failed to delete document property");
+                                               XCTAssertEqualObjects(output.status, @"OK");
+                                               [expectation fulfill];
     }];
 
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -268,13 +350,17 @@
     workbookEncryptionRequest.password = @"password1234";
     workbookEncryptionRequest.keyLength = [NSNumber numberWithInt:128];
     
-    [self.cellsApi postEncryptDocumentWithCompletionBlock:@"myWorkBook.xlsx" encryption:workbookEncryptionRequest storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to encrypt document");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi postEncryptDocumentWithCompletionBlock:@"myWorkBook.xlsx"
+                                               encryption:workbookEncryptionRequest
+                                                  storage:nil
+                                                   folder:nil
+                                        completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                            XCTAssertNotNil(output, @"Failed to encrypt document");
+                                            XCTAssertEqualObjects(output.status, @"OK");
+                                            [expectation fulfill];
     }];
      
-     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
         if (error) {
             NSLog(@"Timeout Error: %@", error);
         }
@@ -288,10 +374,14 @@
     ASPWorkbookEncryptionRequest *workbookEncryptionRequest = [[ASPWorkbookEncryptionRequest alloc] init];
     workbookEncryptionRequest.password = @"password1234";
     
-    [self.cellsApi deleteDecryptDocumentWithCompletionBlock:@"myWorkBook.xlsx" encryption:workbookEncryptionRequest storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to decrypt document");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi deleteDecryptDocumentWithCompletionBlock:@"myWorkBook.xlsx"
+                                                 encryption:workbookEncryptionRequest
+                                                    storage:nil
+                                                     folder:nil
+                                          completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                              XCTAssertNotNil(output, @"Failed to decrypt document");
+                                              XCTAssertEqualObjects(output.status, @"OK");
+                                              [expectation fulfill];
     }];
      
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -304,10 +394,14 @@
 - (void)testPostWorkbooksTextSearch {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
  
-    [self.cellsApi postWorkbooksTextSearchWithCompletionBlock:@"myWorkBook.xlsx" text:@"Pros" storage:nil folder:nil completionHandler:^(ASPTextItemsResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to search text");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi postWorkbooksTextSearchWithCompletionBlock:@"myWorkBook.xlsx"
+                                                         text:@"Pros"
+                                                      storage:nil
+                                                       folder:nil
+                                            completionHandler:^(ASPTextItemsResponse *output, NSError *error) {
+                                                XCTAssertNotNil(output, @"Failed to search text");
+                                                XCTAssertEqualObjects(output.status, @"OK");
+                                                [expectation fulfill];
     }];
  
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -324,10 +418,14 @@
     importDataImportOption.destinationWorksheet = @"Sheet3";
     importDataImportOption.isInsert = [NSNumber numberWithBool:YES];
     
-    [self.cellsApi postImportDataWithCompletionBlock:@"myWorkBook.xlsx" importOption:importDataImportOption storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to import data to workbook");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi postImportDataWithCompletionBlock:@"myWorkBook.xlsx"
+                                        importOption:importDataImportOption
+                                             storage:nil
+                                              folder:nil
+                                   completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                       XCTAssertNotNil(output, @"Failed to import data to workbook");
+                                       XCTAssertEqualObjects(output.status, @"OK");
+                                       [expectation fulfill];
     }];
  
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -337,14 +435,17 @@
     }];
 }
 
-- (void)testPostWorkbooksMerge
-{
+- (void)testPostWorkbooksMerge {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
  
-    [self.cellsApi postWorkbooksMergeWithCompletionBlock:@"myWorkBook.xlsx" mergeWith:@"August-2015-Calendar.xlsx" storage:nil folder:nil completionHandler:^(ASPWorkbookResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to merge workbooks");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi postWorkbooksMergeWithCompletionBlock:@"myWorkBook.xlsx"
+                                               mergeWith:@"August-2015-Calendar.xlsx"
+                                                 storage:nil
+                                                  folder:nil
+                                       completionHandler:^(ASPWorkbookResponse *output, NSError *error) {
+                                           XCTAssertNotNil(output, @"Failed to merge workbooks");
+                                           XCTAssertEqualObjects(output.status, @"OK");
+                                           [expectation fulfill];
     }];
  
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -354,14 +455,16 @@
     }];
 }
 
-- (void)testGetWorkBookNames
-{
+- (void)testGetWorkBookNames {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
  
-    [self.cellsApi getWorkBookNamesWithCompletionBlock:@"myWorkBook.xlsx" storage:nil folder:nil completionHandler:^(ASPNamesResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to read workbook's names");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi getWorkBookNamesWithCompletionBlock:@"myWorkBook.xlsx"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPNamesResponse *output, NSError *error) {
+                                         XCTAssertNotNil(output, @"Failed to read workbook's names");
+                                         XCTAssertEqualObjects(output.status, @"OK");
+                                         [expectation fulfill];
     }];
  
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -374,10 +477,14 @@
 - (void)testGetWorkBookName {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
-    [self.cellsApi getWorkBookNameWithCompletionBlock:@"myWorkBook.xlsx" nameName:@"HelpURLTemplate" storage:nil folder:nil completionHandler:^(ASPNameResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to read workbook's name");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi getWorkBookNameWithCompletionBlock:@"myWorkBook.xlsx"
+                                             nameName:@"HelpURLTemplate"
+                                              storage:nil
+                                               folder:nil
+                                    completionHandler:^(ASPNameResponse *output, NSError *error) {
+                                        XCTAssertNotNil(output, @"Failed to read workbook's name");
+                                        XCTAssertEqualObjects(output.status, @"OK");
+                                        [expectation fulfill];
     }];
      
      [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -387,55 +494,21 @@
     }];
 }
 
-- (void)testPostProtectDocument
-{
+- (void)testPostProtectDocument {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     ASPWorkbookProtectionRequest *protectionRequest = [[ASPWorkbookProtectionRequest alloc] init];
     protectionRequest.protectionType = @"All";
     protectionRequest.password = @"password1234";
     
-    [self.cellsApi postProtectDocumentWithCompletionBlock:@"myWorkBook.xlsx" protection:protectionRequest storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to protect document");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
-    }];
-     
-     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
-}
-
-- (void)testDeleteUnProtectDocument
-{
-    XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    
-    ASPWorkbookProtectionRequest *protectionRequest = [[ASPWorkbookProtectionRequest alloc] init];
-    protectionRequest.password = @"password1234";
-    
-    [self.cellsApi deleteUnProtectDocumentWithCompletionBlock:@"myWorkBook.xlsx" protection:protectionRequest storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to unprotect document");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
-    }];
-     
-     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
-}
-
-- (void)testPostWorkbooksTextReplace
-{
-    XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    
-    [self.cellsApi postWorkbooksTextReplaceWithCompletionBlock:@"myWorkBook.xlsx" oldValue:@"Averages" newValue:@"Median" storage:nil folder:nil completionHandler:^(ASPWorkbookReplaceResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to replace text");
-        XCTAssertEqualObjects(output.status, @"OK");
-        [expectation fulfill];
+    [self.cellsApi postProtectDocumentWithCompletionBlock:@"myWorkBook.xlsx"
+                                               protection:protectionRequest
+                                                  storage:nil
+                                                   folder:nil
+                                        completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                            XCTAssertNotNil(output, @"Failed to protect document");
+                                            XCTAssertEqualObjects(output.status, @"OK");
+                                            [expectation fulfill];
     }];
      
     [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
@@ -445,8 +518,51 @@
     }];
 }
 
-- (void)testGetWorkbookSettings
-{
+- (void)testDeleteUnProtectDocument {
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
+    
+    ASPWorkbookProtectionRequest *protectionRequest = [[ASPWorkbookProtectionRequest alloc] init];
+    protectionRequest.password = @"password1234";
+    
+    [self.cellsApi deleteUnProtectDocumentWithCompletionBlock:@"myWorkBook.xlsx"
+                                                   protection:protectionRequest
+                                                      storage:nil
+                                                       folder:nil
+                                            completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                                XCTAssertNotNil(output, @"Failed to unprotect document");
+                                                XCTAssertEqualObjects(output.status, @"OK");
+                                                [expectation fulfill];
+    }];
+     
+    [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+
+- (void)testPostWorkbooksTextReplace {
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
+    
+    [self.cellsApi postWorkbooksTextReplaceWithCompletionBlock:@"myWorkBook.xlsx"
+                                                      oldValue:@"Averages"
+                                                      newValue:@"Median"
+                                                       storage:nil
+                                                        folder:nil
+                                             completionHandler:^(ASPWorkbookReplaceResponse *output, NSError *error) {
+                                                 XCTAssertNotNil(output, @"Failed to replace text");
+                                                 XCTAssertEqualObjects(output.status, @"OK");
+                                                 [expectation fulfill];
+    }];
+     
+    [self waitForExpectationsWithTimeout:30.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+
+- (void)testGetWorkbookSettings {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.cellsApi getWorkbookSettingsWithCompletionBlock:@"myWorkBook.xlsx" storage:nil folder:nil completionHandler:^(ASPWorkbookSettingsResponse *output, NSError *error) {
@@ -462,8 +578,7 @@
     }];
 }
 
-- (void)testPostWorkbookSettings
-{
+- (void)testPostWorkbookSettings {
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     ASPWorkbookSettings *workbookSettings = [[ASPWorkbookSettings alloc] init];
