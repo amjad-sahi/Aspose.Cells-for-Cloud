@@ -12,10 +12,11 @@ Aspose.Cells for Cloud is implemented as a REST API. If you use SDK, it hides th
 
 Directory | Description
 --------- | -----------
-[Java SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_for_Java)  |  Aspose.Cells for Cloud Java SDK.
-[PHP SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_For_PHP)  | Aspose.Cells Cloud SDK for PHP.
-[Python SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_For_Python) | Aspose.Cells Cloud SDK for Python.
-[Objective C SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_For_Objective_C) | Aspose.Cells Cloud SDK for Objective C.
+[Java SDK](SDKs/Aspose.Cells_Cloud_SDK_for_Java)  |  Aspose.Cells for Cloud Java SDK.
+[PHP SDK](SDKs/Aspose.Cells_Cloud_SDK_For_PHP)  | Aspose.Cells Cloud SDK for PHP.
+[Python SDK](SDKs/Aspose.Cells_Cloud_SDK_For_Python) | Aspose.Cells Cloud SDK for Python.
+[Objective C SDK](SDKs/Aspose.Cells_Cloud_SDK_For_Objective_C) | Aspose.Cells Cloud SDK for Objective C.
+[Node.js SDK](SDKs/Aspose.Cells_Cloud_SDK_For_NodeJS) | Aspose.Cells Cloud SDK for Node.js.
 
 ## Resources
 
