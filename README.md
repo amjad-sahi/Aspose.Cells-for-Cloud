@@ -16,7 +16,7 @@ Directory | Description
 [PHP SDK](SDKs/Aspose.Cells_Cloud_SDK_For_PHP)  | Aspose.Cells Cloud SDK for PHP.
 [Python SDK](SDKs/Aspose.Cells_Cloud_SDK_For_Python) | Aspose.Cells Cloud SDK for Python.
 [Objective C SDK](SDKs/Aspose.Cells_Cloud_SDK_For_Objective_C) | Aspose.Cells Cloud SDK for Objective C.
-[Node.js SDK](SDKs/Aspose.Cells_Cloud_SDK_For_NodeJS) | Aspose.Cells Cloud SDK for Node.js.
+[Node.js SDK](SDKs/Aspose.Cells_Cloud_SDK_for_NodeJS) | Aspose.Cells Cloud SDK for Node.js.
 
 ## Resources
 
