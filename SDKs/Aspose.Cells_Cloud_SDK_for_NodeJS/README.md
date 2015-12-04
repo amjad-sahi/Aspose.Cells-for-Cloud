@@ -11,7 +11,7 @@ The complete source code is available in this repository folder. For more detail
 var fs = require('fs');
 var assert = require('assert');
 var StorageApi =require("asposestoragecloud")
-var WordsApi =require("asposewordscloud")
+var CellsApi =require("asposecellscloud")
 
 var AppSID = 'XXX'; //sepcify App SID
 var AppKey = 'XXX'; //sepcify App Key
