@@ -19,8 +19,8 @@ namespace Aspose.Cells.Cloud.Examples.Worksheet
             string input = "sample1.xlsx";
             string output = "ouput.xlsx";
             string sheetName = "Sheet1";
-            
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
+
+            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
 
             int row = 1;
             int column = 1;
@@ -29,7 +29,7 @@ namespace Aspose.Cells.Cloud.Examples.Worksheet
 
             Common.CellsService.Worksheets.UnfreezePanes(input, sheetName, row, column, freezedRows, freezedColumns, Common.FOLDER, storage: Common.STORAGE);
 
-            Common.StorageService.File.DownloadFile(input, dataDir+output, storage: Common.STORAGE);
+            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
 
         }
     }
