@@ -2488,7 +2488,7 @@ CellsApi.prototype.GetWorksheetAutoshape = function(name, sheetName, autoshapeNu
 	postData = null;
     
 	
-	headerParams['Accept'] = 'application/xml,application/octet-stream'
+	headerParams['Accept'] = 'application/xml,application/json'
     headerParams['Content-Type'] = 'application/json'
 
 	return apiClient.InvokeAPI(resourcePath, method, queryParams, postData, headerParams, files, callback);

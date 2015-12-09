@@ -664,18 +664,19 @@ exports.testGetWorksheetAutoshapes = function(test){
 
 exports.testGetWorksheetAutoshape = function(test){
 	
-	test.expect(2);	
+	test.expect(3);	
 	var name = "Sample_Test_Book.xls";
 	var sheetName = "Sheet4";
-    var autoshapeNumber = 1;          
-    var format = "png";
+    var autoshapeNumber = 1;
 	
 	storageApi.PutCreate(name, null, null, data_path + name , function(responseMessage) {
 	
 		test.equal(responseMessage.status, 'OK', '');		
-		cellsApi.GetWorksheetAutoshapeWithFormat(name, sheetName, autoshapeNumber, format, null, null, function(responseMessage) {
+		cellsApi.GetWorksheetAutoshape(name, sheetName, autoshapeNumber, null, null, function(responseMessage) {
 				if(config.debug){console.log('status:', responseMessage.status);}
+				if(config.debug){console.log('body:', responseMessage.body);}
 				test.equal(responseMessage.status, 'OK', '');	
+				test.ok(responseMessage.body !== null && typeof responseMessage.body.AutoShape !== 'undefined', "response body assertion should pass");
 				test.done();
 			});
 		});
