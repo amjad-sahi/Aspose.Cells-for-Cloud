@@ -19,8 +19,8 @@ namespace Aspose.Cells.Cloud.Examples.Worksheet
             string input = "sample1.xlsx";
             string output = "ouput.xlsx";
             string sheetName = "Sheet1";
-            
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
+
+            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
 
             WorksheetResponse ReadWorksheetInfo = Common.CellsService.Worksheets.ReadWorksheetInfo(input, "Sheet1", Common.FOLDER);
 
@@ -28,7 +28,7 @@ namespace Aspose.Cells.Cloud.Examples.Worksheet
 
             WorksheetResponse apiResponse = Common.CellsService.Worksheets.UpdateWorksheetProperty(input, sheetName, ReadWorksheetInfo.Worksheet, Common.FOLDER, storage: Common.STORAGE);
 
-            Common.StorageService.File.DownloadFile(input, dataDir+output, storage: Common.STORAGE);
+            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
 
         }
     }

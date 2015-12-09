@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E058373-8445-42F6-8BF4-3E90F799E3C6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <StartupObject>VisualBasic.Aspose.Cells.Cloud.Examples.Common</StartupObject>
+    <RootNamespace>VisualBasic</RootNamespace>
+    <AssemblyName>VisualBasic</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Console</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>VisualBasic.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>VisualBasic.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cloud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7356bd367a1035b1, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cloud.SDK.NET.1.0.8\lib\Aspose.Cloud.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cells\ChangeCellStyleWorksheet.vb" />
+    <Compile Include="Charts\AddChart.vb" />
+    <Compile Include="Charts\ConvertChartToImage.vb" />
+    <Compile Include="Charts\DeleteAllCharts.vb" />
+    <Compile Include="Charts\DeleteChartTitle.vb" />
+    <Compile Include="Charts\DeleteOneChart.vb" />
+    <Compile Include="Charts\GetChart.vb" />
+    <Compile Include="Charts\GetChartArea.vb" />
+    <Compile Include="Charts\GetChartFillFormat.vb" />
+    <Compile Include="Charts\GetChartLegend.vb" />
+    <Compile Include="Charts\HideChartLegend.vb" />
+    <Compile Include="Charts\SetChartTitle.vb" />
+    <Compile Include="Charts\ShowChartLegend.vb" />
+    <Compile Include="Charts\UpdateChartLegend.vb" />
+    <Compile Include="Charts\UpdateChartTitle.vb" />
+    <Compile Include="Cells\ClearCellContentStyleWorksheet.vb" />
+    <Compile Include="Cells\ClearCellFormattingWorksheet.vb" />
+    <Compile Include="Cells\GetCellStyleWorksheet.vb" />
+    <Compile Include="Cells\GetCellWorksheet.vb" />
+    <Compile Include="Cells\GetEndCellWorksheet.vb" />
+    <Compile Include="Cells\GetFirstCellWorksheet.vb" />
+    <Compile Include="Cells\GetMaxColumnWorksheet.vb" />
+    <Compile Include="Cells\GetMaxDataColumnWorksheet.vb" />
+    <Compile Include="Cells\GetMaxDataRowWorksheet.vb" />
+    <Compile Include="Cells\GetMaxRowWorksheet.vb" />
+    <Compile Include="Cells\GetMergedCellWorksheet.vb" />
+    <Compile Include="Cells\GetMinColumnWorksheet.vb" />
+    <Compile Include="Cells\GetMinDataColumnWorksheet.vb" />
+    <Compile Include="Cells\GetMinDataRowWorksheet.vb" />
+    <Compile Include="Cells\GetMinRowWorksheet.vb" />
+    <Compile Include="Cells\MergeCellsWorksheet.vb" />
+    <Compile Include="Cells\SetCellWorksheet.vb" />
+    <Compile Include="Cells\SetFormulaForCellWorksheet.vb" />
+    <Compile Include="Cells\SetRangeValueWorksheet.vb" />
+    <Compile Include="Cells\UnmergeCellsWorksheet.vb" />
+    <Compile Include="Common.vb" />
+    <Compile Include="hyperlinks\AddHyperlinkWorksheet.vb" />
+    <Compile Include="hyperlinks\DeleteHyperlinkWorksheet.vb" />
+    <Compile Include="hyperlinks\GetHyperlinkWorksheet.vb" />
+    <Compile Include="hyperlinks\UpdateHyperlinkWorksheet.vb" />
+    <Compile Include="Images\AutoShapeToImageWorksheet.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Oleobjects\AddOleObjectsWorksheet.vb" />
+    <Compile Include="Oleobjects\ConvertOleObjectToImage.vb" />
+    <Compile Include="Oleobjects\DeleteAllOleObjectsWorksheet.vb" />
+    <Compile Include="Oleobjects\DeleteSpecificOleObjectWorksheet.vb" />
+    <Compile Include="Oleobjects\GetOleObjectWorksheet.vb" />
+    <Compile Include="Oleobjects\UpdateSpecificOleObjectsWorksheet.vb" />
+    <Compile Include="Pictures\AddPicturesWorksheet.vb" />
+    <Compile Include="Pictures\ConvertPictureToImageWorksheet.vb" />
+    <Compile Include="Pictures\DeleteAllPicturesWorksheet.vb" />
+    <Compile Include="Pictures\DeleteSpecificPictureWorksheet.vb" />
+    <Compile Include="Pictures\GetPictureWorksheet.vb" />
+    <Compile Include="Pictures\UpdateSpecificPictureWorksheet.vb" />
+    <Compile Include="PivotTables\AddPivotFieldInPivottable.vb" />
+    <Compile Include="PivotTables\AddPivottableWorksheet.vb" />
+    <Compile Include="PivotTables\DeleteWorksheetPivotTable.vb" />
+    <Compile Include="PivotTables\DeleteWorksheetPivotTableIndex.vb" />
+    <Compile Include="PivotTables\GetPivotTableIndexWorksheet.vb" />
+    <Compile Include="PivotTables\GetPivotTableWorksheet.vb" />
+    <Compile Include="Property\GetAllProperties.vb" />
+    <Compile Include="Property\GetParticularProperty.vb" />
+    <Compile Include="Property\RemoveAllProperties.vb" />
+    <Compile Include="Property\RemoveParticularProperty.vb" />
+    <Compile Include="Property\SetParticularProperty.vb" />
+    <Compile Include="Rows\AddEmptyRowInWorksheet.vb" />
+    <Compile Include="Rows\AutoFitRowsInWorksheet.vb" />
+    <Compile Include="Rows\CopyRowsInWorksheet.vb" />
+    <Compile Include="Rows\DeleteRowFromWorksheet.vb" />
+    <Compile Include="Rows\GetRowFromWorksheet.vb" />
+    <Compile Include="Rows\GroupRowsInWorksheet.vb" />
+    <Compile Include="Rows\HideRowsInWorksheet.vb" />
+    <Compile Include="Rows\UngroupRowsInWorksheet.vb" />
+    <Compile Include="Rows\UnhideRowsInWorksheet.vb" />
+    <Compile Include="Text\FindTextWorkbook.vb" />
+    <Compile Include="Text\FindTextWorksheet.vb" />
+    <Compile Include="Text\GetTextItemWorkbook.vb" />
+    <Compile Include="Text\GetTextItemWorksheet.vb" />
+    <Compile Include="Text\ReplaceTextWorkbook.vb" />
+    <Compile Include="Text\ReplaceTextWorksheet.vb" />
+    <Compile Include="Workbook\ConvertToAnotherFormat.vb" />
+    <Compile Include="Workbook\ConvertWorkbookToAnotherFormatWithoutStorage.vb" />
+    <Compile Include="Workbook\ConvertWorkbookWithAdditionalSettings.vb" />
+    <Compile Include="Workbook\CreateEmptyWorkbook.vb" />
+    <Compile Include="Workbook\CreateWorkbookFromTemplate.vb" />
+    <Compile Include="Workbook\DecryptWorkbook.vb" />
+    <Compile Include="Workbook\EncryptWorkbook.vb" />
+    <Compile Include="Workbook\MergeWorkbooks.vb" />
+    <Compile Include="Workbook\NamesCountWorkbook.vb" />
+    <Compile Include="Workbook\ProtectWorkbook.vb" />
+    <Compile Include="Workbook\RemoveModifyPassword.vb" />
+    <Compile Include="Workbook\SetModifyPassword.vb" />
+    <Compile Include="Workbook\SplitWorkbooks.vb" />
+    <Compile Include="Workbook\UnprotectWorkbook.vb" />
+    <Compile Include="Worksheet\AddNewSheet.vb" />
+    <Compile Include="Worksheet\CalculateFormula.vb" />
+    <Compile Include="Worksheet\ConvertWorksheetToImage.vb" />
+    <Compile Include="Worksheet\CopyWorksheet.vb" />
+    <Compile Include="Worksheet\DeleteWatermarkBackground.vb" />
+    <Compile Include="Worksheet\DeleteWorksheet .vb" />
+    <Compile Include="Worksheet\FreezePanes.vb" />
+    <Compile Include="Worksheet\GetAutoshape.vb" />
+    <Compile Include="Worksheet\GetColumn.vb" />
+    <Compile Include="Worksheet\GetComment.vb" />
+    <Compile Include="Worksheet\GetValidation.vb" />
+    <Compile Include="Worksheet\GetWorksheetCount.vb" />
+    <Compile Include="Worksheet\HideWorksheet.vb" />
+    <Compile Include="Worksheet\MoveWorksheet.vb" />
+    <Compile Include="Worksheet\RenameWorksheet.vb" />
+    <Compile Include="Worksheet\SetWatermarkBackground.vb" />
+    <Compile Include="Worksheet\SortWorksheetData.vb" />
+    <Compile Include="Worksheet\UnfreezePanes.vb" />
+    <Compile Include="Worksheet\UnhideWorksheet.vb" />
+    <Compile Include="Worksheet\UpdateWorksheetProperties.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

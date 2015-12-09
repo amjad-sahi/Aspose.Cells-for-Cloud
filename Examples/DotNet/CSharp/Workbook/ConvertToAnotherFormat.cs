@@ -19,14 +19,14 @@ namespace Aspose.Cells.Cloud.Examples.Workbook
             string input = "originalFormat.xlsx";
             string output = "output.pdf";
             string outPath = "cellsOut/";
-            
-           // Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
-            
-            Common.CellsService.Workbook.ConvertWorkbookToSomeFormat(WorkbookExportFormat.Pdf, string.Empty, outPath+output, dataDir+input);
-            
+
+            // Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+
+            Common.CellsService.Workbook.ConvertWorkbookToSomeFormat(WorkbookExportFormat.Pdf, string.Empty, outPath + output, dataDir + input);
+
             //Common.StorageService.File.DownloadFile(outPath, dataDir + output, storage: Common.STORAGE);
-            
-            Common.StorageService.File.DownloadFile(outPath+output, dataDir+output);
+
+            Common.StorageService.File.DownloadFile(outPath + output, dataDir + output);
         }
     }
 }

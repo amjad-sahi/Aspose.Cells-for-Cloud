@@ -45,7 +45,7 @@ namespace Aspose.Cells.Cloud.Examples
         {
             if (String.IsNullOrEmpty(APP_SID) || String.IsNullOrEmpty(APP_KEY))
             {
-                System.Windows.Forms.MessageBox.Show("APP_SID and APP_KEY must have valid values. Check " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.FullName + " for details.");
+                System.Windows.Forms.MessageBox.Show("APP_SID and APP_KEY must have valid values. Check " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.FullName + " class for details.");
                 Environment.Exit(1);
             }
         }
@@ -58,6 +58,7 @@ namespace Aspose.Cells.Cloud.Examples
 
         static void Main()
         {
+            CheckCredentials();
             Console.WriteLine("To run an example, Go to 'Project Properties' and set the 'Startup Object'");
             Pause();
         }
