@@ -15,8 +15,9 @@ Directory | Description
 [Java SDK](SDKs/Aspose.Cells_Cloud_SDK_for_Java)  |  Aspose.Cells for Cloud Java SDK.
 [PHP SDK](SDKs/Aspose.Cells_Cloud_SDK_For_PHP)  | Aspose.Cells Cloud SDK for PHP.
 [Python SDK](SDKs/Aspose.Cells_Cloud_SDK_For_Python) | Aspose.Cells Cloud SDK for Python.
-[Objective C SDK](SDKs/Aspose.Cells_Cloud_SDK_For_Objective_C) | Aspose.Cells Cloud SDK for Objective C.
+[Objective C SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_For_Objective_C) | Aspose.Cells Cloud SDK for Objective C.
 [Node.js SDK](SDKs/Aspose.Cells_Cloud_SDK_for_NodeJS) | Aspose.Cells Cloud SDK for Node.js.
+[Ruby SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_For_Ruby) | Aspose.Cells Cloud SDK for Ruby.
 
 ## Resources
 
