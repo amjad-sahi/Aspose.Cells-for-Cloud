@@ -15,7 +15,7 @@ require 'aspose_cells_cloud'
 class CellsUsage
   
   include AsposeCellsCloud
-	include AsposeStorageCloud
+  include AsposeStorageCloud
 	
   def initialize
     #Get App key and App SID from https://cloud.aspose.com
