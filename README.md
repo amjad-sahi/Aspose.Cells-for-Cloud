@@ -1,4 +1,4 @@
-## Aspose.Cells for .NET
+## Aspose.Cells for Cloud
 
 This repository contains some projects and example code that will help you to write your own application using [Aspose.Cells for Cloud](http://www.aspose.com/cloud/excel-api.aspx).
 
