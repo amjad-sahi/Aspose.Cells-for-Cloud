@@ -12,11 +12,11 @@ namespace Aspose.Cells.Cloud.Examples.Worksheet
             string output = "ouput.xlsx";
             string copySheet = "Sheet2";
             string sourceSheet = "Sheet1";
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
+            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
 
             Common.CellsService.Worksheets.CopyWorksheet(input, copySheet, sourceSheet, Common.FOLDER, storage: Common.STORAGE);
 
-            Common.StorageService.File.DownloadFile(input, dataDir+output, storage: Common.STORAGE);
+            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
 
         }
     }

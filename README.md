@@ -1,21 +1,19 @@
 ## Aspose.Cells for Cloud
-This repository contains examples and SDKs for [Aspose.Cells for Cloud](http://www.aspose.com/cloud/excel-api.aspx).
 
-## Why SDKs?
-Aspose.Cells for Cloud is implemented as a REST API. If you use SDK, it hides the REST API calls and lets you use Aspose.Cells features in a native way for your preferred language.
+This repository contains some projects and example code that will help you to write your own application using [Aspose.Cells for Cloud](http://www.aspose.com/cloud/excel-api.aspx).
 
 <p align="center">
   <a title="Download ZIP" href="https://github.com/asposecells/Aspose_Cells_Cloud/archive/master.zip">
-     <img src="http://i.imgur.com/hwNhrGZ.png" />
+    <img src="http://i.imgur.com/hwNhrGZ.png" />
   </a>
 </p>
 
+Following is short description of contents of the repository:
+
 Directory | Description
 --------- | -----------
-[Java SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_for_Java)  |  Aspose.Cells for Cloud Java SDK.
-[PHP SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_For_PHP)  | Aspose.Cells Cloud SDK for PHP.
-[Python SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_For_Python) | Aspose.Cells Cloud SDK for Python.
-[Objective C SDK](https://github.com/asposecells/Aspose_Cells_Cloud/tree/master/SDKs/Aspose.Cells_Cloud_SDK_For_Objective_C) | Aspose.Cells Cloud SDK for Objective C.
+[Examples](Examples)  | A collection of examples that help you learn how to use product features
+[SDKs](SDKs)  | SDKs make it easy to use Cloud REST APIs.
 
 ## Resources
 
@@ -24,4 +22,3 @@ Directory | Description
 + **Documentation:** [Aspose.Cells for Cloud Documentation](http://www.aspose.com/docs/display/cellscloud/Home)
 + **Forum:** [Aspose.Cells for Cloud Forum](http://www.aspose.com/community/forums/aspose.cells-product-family/19/showforum.aspx)
 + **Blog:** [Aspose.Cells for Cloud Blog](http://www.aspose.com/blogs/aspose-products/aspose-cells-product-family.html)
-

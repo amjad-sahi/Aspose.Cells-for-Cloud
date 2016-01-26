@@ -1,0 +1,12 @@
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\CellsTest.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\CellsTest.pdb
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\Aspose.Storage_Cloud.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\ConsoleApplication.exe
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\LinqBridge.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\Newtonsoft.Json.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\ConsoleApplication.pdb
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\Newtonsoft.Json.xml
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\obj\Debug\CellsTest.csprojResolveAssemblyReference.cache
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\obj\Debug\CellsTest.dll
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\obj\Debug\CellsTest.pdb
+D:\aspose\swagger\swagger-codegen-2.0.17\aspose\csharp\cells\CellsTest\bin\Debug\Aspose.Storage_Cloud.pdb

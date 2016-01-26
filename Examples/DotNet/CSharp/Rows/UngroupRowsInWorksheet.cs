@@ -10,8 +10,8 @@ namespace Aspose.Cells.Cloud.Examples.Rows
 
             string input = "sample1.xlsx";
             string output = "output.xlsx";
-                                    
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
+
+            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
 
             string sheetName = "Sheet1";
 

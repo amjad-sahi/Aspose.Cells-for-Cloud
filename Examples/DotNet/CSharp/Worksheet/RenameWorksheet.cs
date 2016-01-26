@@ -12,11 +12,11 @@ namespace Aspose.Cells.Cloud.Examples.Worksheet
             string output = "ouput.xlsx";
             string sheetName = "Sheet1";
             string newName = "SheetAlpha";
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
+            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
 
-            Common.CellsService.Worksheets.RenameWorksheet(input, sheetName, newName,     Common.FOLDER, storage: Common.STORAGE);
+            Common.CellsService.Worksheets.RenameWorksheet(input, sheetName, newName, Common.FOLDER, storage: Common.STORAGE);
 
-            Common.StorageService.File.DownloadFile(input, dataDir+output, storage: Common.STORAGE);
+            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
 
         }
     }

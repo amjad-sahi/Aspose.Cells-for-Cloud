@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{7A5DC900-1CF6-4C4D-8C91-7348065595CB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>AsposeCells</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Storage_Cloud, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\storage\bin\Debug\Aspose.Storage_Cloud.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqBridge, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c2b14eb747628076, processorArchitecture=MSIL">
+      <HintPath>packages\LinqBridge.1.3.0\lib\net20\LinqBridge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.7.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="compile.bat" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cells.cs" />
+    <Compile Include="src\Com\Aspose\cells\ApiException.cs" />
+    <Compile Include="src\Com\Aspose\cells\ApiInvoker.cs" />
+    <Compile Include="src\Com\Aspose\cells\Api\CellsApi.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Area.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\AutoFilter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\AutoFitterOptions.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\AutoShape.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\AutoShapeResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\AutoShapes.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\AutoShapesResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\BarcodeResponseList.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Border.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Cell.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CellArea.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CellResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Cells.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CellsColor.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CellsDocumentProperties.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CellsDocumentPropertiesResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CellsDocumentProperty.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CellsDocumentPropertyResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CellsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ChartArea.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ChartAreaResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Charts.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ChartsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Color.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ColorFilter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Column.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ColumnResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Columns.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ColumnsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Comment.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CommentResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Comments.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CommentsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CreatePivotTableRequest.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\CustomFilter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\DataSorter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\DateTimeGroupItem.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\DynamicFilter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\FillFormat.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\FillFormatResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\FilterColumn.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Font.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\GradientFill.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\GradientFillStop.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Hyperlink.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\HyperlinkResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Hyperlinks.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\HyperlinksResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\IconFilter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ImportOption.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Legend.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\LegendResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Line.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\LineResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Link.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\LinkElement.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\MergedCell.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\MergedCellResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\MergedCells.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\MergedCellsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\MultipleFilters.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Name.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\NameResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Names.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\NamesResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\OleObject.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\OleObjectResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\OleObjects.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\OleObjectsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PasswordRequest.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PatternFill.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PicFormatOption.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Picture.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PictureResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Pictures.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PicturesResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotField.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotFieldResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotFilter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotItem.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotTable.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotTableFieldRequest.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotTableResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotTables.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\PivotTablesResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ProtectSheetParameter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ResponseMessage.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Row.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\RowResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Rows.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\RowsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SaaSposeResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SaveOptions.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SaveResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SaveResult.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SingleValue.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SingleValueResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SolidFill.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SortKey.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SplitResult.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SplitResultDocument.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\SplitResultResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Style.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\StyleResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\TextItem.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\TextItems.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\TextItemsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\TextureFill.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ThemeColor.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\TilePicOption.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Title.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\TitleResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Top10Filter.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Validation.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ValidationResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Validations.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ValidationsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\ValueType.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Workbook.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorkbookEncryptionRequest.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorkbookProtectionRequest.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorkbookReplaceResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorkbookResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorkbookSettings.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorkbookSettingsResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Worksheet.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorksheetMovingRequest.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorksheetReplaceResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorksheetResponse.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\Worksheets.cs" />
+    <Compile Include="src\Com\Aspose\cells\Model\WorksheetsResponse.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

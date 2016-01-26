@@ -10,11 +10,11 @@ namespace Aspose.Cells.Cloud.Examples.Worksheet
 
             string input = "sample1.xlsx";
             string sheetName = "Sheet1";
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
+            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
 
             WorksheetColumnResponse apiResponse = Common.CellsService.WorksheetColumns.ReadWorksheetColumnDataByColumnIndex(input, sheetName, 0, Common.FOLDER, storage: Common.STORAGE);
 
-            Console.WriteLine(" Response: "+apiResponse.Column.IsHidden.ToString());
+            Console.WriteLine(" Response: " + apiResponse.Column.IsHidden.ToString());
         }
     }
 }
