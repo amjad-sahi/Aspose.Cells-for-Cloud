@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "ASPCellsApi.h"
 #import "ASPStorageApi.h"
+#import "AppDelegate.h"
 
 @interface ASPCellsTestCase : XCTestCase
 @property(nonatomic, strong) ASPCellsApi *cellsApi;
@@ -21,6 +22,8 @@
     [super setUp];
     // Put setup code here; it will be run once, before the first test case.
     self.cellsApi = [[ASPCellsApi alloc] init];
+    //Get App key and App SID from https://cloud.aspose.com
+    [ASPApiClient setAppKey:ASPAppKey andAppSID:ASPAppSID];
 }
 
 - (void)tearDown
