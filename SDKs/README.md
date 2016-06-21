@@ -10,7 +10,7 @@ This folder contains SDKs for [Aspose.Cells for Cloud](http://www.aspose.com/clo
 
 Directory | Description
 --------- | -----------
-[.NET SDK](Aspose.Cells-Cloud-SDK-for-.NET)  |  Aspose.Cells Cloud for .NET SDK.
+[.NET SDK](Aspose.Cells-Cloud-SDK-For-.NET)  |  Aspose.Cells Cloud for .NET SDK.
 [Java SDK](Aspose.Cells-Cloud-SDK-for-Java)  |  Aspose.Cells for Cloud Java SDK.
 [Android SDK](Aspose.Cells-Cloud-SDK-for-Android) | Aspose.Cells Cloud for Android SDK.
 [Node.js SDK](Aspose.Cells-Cloud-SDK-for-NodeJS) | Aspose.Cells Cloud SDK for Node.js.
