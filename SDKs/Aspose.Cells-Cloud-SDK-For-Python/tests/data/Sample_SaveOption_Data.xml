@@ -1,0 +1,8 @@
+
+<PdfSaveOptions>
+	<SaveFormat>pdf</SaveFormat>
+	<FileName>outputFileName</FileName>
+	<ImageCompression>Jpeg</ImageCompression>
+	<JpegQuality>70</JpegQuality>
+	<TextCompression>Flate</TextCompression>
+</PdfSaveOptions>
