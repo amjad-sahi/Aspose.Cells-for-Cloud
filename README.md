@@ -3,7 +3,7 @@
 This repository contains some projects and example code that will help you to write your own application using [Aspose.Cells for Cloud](http://www.aspose.com/cloud/excel-api.aspx).
 
 <p align="center">
-  <a title="Download ZIP" href="https://github.com/asposecells/Aspose_Cells_Cloud/archive/master.zip">
+  <a title="Download ZIP" href="https://github.com/aspose-cells/Aspose.Cells-for-Cloud/archive/master.zip">
     <img src="http://i.imgur.com/hwNhrGZ.png" />
   </a>
 </p>
