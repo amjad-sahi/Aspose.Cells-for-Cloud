@@ -17,5 +17,5 @@ Directory | Description
 [Objective C SDK](Aspose.Cells-Cloud-SDK-for-Objective-C) | Aspose.Cells Cloud SDK for Objective C.
 [PHP SDK](Aspose.Cells-Cloud-SDK-for-PHP)  | Aspose.Cells Cloud SDK for PHP.
 [Python SDK](Aspose.Cells-Cloud-SDK-for-Python) | Aspose.Cells Cloud SDK for Python.
-[Ruby SDK](Aspose.Cells-Cloud-SDK-For-Ruby) | Aspose.Cells Cloud SDK for Ruby.
+[Ruby SDK](Aspose.Cells-Cloud-SDK-for-Ruby) | Aspose.Cells Cloud SDK for Ruby.
 [Perl SDK](Aspose.Cells-Cloud-SDK-for-Perl) | Aspose.Cells Cloud SDK for Perl.
