@@ -1,10 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsposeCells", "AsposeCells.csproj", "{7A5DC900-1CF6-4C4D-8C91-7348065595CB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellsTest", "CellsTest\CellsTest.csproj", "{F2CE5343-8A11-4C76-9D8D-0457B6455E52}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D0B8287C-C3AE-48BE-8C63-C5DEC33DD64D}"
 	ProjectSection(SolutionItems) = preProject
 		AsposeCells.vsmdi = AsposeCells.vsmdi
@@ -12,10 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsposeCells", "AsposeCells.csproj", "{7A5DC900-1CF6-4C4D-8C91-7348065595CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellsTest", "CellsTest\CellsTest.csproj", "{F2CE5343-8A11-4C76-9D8D-0457B6455E52}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = AsposeCells.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
