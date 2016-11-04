@@ -16,7 +16,7 @@ namespace CellsTest
     {
         protected string APIKEY = "xxxxxxxx";
         protected string APPSID = "xxxxxxxx";
-        protected string BASEPATH = "http://api.aspose.com/v1.1";
+        protected string BASEPATH = "http://api.aspose.cloud/v1.1";
 
         private TestContext testContextInstance;
 

@@ -101,8 +101,8 @@ public class CellsApiTest {
 	@BeforeClass
 	public static void setUpClass() {
 	        try{
-	        cellsApi = new CellsApi("http://api.aspose.com/v1.1",apiKey,appSID,true);
-                storageApi = new StorageApi("http://api.aspose.com/v1.1",apiKey,appSID);
+	        cellsApi = new CellsApi("http://api.aspose.cloud/v1.1",apiKey,appSID,true);
+                storageApi = new StorageApi("http://api.aspose.cloud/v1.1",apiKey,appSID);
                 storageApi.PutCreate("test_cells.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_cells.xlsx").toURI()));
                 storageApi.PutCreate("test_convert_cell.xlsx", "", "", new File(CellsApiTest.class.getResource("/test_convert_cell.xlsx").toURI()));
                 storageApi.PutCreate("test_book1.xls", "", "", new File(CellsApiTest.class.getResource("/test_book1.xls").toURI()));

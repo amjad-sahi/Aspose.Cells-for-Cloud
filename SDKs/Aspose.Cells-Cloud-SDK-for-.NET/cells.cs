@@ -14,7 +14,7 @@ public static void Main(String[] args){
 
 string APIKEY = "xxxxxxxxxxxxx";
 string APPSID = "xxxxxxxxxxxxx";
-string BASEPATH = "http://api.aspose.com/v1.1";
+string BASEPATH = "http://api.aspose.cloud/v1.1";
 
 try
 {
