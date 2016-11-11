@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 setup(
     name = 'asposecellscloud',
     packages = find_packages(),
-    version = '1.0',
+    version = '1.2,
     description = 'Aspose.Cells Cloud SDK for Python allows you to use Aspose.Cells APIs in your Python applications',
     author='Farooq Sheikh',
     author_email='farooq.sheikh@aspose.com',

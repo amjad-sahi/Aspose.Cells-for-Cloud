@@ -168,3 +168,6 @@ t/data/Sample_SmartMarker_Data.xml
 t/data/Sample_Test_Book.xls
 t/data/testfile.txt
 t/data/WorkSheetBackground_Sample_Test_Book.xls
+Makefile.PL
+META.yml
+META.json

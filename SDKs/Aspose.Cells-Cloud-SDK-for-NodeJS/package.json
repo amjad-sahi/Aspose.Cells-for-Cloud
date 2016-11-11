@@ -1,6 +1,6 @@
 {
   "name": "asposecellscloud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Aspose.Cells Cloud SDK for Node.js",
   "main": "lib/CellsApi.js",
   "homepage": "http://www.aspose.com/cloud/excel-api.aspx",
