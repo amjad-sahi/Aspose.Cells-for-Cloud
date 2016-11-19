@@ -18,8 +18,8 @@ string BASEPATH = "http://api.aspose.cloud/v1.1";
 
 try
 {
-    //StorageApi storageApi = new StorageApi(APIKEY, APPSID, "http://api.aspose.com/v1.1");
-    //CellsApi cellsApi = new CellsApi(APIKEY, APPSID, "http://api.aspose.com/v1.1");
+    //StorageApi storageApi = new StorageApi(APIKEY, APPSID, "http://api.aspose.cloud/v1.1");
+    //CellsApi cellsApi = new CellsApi(APIKEY, APPSID, "http://api.aspose.cloud/v1.1");
 
                 //System.Diagnostics.Debug.WriteLine(cellsApi.GetDocumentProperties("Embeded_OleObject_Sample_Book1.xlsx", null, null));
 
