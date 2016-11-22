@@ -2,7 +2,7 @@
 This SDK lets you use [Aspose Cloud Cells APIs](http://api.aspose.com/v1.1/swagger/ui/index) in your web apps.
 
 ##How to use the SDK?
-The complete source code is available in this repository folder, you can either directly use it in your project or use Maven. For more details, please visit our [documentation website](http://www.aspose.com/docs/display/cellscloud/Available+SDKs).
+The complete source code is available in this repository folder, you can either directly use it in your project or use RubyGems. For more details, please visit our [documentation website](http://www.aspose.com/docs/display/cellscloud/Available+SDKs).
 
 
 
