@@ -1,9 +1,9 @@
-#Aspose.Cells Cloud SDK for Java
+#Aspose.Cells Cloud SDK for Android
 
-This repository contains Aspose.Cells Cloud SDK for Java source code. This SDK allows you to work with Aspose.Cells Cloud REST APIs in your Java applications quickly and easily. 
+This repository contains Aspose.BarCode Cloud SDK for Android source code. This SDK allows you to work with Aspose.BarCode Cloud REST APIs in your Android applications quickly and easily. 
 
 <p align="center">
-  <a title="Download complete Aspose.Cells for Cloud source code" href="https://github.com/asposecells/Aspose_Cells_Cloud/archive/master.zip">
+  <a title="Download complete Aspose.Cells for Cloud source code" href="https://github.com/asposecells/Aspose_cells_Cloud/archive/master.zip">
 	<img src="https://raw.github.com/AsposeExamples/java-examples-dashboard/master/images/downloadZip-Button-Large.png" />
   </a>
 </p>
