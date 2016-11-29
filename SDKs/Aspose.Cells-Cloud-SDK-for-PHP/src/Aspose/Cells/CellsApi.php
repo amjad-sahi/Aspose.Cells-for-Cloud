@@ -3,7 +3,7 @@
 namespace Aspose\Cells;
 
 use Aspose\Cells\ApiException as Exception;
-use Aspose\Cells\ApiClient;
+use Aspose\Cells\APIClient;
 
 class CellsApi {
 
