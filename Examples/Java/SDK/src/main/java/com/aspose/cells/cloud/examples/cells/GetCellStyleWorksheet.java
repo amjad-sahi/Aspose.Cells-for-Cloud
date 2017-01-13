@@ -1,33 +1,39 @@
 package com.aspose.cells.cloud.examples.cells;
 
+import com.aspose.cells.api.CellsApi;
+import com.aspose.cells.cloud.examples.Configuration;
 import com.aspose.cells.cloud.examples.Utils;
+import com.aspose.storage.api.StorageApi;
+
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class GetCellStyleWorksheet {
 
-    public static void main(String... args) throws IOException {
-        String input = "sample1.xlsx";
-        Path inputFile = Utils.getPath(GetCellStyleWorksheet.class, input);
+	public static void main(String... args) throws IOException {
+		try {
+			// Instantiate Aspose Storage API SDK
+			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-        String sheetName = "Sheet1";
-        String cellName = "a1";
+			// Instantiate Aspose Words API SDK
+			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+			String input = "sample1.xlsx";
+			Path inputFile = Utils.getPath(GetCellStyleWorksheet.class, input);
 
-        Utils.getStorageSdk().PutCreate(
-                input,
-                null,
-                Utils.STORAGE,
-                inputFile.toFile()
-        );
+			String sheetName = "Sheet1";
+			String cellName = "a1";
 
-        com.aspose.cells.model.StyleResponse apiResponse = Utils.getCellsSdk().GetWorksheetCellStyle(
-                input,
-                sheetName,
-                cellName,
-                Utils.STORAGE,
-                Utils.FOLDER
-        );
+			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-        System.out.println("Cell Style Font :: " + apiResponse.getStyle().getFont().getName());
-    }
+			com.aspose.cells.model.StyleResponse apiResponse = cellsApi.GetWorksheetCellStyle(input, sheetName,
+					cellName, Utils.STORAGE, Utils.FOLDER);
+
+			System.out.println("Cell Style Font :: " + apiResponse.getStyle().getFont().getName());
+
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -1,33 +1,37 @@
 package com.aspose.cells.cloud.examples.worksheet;
 
+import com.aspose.cells.api.CellsApi;
+import com.aspose.cells.cloud.examples.Configuration;
 import com.aspose.cells.cloud.examples.Utils;
+import com.aspose.storage.api.StorageApi;
+
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class GetComment {
 
-    public static void main(String... args) throws IOException {
-        String input = "Sample1.xlsx";
-        Path inputFile = Utils.getPath(GetComment.class, input);
-        String sheet = "Sheet1";
-        String cell = "A1";
+	public static void main(String... args) throws IOException {
+		try {
+			// Instantiate Aspose Storage API SDK
+			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-        Utils.getStorageSdk().PutCreate(
-                input,
-                null,
-                Utils.STORAGE,
-                inputFile.toFile()
-        );
+			// Instantiate Aspose Words API SDK
+			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+			String input = "Sample1.xlsx";
+			Path inputFile = Utils.getPath(GetComment.class, input);
+			String sheet = "Sheet1";
+			String cell = "A1";
 
-        com.aspose.cells.model.CommentResponse r
-                = Utils.getCellsSdk().GetWorkSheetComment(
-                        inputFile.getFileName().toString(),
-                        sheet,
-                        cell,
-                        Utils.STORAGE,
-                        null
-                );
+			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-        System.out.println("Comment: " + r.getComment().getNote());
-    }
+			com.aspose.cells.model.CommentResponse r = cellsApi.GetWorkSheetComment(inputFile.getFileName().toString(),
+					sheet, cell, Utils.STORAGE, null);
+
+			System.out.println("Comment: " + r.getComment().getNote());
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

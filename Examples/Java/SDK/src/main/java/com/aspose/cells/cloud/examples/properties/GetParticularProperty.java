@@ -1,34 +1,38 @@
 package com.aspose.cells.cloud.examples.properties;
 
+import com.aspose.cells.api.CellsApi;
+import com.aspose.cells.cloud.examples.Configuration;
 import com.aspose.cells.cloud.examples.Utils;
+import com.aspose.storage.api.StorageApi;
+
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class GetParticularProperty {
 
-    public static void main(String... args) throws IOException {
-        String input = "sample1.xlsx";
-        Path inputFile = Utils.getPath(GetParticularProperty.class, input);
-        String propertyName = "Author";
-        
+	public static void main(String... args) throws IOException {
+		try {
+			// Instantiate Aspose Storage API SDK
+			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-        Utils.getStorageSdk().PutCreate(
-                input,
-                Utils.STORAGE,
-                null,
-                inputFile.toFile()
-        );
+			// Instantiate Aspose Words API SDK
+			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+			String input = "sample1.xlsx";
+			Path inputFile = Utils.getPath(GetParticularProperty.class, input);
+			String propertyName = "Author";
 
-        com.aspose.cells.model.CellsDocumentPropertyResponse  apiResponse
-                = Utils.getCellsSdk().GetDocumentProperty(
-                        input,
-                        propertyName,
-                        Utils.STORAGE,
-                        null
-                );
+			storageApi.PutCreate(input, Utils.STORAGE, null, inputFile.toFile());
 
-        System.out.println(" Author : " + apiResponse.getDocumentProperty().getValue());
+			com.aspose.cells.model.CellsDocumentPropertyResponse apiResponse = cellsApi.GetDocumentProperty(input,
+					propertyName, Utils.STORAGE, null);
 
-    }
+			System.out.println(" Author : " + apiResponse.getDocumentProperty().getValue());
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 }

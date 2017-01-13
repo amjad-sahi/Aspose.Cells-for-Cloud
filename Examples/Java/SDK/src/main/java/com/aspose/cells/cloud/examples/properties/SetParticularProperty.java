@@ -1,6 +1,10 @@
 package com.aspose.cells.cloud.examples.properties;
 
+import com.aspose.cells.api.CellsApi;
+import com.aspose.cells.cloud.examples.Configuration;
 import com.aspose.cells.cloud.examples.Utils;
+import com.aspose.storage.api.StorageApi;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,40 +12,36 @@ import java.nio.file.StandardCopyOption;
 
 public class SetParticularProperty {
 
-    public static void main(String... args) throws IOException {
-        String input = "sample1.xlsx";
-        Path inputFile = Utils.getPath(SetParticularProperty.class, input);
-        String output = "sample2.xlsx";
-        Path outputFile = Utils.getPath(SetParticularProperty.class, output);
+	public static void main(String... args) throws IOException {
+		try {
+			// Instantiate Aspose Storage API SDK
+			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-        Utils.getStorageSdk().PutCreate(
-                input,
-                Utils.STORAGE,
-                null,
-                inputFile.toFile()
-        );
+			// Instantiate Aspose Words API SDK
+			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+			String input = "sample1.xlsx";
+			Path inputFile = Utils.getPath(SetParticularProperty.class, input);
+			String output = "sample2.xlsx";
+			Path outputFile = Utils.getPath(SetParticularProperty.class, output);
 
-        String propertyName = "Author";
-        com.aspose.cells.model.CellsDocumentProperty body = new com.aspose.cells.model.CellsDocumentProperty();
-        body.setName("AsposeAuthor");
-        body.setValue("Aspose Plugin Developer");
-        body.setBuiltIn("false");
+			storageApi.PutCreate(input, Utils.STORAGE, null, inputFile.toFile());
 
-        Utils.getCellsSdk().PutDocumentProperty(
-                input,
-                propertyName,
-                Utils.STORAGE,
-                Utils.FOLDER,
-                body
-        );
+			String propertyName = "Author";
+			com.aspose.cells.model.CellsDocumentProperty body = new com.aspose.cells.model.CellsDocumentProperty();
+			body.setName("AsposeAuthor");
+			body.setValue("Aspose Plugin Developer");
+			body.setBuiltIn("false");
 
-        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
-                input,
-                null,
-                Utils.STORAGE
-        );
+			cellsApi.PutDocumentProperty(input, propertyName, Utils.STORAGE, Utils.FOLDER, body);
 
-        Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
-    }
+			com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(input, null, Utils.STORAGE);
+
+			Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
