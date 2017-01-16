@@ -1,34 +1,39 @@
 package com.aspose.cells.cloud.examples.rows;
 
+import com.aspose.cells.api.CellsApi;
+import com.aspose.cells.cloud.examples.Configuration;
 import com.aspose.cells.cloud.examples.Utils;
+import com.aspose.storage.api.StorageApi;
+
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class GetRowFromWorksheet {
 
-    public static void main(String... args) throws IOException {
-        String input = "Sample1.xlsx";
-        Path inputFile = Utils.getPath(GetRowFromWorksheet.class, input);
-        
-        String sheetName = "Sheet1";
-        Integer rowIndex = 1;
-        
-        Utils.getStorageSdk().PutCreate(
-                input,
-                null,
-                Utils.STORAGE,
-                inputFile.toFile()
-        );
+	public static void main(String... args) throws IOException {
+		try {
+			// Instantiate Aspose Storage API SDK
+			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-        com.aspose.cells.model.RowResponse apiResponse = Utils.getCellsSdk().GetWorksheetRow(
-                input, 
-                sheetName, 
-                rowIndex, 
-                Utils.STORAGE,
-                null
-        );
+			// Instantiate Aspose Words API SDK
+			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+			String input = "Sample1.xlsx";
+			Path inputFile = Utils.getPath(GetRowFromWorksheet.class, input);
 
-        System.out.println(" Row Href : " + apiResponse.getRow().getLink().getHref());
+			String sheetName = "Sheet1";
+			Integer rowIndex = 1;
 
-    }
+			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+
+			com.aspose.cells.model.RowResponse apiResponse = cellsApi.GetWorksheetRow(input, sheetName, rowIndex,
+					Utils.STORAGE, null);
+
+			System.out.println(" Row Href : " + apiResponse.getRow().getLink().getHref());
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }

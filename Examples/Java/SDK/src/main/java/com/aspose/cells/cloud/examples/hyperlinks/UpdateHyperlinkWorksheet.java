@@ -1,6 +1,10 @@
 package com.aspose.cells.cloud.examples.hyperlinks;
 
+import com.aspose.cells.api.CellsApi;
+import com.aspose.cells.cloud.examples.Configuration;
 import com.aspose.cells.cloud.examples.Utils;
+import com.aspose.storage.api.StorageApi;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,43 +12,37 @@ import java.nio.file.StandardCopyOption;
 
 public class UpdateHyperlinkWorksheet {
 
-    public static void main(String... args) throws IOException {
-        String input = "sample1.xlsx";
-        Path inputFile = Utils.getPath(UpdateHyperlinkWorksheet.class, input);
-        String output = "sample2.xlsx";
-        Path outputFile = Utils.getPath(UpdateHyperlinkWorksheet.class, output);
+	public static void main(String... args) throws IOException {
+		try {
+			// Instantiate Aspose Storage API SDK
+			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-        String sheetName = "Sheet1";
-        Integer hyperlinkIndex = 0;
-        com.aspose.cells.model.Hyperlink body = new com.aspose.cells.model.Hyperlink();
-        body.setAddress("http://www.aspose.com/cloud/total-api.aspx");
-        body.setTextToDisplay("Aspose Cloud APIs");
-        
-        Utils.getStorageSdk().PutCreate(
-                input,
-                null,
-                Utils.STORAGE,
-                inputFile.toFile()
-        );
+			// Instantiate Aspose Words API SDK
+			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+			String input = "sample1.xlsx";
+			Path inputFile = Utils.getPath(UpdateHyperlinkWorksheet.class, input);
+			String output = "sample2.xlsx";
+			Path outputFile = Utils.getPath(UpdateHyperlinkWorksheet.class, output);
 
-        Utils.getCellsSdk().PostWorkSheetHyperlink(
-                input, 
-                sheetName, 
-                hyperlinkIndex, 
-                Utils.STORAGE,
-                Utils.FOLDER,
-                body
-        );
-                
+			String sheetName = "Sheet1";
+			Integer hyperlinkIndex = 0;
+			com.aspose.cells.model.Hyperlink body = new com.aspose.cells.model.Hyperlink();
+			body.setAddress("http://www.aspose.com/cloud/total-api.aspx");
+			body.setTextToDisplay("Aspose Cloud APIs");
 
-        com.aspose.storage.model.ResponseMessage sr = Utils.getStorageSdk().GetDownload(
-                input,
-                null,
-                Utils.STORAGE
-        );
+			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-        Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+			cellsApi.PostWorkSheetHyperlink(input, sheetName, hyperlinkIndex, Utils.STORAGE, Utils.FOLDER, body);
 
-    }
+			com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(input, null, Utils.STORAGE);
+
+			Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 }
