@@ -1,37 +1,51 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Workbook
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Workbook
 {
     class ConvertWorkbookWithAdditionalSettings
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.pdf";
-            string outPath = "cellsOut/";
+            String fileName = "Sample_Test_Book";
+            String inputfileName = fileName + ".xls";
+            String format = "pdf";
+            String password = "";
+            String outPath = "";
+            String outputFileName = fileName + "." + format;
 
-            string xml = @"<PdfSaveOptions>
-	            <-- Pdf property -->
-	            <CalculateFormula>False</CalculateFormula>
-	            <CheckFontCompatibility>False</CheckFontCompatibility>
-	            <Compliance>None</Compliance>
-	            <OnePagePerSheet>True</OnePagePerSheet>
-	            <desiredPPI>90</desiredPPI>
-	            <jpegQuality>70</jpegQuality>
-	            <SaveFormat>Pdf</SaveFormat>
+            byte[] file = System.IO.File.ReadAllBytes(Common.GetDataDir() + inputfileName);
 
-                </PdfSaveOptions>";
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(inputfileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + inputfileName));
 
+                // Invoke Aspose.Cells Cloud SDK API to convert workbook with additional settings
+                ResponseMessage apiResponse = cellsApi.PutConvertWorkBook(format, password, outPath, file);
 
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
-
-            CellsSaveResultResponse CellsSaveResultResponse =
-            Common.CellsService.SaveAs.ConvertDocumentAndSaveResultToStorage(input, outPath + output,
-            true, true, xml, Common.FOLDER, storage: Common.STORAGE);
-            
-            Common.StorageService.File.DownloadFile(outPath+output, dataDir+output, storage: Common.STORAGE);
+                if (apiResponse.Status.Equals("Ok"))
+                {
+                    Console.WriteLine("File Converted successfully to:" + outputFileName);
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("status:" + apiResponse.Status);
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }

@@ -1,35 +1,48 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.PivotTables
+namespace PivotTables
 {
-    class AddPivotFieldInPivottable
+    class AddPivotFieldInPivotTable
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.xlsx";
+            String fileName = "Sample_Pivot_Table_Example.xls";
+            String sheetName = "Sheet2";
+            int pivotTableIndex = 0;
+            String pivotFieldType = "Row";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
-            string sheetName = "Sheet1";
+            Com.Aspose.Cells.Model.PivotTableFieldRequest body = new Com.Aspose.Cells.Model.PivotTableFieldRequest();
+            body.Data = new System.Collections.Generic.List<int?> { 1, 2 };
 
-            PivotTableFieldRequest pivotTableFieldRequest = new PivotTableFieldRequest();
-            pivotTableFieldRequest.Data = new System.Collections.Generic.List<int>();
-            pivotTableFieldRequest.Data.Add(1);
-            pivotTableFieldRequest.Data.Add(1);
-            Common.CellsService.PivotTable.AddPivotFieldIntoIntoPivotTable(input, sheetName, 0, "Row", pivotTableFieldRequest, Common.FOLDER, storage: Common.STORAGE);
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
+
+                // Invoke Aspose.Cells Cloud SDK API to add pivot field in pivot table
+                SaaSposeResponse apiResponse = cellsApi.PutPivotTableField(fileName, sheetName, pivotTableIndex, pivotFieldType, storage, folder, body);
+
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Add Pivot Field into Pivot Table, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

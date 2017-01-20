@@ -1,30 +1,44 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Charts
+namespace Charts
 {
     class GetChartFillFormat
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
-            string sheetName = "Sheet1";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet5";
+            int chartIndex = 0;
+            String storage = "";
+            String folder = "";
 
-            FillFormatResponse apiResponse = Common.CellsService.ChartArea.GetChartAreaFillFormatInfo(input, sheetName, 0, Common.FOLDER, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            Console.WriteLine(" Response Fill: " + apiResponse.FillFormat.Type.GetType());
+                // Invoke Aspose.Cells Cloud SDK API to get fill format of chart area from worksheet
+                FillFormatResponse apiResponse = cellsApi.GetChartAreaFillFormat(fileName, sheetName, chartIndex, storage, folder);
 
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    FillFormat chartAreaFillFormat = apiResponse.FillFormat;
+                    Console.WriteLine("ChatArea FillFormat Type :: " + chartAreaFillFormat.Type);
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

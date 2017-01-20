@@ -1,23 +1,51 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Workbook
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Workbook
 {
     class ConvertWorkbookToAnotherFormatWithoutStorage
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.pdf";
-            string outPath = "cellsOut/";
-            
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
+            String fileName = "Sample_Test_Book";
+            String inputfileName = fileName + ".xls";
+            String format = "pdf";
+            String password = "";
+            String outPath = "";
+            String outputFileName = fileName + "." + format;
 
-            Common.CellsService.Workbook.ExportWorkbook(input, WorkbookExportFormat.Pdf, string.Empty,
-                false, Common.FOLDER, outPath+output, storage: Common.STORAGE);
-            
-            Common.StorageService.File.DownloadFile(outPath+output, dataDir+output, storage: Common.STORAGE);
+            byte[] file = System.IO.File.ReadAllBytes(Common.GetDataDir() + inputfileName);
+
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(inputfileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + inputfileName));
+
+                // Invoke Aspose.Cells Cloud SDK API to convert excel workbook to different format without storage
+                ResponseMessage apiResponse = cellsApi.PutConvertWorkBook(format, password, outPath, file);
+
+                if (apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("File Converted successfully to:" + outputFileName);
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("status:" + apiResponse.Status);
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }

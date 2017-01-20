@@ -1,31 +1,43 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.PivotTables
+namespace PivotTables
 {
     class DeleteWorksheetPivotTableIndex
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.xlsx";
+            String fileName = "Sample_Pivot_Table_Example.xls";
+            String sheetName = "Sheet2";
+            int pivotTableIndex = 0;
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
-            string sheetName = "Sheet1";
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            Common.CellsService.PivotTable.DeleteWorksheetPivotTableByIndex(input, sheetName, 0, Common.FOLDER, storage: Common.STORAGE);
+                // Invoke Aspose.Cells Cloud SDK API to delete worksheet pivot table by index
+                SaaSposeResponse apiResponse = cellsApi.DeleteWorksheetPivotTable(fileName, sheetName, pivotTableIndex, storage, folder);
 
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Delete Worksheet Pivot Table by Index, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

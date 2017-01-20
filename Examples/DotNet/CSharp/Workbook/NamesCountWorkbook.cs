@@ -1,22 +1,41 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Workbook
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Workbook
 {
     class NamesCountWorkbook
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-                        
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
+            String fileName = "Sample_Test_Book.xls";
+            String storage = "";
+            String folder = "";
 
-            WorkbookNamesResponse apiResponse = Common.CellsService.Workbook.ReadWorkbooksNames( input, Common.FOLDER, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            Console.WriteLine(" Names Count: "+ apiResponse.Names.Count);
+                // Invoke Aspose.Cells Cloud SDK API to get names count from excel workbook
+                NamesResponse apiResponse = cellsApi.GetWorkBookNames(fileName, storage, folder);
 
-
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Names count:" + apiResponse.Names.Count);
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }

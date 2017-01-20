@@ -1,45 +1,49 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Pictures
+namespace Pictures
 {
     class AddPicturesWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string pic = "picture.png";
-            string output = "output.xlsx";
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            String fileName = "Sample_Test_Book.xls";
+            string sheetName = "Sheet6";
+            int? upperLeftRow = 5;
+            int? upperLeftColumn = 5;
+            int? lowerRightRow = 10;
+            int? lowerRightColumn = 10;
+            string picturePath = "aspose-cloud.png";
+            string storage = null;
+            string folder = null;
+            byte[] file = null;
 
-            Common.StorageService.File.UploadFile(dataDir + pic, pic, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
+                storageApi.PutCreate(picturePath, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + picturePath));
 
-            string sheetName = "Sheet1";
+                // Invoke Aspose.Cells Cloud SDK API to add picture to worksheet
+                PicturesResponse apiResponse = cellsApi.PutWorksheetAddPicture(fileName, sheetName, upperLeftRow, upperLeftColumn, lowerRightRow, lowerRightColumn, picturePath, storage, folder, file);
 
-
-            CellsPicturesResponse CellsPicturesResponse = Common.CellsService.Pictures.ReadWorksheetPictures(input, sheetName, Common.FOLDER, storage: Common.STORAGE);
-
-            CellsPicture cellsPicture = new CellsPicture();
-            cellsPicture.AlternativeText = "Aspose";
-            cellsPicture.BorderLineColor = new Color(5, 5, 5, 5);
-            cellsPicture.BorderWeight = 2;
-            cellsPicture.Height = 100;
-            cellsPicture.Width = 100;
-            cellsPicture.SourceFullName = "picture.png";
-
-            Common.CellsService.Pictures.AddANewWorksheetPicture(input, sheetName, 1, 1, 5, 5, "picture.png", cellsPicture, Common.FOLDER, storage: Common.STORAGE);
-
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Add Pictures to Excel Worksheet, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

@@ -1,23 +1,39 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Worksheet
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Worksheet
 {
     class AddNewSheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "ouput.xlsx";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet2-new";
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Invoke Aspose.Cells Cloud SDK API to add new excel sheet
+                WorksheetsResponse apiResponse = cellsApi.PutAddNewWorksheet(fileName, sheetName, storage, folder);
 
-            Common.CellsService.Worksheets.AddNewWorksheet(input, "Sheet2", Common.FOLDER, storage: Common.STORAGE);
-
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
-
+                if (apiResponse != null)
+                {
+                    Console.WriteLine("Added a New Excel Worksheet!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

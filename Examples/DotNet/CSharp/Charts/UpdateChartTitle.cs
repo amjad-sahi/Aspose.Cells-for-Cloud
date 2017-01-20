@@ -1,36 +1,46 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Charts
+namespace Charts
 {
     class UpdateChartTitle
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "Sample1.xlsx";
-            string output = "output.xlsx";
-            string sheetName = "Sheet1";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet5";
+            int chartIndex = 0;
+            String storage = "";
+            String folder = "";
+            Title body = new Title();
+            body.Text = "aspose";
+            body.Height = 15;
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            CellsChartResponse cellsChartResponse = Common.CellsService.Charts.GetChartInfo(input, sheetName, 0, Common.FOLDER);
-            
-            Common.CellsService.Charts.UpdateChartTitle(input, sheetName, 0, cellsChartResponse.Chart, Common.FOLDER, storage: Common.STORAGE);
+                // Invoke Aspose.Cells Cloud SDK API to update chart title
+                TitleResponse apiResponse = cellsApi.PostWorksheetChartTitle(fileName, sheetName, chartIndex, storage, folder, body);
 
-            Common.CellsService.Charts.SetChartTitleVisible(input, sheetName, 0, cellsChartResponse.Chart, Common.FOLDER, storage: Common.STORAGE);
-
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
-
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Update Chart Title in Excel Worksheet, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

@@ -1,24 +1,43 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Rows
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Rows
 {
     class GetRowFromWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet1";
+            int rowIndex = 1;
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            string sheetName = "Sheet1";
+                // Invoke Aspose.Cells Cloud SDK API to get row from worksheet
+                RowResponse apiResponse = cellsApi.GetWorksheetRow(fileName, sheetName, rowIndex, storage, folder);
 
-            WorksheetRowResponse apiResponse = Common.CellsService.WorksheetColumns.ReadWorksheetRowDataByRowIndex(input, sheetName, 0, Common.FOLDER, storage: Common.STORAGE);
-
-            Console.WriteLine(" Row: " + apiResponse.Row.link.ToString());
-
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Row Href : " + apiResponse.Row.link.Href);
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

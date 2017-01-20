@@ -1,28 +1,49 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Worksheet
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Worksheet
 {
     class UpdateWorksheetProperties
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "ouput.xlsx";
-            string sheetName = "Sheet1";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet1";
+            String folder = "";
+            String storage = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            Com.Aspose.Cells.Model.Worksheet body = new Com.Aspose.Cells.Model.Worksheet();
+            body.Type = "Worksheet";
+            body.Name = "Sheet1";
+            body.IsGridlinesVisible = true;
+            body.IsPageBreakPreview = true;
+            body.IsRulerVisible = true;
 
-            WorksheetResponse ReadWorksheetInfo = Common.CellsService.Worksheets.ReadWorksheetInfo(input, "Sheet1", Common.FOLDER);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            ReadWorksheetInfo.Worksheet.IsSelected = true;
+                // Invoke Aspose.Cells Cloud SDK API to update worksheet properties
+                WorksheetResponse apiResponse = cellsApi.PostUpdateWorksheetProperty(fileName, sheetName, folder, storage, body);
 
-            WorksheetResponse apiResponse = Common.CellsService.Worksheets.UpdateWorksheetProperty(input, sheetName, ReadWorksheetInfo.Worksheet, Common.FOLDER, storage: Common.STORAGE);
-
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
-
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Update Excel Worksheet Properties!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

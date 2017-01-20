@@ -1,24 +1,44 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Worksheet
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Worksheet
 {
     class GetAutoshape
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet4";
+            int autoshapeNumber = 1;
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            string sheetName = "Sheet1";
+                // Invoke Aspose.Cells Cloud SDK API to get autoshape from worksheet
+                AutoShapeResponse apiResponse = cellsApi.GetWorksheetAutoshape(fileName, sheetName, autoshapeNumber, storage, folder);
 
-            AutoShapeResponse apiResponse = Common.CellsService.Autoshapes.GetAutoshapeInfo(input, sheetName, 0, Common.FOLDER, storage: Common.STORAGE);
-
-            Console.WriteLine(" Autoshape width : " + apiResponse.AutoShape.Width);
-
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    AutoShape autoShape = apiResponse.AutoShape;
+                    Console.WriteLine(autoShape.HtmlText);
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

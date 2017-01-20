@@ -1,31 +1,43 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Oleobjects
+namespace OleObjects
 {
     class GetOleObjectWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
+            String fileName = "Sample_OleObject_Book1.xlsx";
+            String sheetName = "Sheet1";
+            int objectNumber = 0;
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            string sheetName = "Sheet1";
+                // Invoke Aspose.Cells Cloud SDK API to get OleObject from worksheet
+                ResponseMessage apiResponse = cellsApi.GetWorksheetOleObject(fileName, sheetName, objectNumber, storage, folder);
 
-            CellsOleObjectResponse apiResult = Common.CellsService.OleObjects.GetOleObjectInfo(input, sheetName, 0, Common.FOLDER, storage: Common.STORAGE);
-
-            Console.WriteLine(" Result: " + apiResult.OleObject.FileFormatType.ToString());
+                if (apiResponse != null)
+                {
+                    Console.WriteLine("OleObject" + System.Text.Encoding.Default.GetString(apiResponse.ResponseStream));
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

@@ -1,66 +1,34 @@
 ﻿using System;
 using System.IO;
-using Aspose.Cloud;
 
-namespace Aspose.Cells.Cloud.Examples
+class Common
 {
-    class Common
+    public static string APP_SID = "6dd37866-34c8-4449-9331-befa3e86bd6f";
+    public static string APP_KEY = "1ddbe7208305c55333e690284419cd2b";
+    public static string FOLDER = "";
+    public static string STORAGE = "";
+    public static string BASEPATH = "http://api.aspose.cloud/v1.1";
+    // public static string BASEPATH = "http://localhost:8080/v1.1";
+    public static string OUTFOLDER = "C://temp/";
+
+    public static string GetDataDir()
     {
-        public static string APP_SID = null;
-        public static string APP_KEY = null;
-        public static string FOLDER = "";
-        public static string STORAGE = "";
-
-        public static string GetDataDir(Type t)
+        var parent = Directory.GetParent(Directory.GetCurrentDirectory()).Parent;
+        string startDirectory = null;
+        if (parent != null)
         {
-            string c = t.FullName;
-            c = c.Replace("Aspose.Cells.Cloud.Examples.", "");
-            c = c.Replace('.', Path.DirectorySeparatorChar);
-            string p = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "Data", c));
-            p += Path.DirectorySeparatorChar;
-            Console.WriteLine("Using Data Dir {0}", p);
-            return p;
-        }
-
-        public static CellsService CellsService
-        {
-            get {
-                CheckCredentials();
-                CellsService c = new CellsService(APP_SID, APP_KEY);
-                return c;
-            }
-        }
-
-        public static StorageService StorageService
-        {
-            get
+            var directoryInfo = parent.Parent;
+            if (directoryInfo != null)
             {
-                CheckCredentials();
-                StorageService s = new StorageService(APP_SID, APP_KEY);
-                return s;
+                startDirectory = directoryInfo.FullName;
             }
         }
-
-        private static void CheckCredentials()
+        else
         {
-            if (String.IsNullOrEmpty(APP_SID) || String.IsNullOrEmpty(APP_KEY))
-            {
-                System.Windows.Forms.MessageBox.Show("APP_SID and APP_KEY must have valid values. Check " + System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.FullName + " class for details.");
-                Environment.Exit(1);
-            }
+            startDirectory = parent.FullName;
         }
-
-        public static void Pause()
-        {
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
-        }
-
-        static void Main()
-        {
-            CheckCredentials();
-            Console.WriteLine("To run an example, Go to 'Project Properties' and set the 'Startup Object'");
-            Pause();
-        }
+        return Path.Combine(startDirectory, "Data\\");
     }
+
 }
+

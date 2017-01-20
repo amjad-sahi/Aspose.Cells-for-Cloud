@@ -1,23 +1,47 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Workbook
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Workbook
 {
     class MergeWorkbooks
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample2.xlsx";
-            string mergeWith = "sample3.xlsx";
-            string output = "output.xlsx";
-                        
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
-            Common.StorageService.File.UploadFile(dataDir+mergeWith, mergeWith, storage: Common.STORAGE);
+            String fileName = "Sample_Book1.xlsx";
+            String mergeWith = "Sample_Book2.xls";
+            String storage = "";
+            String folder = "";
 
-            Common.CellsService.Workbook.MergeWorkbooks(input, mergeWith, Common.FOLDER, storage: Common.STORAGE);
-            
-            Common.StorageService.File.DownloadFile(input, dataDir+output, storage: Common.STORAGE);
+            try
+            {
+
+                // Upload file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
+
+                // Upload merge file to aspose cloud storage
+                storageApi.PutCreate(mergeWith, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + mergeWith));
+
+                // Invoke Aspose.Cells Cloud SDK API to merge excel workbooks
+                WorkbookResponse apiResponse = cellsApi.PostWorkbooksMerge(fileName, mergeWith, storage, folder);
+
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    String destFileName = apiResponse.Workbook.FileName;
+                    Console.WriteLine("File name:" + destFileName);
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
