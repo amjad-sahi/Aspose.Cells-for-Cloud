@@ -15,20 +15,19 @@ namespace Cells
 
             String fileName = "Sample_Test_Book.xls";
             String sheetName = "Sheet1";
-            String cellName = "a12";
-            String value = "";
-            String type = "int";
-            String formula = "sum(a5:a10)";
+            String cellName = "a12";                      
             String storage = "";
             String folder = "";
 
+            Style style = new Style;
+            
             try
             {
                 // Upload source file to aspose cloud storage
                 storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
                 // Invoke Aspose.Cells Cloud SDK API to change cell style
-                CellResponse apiResponse = cellsApi.PostWorksheetCellSetValue(fileName, sheetName, cellName, value, type, formula, storage, folder);
+                StyleResponse apiResponse = cellsApi.PostUpdateWorksheetCellStyle(fileName, sheetName, cellName, storage, folder,style);
 
                 if (apiResponse != null && apiResponse.Status.Equals("OK"))
                 {

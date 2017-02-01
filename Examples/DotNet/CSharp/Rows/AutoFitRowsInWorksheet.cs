@@ -13,9 +13,10 @@ namespace Rows
             CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
             StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            String fileName = "Sample_Test_Book.xls";
-            String password = "";
+            String fileName = "Sample_Test_Book.xls";            
             Boolean isAutoFit = true;
+            int? startRow =  1;
+            int? endRow = 10;
             String storage = "";
             String folder = "";
 
@@ -25,7 +26,7 @@ namespace Rows
                 storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
                 // Invoke Aspose.Cells Cloud SDK API to autofit rows in workbooks
-                ResponseMessage apiResponse = cellsApi.GetWorkBook(fileName, password, isAutoFit, storage, folder);
+                SaaSposeResponse apiResponse = cellsApi.PostAutofitWorkbookRows(fileName, startRow, endRow, isAutoFit, storage, folder, null);
 
                 if (apiResponse != null)
                 {
