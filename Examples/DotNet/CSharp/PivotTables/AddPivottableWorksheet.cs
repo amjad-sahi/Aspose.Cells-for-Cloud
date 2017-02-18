@@ -1,47 +1,54 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.PivotTables
+namespace PivotTables
 {
-    class AddPivottableWorksheet
+    class GetOleObjectWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.xlsx";
-
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            String fileName = "Sample_Test_Book.xls";
             string sheetName = "Sheet1";
+            string storage = null;
+            string folder = null;
+            string sourceData = null;
+            string destCellName = null;
+            string tableName = null;
+            bool? useSameSource = false;
+            Com.Aspose.Cells.Model.CreatePivotTableRequest body = new Com.Aspose.Cells.Model.CreatePivotTableRequest();
+            body.Name = "MyPivot";
+            body.SourceData = "A5:E10";
+            body.DestCellName = "H20";
+            body.UseSameSource = true;
+            body.PivotFieldRows = new System.Collections.Generic.List<int?> { 1 };
+            body.PivotFieldColumns = new System.Collections.Generic.List<int?> { 1 };
+            body.PivotFieldData = new System.Collections.Generic.List<int?> { 1 };
 
-            CreatePivotTableRequest createPivotTableRequest = new CreatePivotTableRequest();
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            createPivotTableRequest.Name = "ASPOSE Pivot Table";
-            createPivotTableRequest.SourceData = "A1:C7";
-            createPivotTableRequest.DestCellName = "H10";
-            createPivotTableRequest.UseSameSource = true;
+                // Invoke Aspose.Cells Cloud SDK API to add pivot table worksheet
+                PivotTableResponse apiResponse = cellsApi.PutWorksheetPivotTable(fileName, sheetName, storage, folder, sourceData, destCellName, tableName, useSameSource, body);
 
-            createPivotTableRequest.PivotFieldRows = new System.Collections.Generic.List<int>();
-            createPivotTableRequest.PivotFieldRows.Add(1);
-
-            createPivotTableRequest.PivotFieldColumns = new System.Collections.Generic.List<int>();
-            createPivotTableRequest.PivotFieldColumns.Add(1);
-
-            createPivotTableRequest.PivotFieldData = new System.Collections.Generic.List<int>();
-            createPivotTableRequest.PivotFieldData.Add(1);
-
-            Common.CellsService.PivotTable.AddAPivotTableIntoWorksheet(input, sheetName, createPivotTableRequest, Common.FOLDER, storage: Common.STORAGE);
-
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Add a Pivot Table in a Worksheet, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

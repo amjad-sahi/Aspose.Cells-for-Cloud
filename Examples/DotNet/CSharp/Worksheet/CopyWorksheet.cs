@@ -1,24 +1,43 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Worksheet
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Worksheet
 {
     class CopyWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "ouput.xlsx";
-            string copySheet = "Sheet2";
-            string sourceSheet = "Sheet1";
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet7";
+            String sourceSheet = "Sheet1";
+            String folder = "";
+            String storage = "";
 
-            Common.CellsService.Worksheets.CopyWorksheet(input, copySheet, sourceSheet, Common.FOLDER, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
+                // Invoke Aspose.Cells Cloud SDK API to copy excel worksheet
+                SaaSposeResponse apiResponse = cellsApi.PostCopyWorksheet(fileName, sheetName, sourceSheet, folder, storage);
 
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Excel Worksheet copied!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

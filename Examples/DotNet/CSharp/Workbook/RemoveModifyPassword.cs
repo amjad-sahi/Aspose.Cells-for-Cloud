@@ -1,25 +1,41 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Workbook
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Workbook
 {
     class RemoveModifyPassword
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "ouput.xlsx";
-                        
-            Common.StorageService.File.UploadFile(dataDir+input, input, storage: Common.STORAGE);
-            
-            ProtectDocumentRequest protectDocumentRequest = new ProtectDocumentRequest();
-            protectDocumentRequest.Password = "Aspose";
+            String fileName = "password_protected_Sample_Test_Book.xls";
+            String storage = "";
+            String folder = "";
 
-            Common.CellsService.Workbook.UnprotectDocumentFromChanges(input, Common.FOLDER, protectDocumentRequest, storage: Common.STORAGE);
-            
-            Common.StorageService.File.DownloadFile(input, dataDir+output, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
+                // Invoke Aspose.Cells Cloud SDK API to clear modify password
+                SaaSposeResponse apiResponse = cellsApi.DeleteDocumentUnProtectFromChanges(fileName, storage, folder);
+
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Password is removed");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }

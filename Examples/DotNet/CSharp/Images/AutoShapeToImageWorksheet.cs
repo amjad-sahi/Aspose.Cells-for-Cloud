@@ -1,32 +1,45 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Images
+namespace Images
 {
     class AutoShapeToImageWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.png";
+            String name = "Sample_Test_Book";
+            String fileName = name + ".xls";
+            String sheetName = "Sheet4";
+            int autoshapeNumber = 1;
+            String format = "png";
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            string sheetName = "Sheet1";
-            string outPath = dataDir + output;
+                // Invoke Aspose.Cells Cloud SDK API to convert autoshape to image 
+                ResponseMessage apiResponse = cellsApi.GetWorksheetAutoshapeWithFormat(fileName, sheetName, autoshapeNumber, format, storage, folder);
 
-            Common.CellsService.Autoshapes.GetAutoshapeInSomeFormat(input, sheetName, 0, CellsAutoshapeFormat.Png, Common.FOLDER, outPath, storage: Common.STORAGE);
-
+                if (apiResponse != null)
+                {
+                    Console.WriteLine("Convert AutoShape to Image , Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

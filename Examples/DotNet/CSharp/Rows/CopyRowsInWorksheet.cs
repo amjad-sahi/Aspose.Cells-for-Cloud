@@ -1,25 +1,46 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Rows
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Rows
 {
     class CopyRowsInWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "ouput.xlsx";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet2";
+            int sourceRowIndex = 1;
+            int destinationRowIndex = 1;
+            int rowNumber = 1;
+            String worksheet = "Sheet1";
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            string sheetName = "Sheet1";
+                // Invoke Aspose.Cells Cloud SDK API to copy rows in worksheet
+                SaaSposeResponse apiResponse = cellsApi.PostCopyWorksheetRows(fileName, sheetName, sourceRowIndex, destinationRowIndex, rowNumber, worksheet, storage, folder);
 
-            Common.CellsService.WorksheetColumns.CopyWorksheetRows(input, sheetName, 0, 5, 3, sheetName, Common.FOLDER, storage: Common.STORAGE);
-
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
-
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Copy Rows in Excel Worksheet, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

@@ -1,29 +1,43 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Cells
+namespace Cells
 {
     class GetMinDataColumnWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet2";
+            String cellOrMethodName = "mindatacolumn";
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            WorkbookCellResponse apiResponse = Common.CellsService.WorksheetColumns.ReadCellDataByCellName(input, "Sheet1", "mindatacolumn", Common.FOLDER, storage: Common.STORAGE);
+                // Invoke Aspose.Cells Cloud SDK API to get min data column from worksheet
+                ResponseMessage apiResponse = cellsApi.GetWorksheetCell(fileName, sheetName, cellOrMethodName, storage, folder);
 
-            Console.WriteLine(" Response Type: " + apiResponse.Status.ToString());
+                if (apiResponse != null)
+                {
+                    Console.WriteLine("MinDataColumn," + System.Text.Encoding.Default.GetString(apiResponse.ResponseStream));
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

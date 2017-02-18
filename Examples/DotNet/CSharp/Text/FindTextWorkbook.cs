@@ -1,29 +1,47 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Text
+namespace Text
 {
     class FindTextWorkbook
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string text = "aspose";
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            String fileName = "Sample_Test_Book.xls";
+            String text = "aspose";
+            String storage = null;
+            String folder = null;
 
-            CellsTextItemsResponse apiResponse = Common.CellsService.Workbook.SearchText(input, text, Common.FOLDER, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            Console.WriteLine(" Response Type: " + apiResponse.TextItems.GetType().ToString());
+                // Invoke Aspose.Cells Cloud SDK API to find text in workbook
+                TextItemsResponse apiResponse = cellsApi.PostWorkbooksTextSearch(fileName, text, storage, folder);
+
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    foreach (TextItem item in apiResponse.TextItems.TextItemList)
+                    {
+                        Console.WriteLine("Text: " + item.Text);
+                        Console.WriteLine("Href: " + item.link.Href);
+                        Console.WriteLine("");
+                    }
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

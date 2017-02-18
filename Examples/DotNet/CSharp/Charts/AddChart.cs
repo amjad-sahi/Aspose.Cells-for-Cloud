@@ -1,33 +1,52 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Charts
+namespace Charts
 {
     class AddChart
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.xlsx";
-            string sheetName = "Sheet1";
-            string outPath = "cellsOut/";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet6";
+            String chartType = "bar";
+            int upperLeftRow = 12;
+            int upperLeftColumn = 12;
+            int lowerRightRow = 20;
+            int lowerRightColumn = 20;
+            String area = "A1:A3";
+            Boolean isVertical = false;
+            String categoryData = "";
+            Boolean isAutoGetSerialName = true;
+            String title = "SalesState";
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, outPath + input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            Common.CellsService.Charts.AddNewChartToWorksheet(input, sheetName, ChartType.Bar, 1, 1, 1, 1, "A1:B3", true, "", true, "Aspose.Cells for .NET", outPath, storage: Common.STORAGE);
+                // Invoke Aspose.Cells Cloud SDK API to add chart in worksheet
+                ChartsResponse apiResponse = cellsApi.PutWorksheetAddChart(fileName, sheetName, chartType, upperLeftRow, upperLeftColumn, lowerRightRow, lowerRightColumn, area, isVertical, categoryData, isAutoGetSerialName, title, storage, folder);
 
-            Common.StorageService.File.DownloadFile(outPath + input, dataDir + output, storage: Common.STORAGE);
-
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Add a Chart in a Worksheet, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

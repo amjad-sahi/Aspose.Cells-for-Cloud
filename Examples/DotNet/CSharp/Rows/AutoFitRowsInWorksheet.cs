@@ -1,23 +1,44 @@
-﻿using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Rows
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
+
+namespace Rows
 {
     class AutoFitRowsInWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "ouput.xlsx";
+            String fileName = "Sample_Test_Book.xls";            
+            Boolean isAutoFit = true;
+            int? startRow =  1;
+            int? endRow = 10;
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            Common.CellsService.Workbook.ReadWorkbookInfo(input, string.Empty, true, Common.FOLDER, storage: Common.STORAGE);
+                // Invoke Aspose.Cells Cloud SDK API to autofit rows in workbooks
+                SaaSposeResponse apiResponse = cellsApi.PostAutofitWorkbookRows(fileName, startRow, endRow, isAutoFit, storage, folder, null);
 
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
-
+                if (apiResponse != null)
+                {
+                    Console.WriteLine("Auto Fit Rows in Excel Workbooks, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

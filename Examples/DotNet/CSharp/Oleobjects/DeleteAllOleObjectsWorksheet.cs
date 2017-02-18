@@ -1,30 +1,42 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Oleobjects
+namespace OleObjects
 {
     class DeleteAllOleObjectsWorksheet
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.xlsx";
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
-            string sheetName = "Sheet1";
-           
-            Common.CellsService.OleObjects.DeleteAllOleObjects(input, sheetName, Common.FOLDER, storage: Common.STORAGE);
+            String fileName = "Embeded_OleObject_Sample_Book1.xlsx";
+            String sheetName = "Sheet1";
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
+
+                // Invoke Aspose.Cells Cloud SDK API to delete all OleObject from excel
+                SaaSposeResponse apiResponse = cellsApi.DeleteWorksheetOleObjects(fileName, sheetName, storage, folder);
+
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Delete all OleObjects from Excel Worksheet, Done!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }
-

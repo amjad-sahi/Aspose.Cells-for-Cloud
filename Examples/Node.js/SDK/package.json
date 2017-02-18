@@ -1,8 +1,0 @@
-{
-  "name": "SdkExamples",
-  "private": true,
-  "dependencies": {
-    "asposecellscloud": "^1.0.0",
-    "asposestoragecloud": "^1.0.1"
-  }
-}

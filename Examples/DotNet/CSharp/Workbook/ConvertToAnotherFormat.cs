@@ -1,32 +1,48 @@
-﻿//////////////////////////////////////////////////////////////////////////
-// Copyright 2001-2015 Aspose Pty Ltd. All Rights Reserved.
-//
-// This file is part of Aspose.Imaging. The source code in this file
-// is only intended as a supplement to the documentation, and is provided
-// "as is", without warranty of any kind, either expressed or implied.
-//////////////////////////////////////////////////////////////////////////
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 
-using Aspose.Cloud;
-using System;
-namespace Aspose.Cells.Cloud.Examples.Workbook
+namespace Workbook
 {
     class ConvertToAnotherFormat
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "originalFormat.xlsx";
-            string output = "output.pdf";
-            string outPath = "cellsOut/";
+            String fileName = "Sample_Test_Book";
+            String inputfileName = fileName + ".xls";
+            String format = "pdf";
+            String outputFileName = fileName + "." + format;
+            Boolean isAutoFitRows = false;
+            Boolean isAutoFitColumns = false;
+            String storage = "";
+            String folder = "";
+            SaveOptions body = new SaveOptions();
 
-            // Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(inputfileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + inputfileName));
 
-            Common.CellsService.Workbook.ConvertWorkbookToSomeFormat(WorkbookExportFormat.Pdf, string.Empty, outPath + output, dataDir + input);
+                // Invoke Aspose.Cells Cloud SDK API to convert excel workbook to different format
+                SaveResponse apiResponse = cellsApi.PostDocumentSaveAs(inputfileName, outputFileName, isAutoFitRows, isAutoFitColumns, storage, folder, body);
 
-            //Common.StorageService.File.DownloadFile(outPath, dataDir + output, storage: Common.STORAGE);
-
-            Common.StorageService.File.DownloadFile(outPath + output, dataDir + output);
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    string destFileName = apiResponse.SaveResult.DestDocument.Href;
+                    Console.WriteLine("File name:" + destFileName);
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
+            // ExEnd:1
         }
     }
 }

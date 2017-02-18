@@ -1,41 +1,55 @@
-﻿using Aspose.Cloud;
-using Aspose.Cloud.Common;
-using System;
-using System.Collections;
+﻿using System;
+using Com.Aspose.Cells.Api;
+using Com.Aspose.Cells.Model;
+using Com.Aspose.Storage.Api;
 using System.Collections.Generic;
 
-namespace Aspose.Cells.Cloud.Examples.Worksheet
+namespace Worksheet
 {
     class SortWorksheetData
     {
-        static void Main()
+        public static void Run()
         {
-            string dataDir = Common.GetDataDir(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+            // ExStart:1
+            CellsApi cellsApi = new CellsApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
+            StorageApi storageApi = new StorageApi(Common.APP_KEY, Common.APP_SID, Common.BASEPATH);
 
-            string input = "sample1.xlsx";
-            string output = "output.xlsx";
+            String fileName = "Sample_Test_Book.xls";
+            String sheetName = "Sheet1";
+            String cellArea = "A5:A10";
+            String storage = "";
+            String folder = "";
 
-            Common.StorageService.File.UploadFile(dataDir + input, input, storage: Common.STORAGE);
+            SortKey sort = new SortKey();
+            sort.Key = 0;
+            sort.SortOrder = "descending";
 
-            string sheetName = "Sheet1";
+            DataSorter body = new DataSorter();
+            body.CaseSensitive = "false";
+            body.HasHeaders = "false";
+            body.SortLeftToRight = "false";
+            body.KeyList = new List<SortKey> { sort };
 
-            CellsDataSorterRequest dataSorter = new CellsDataSorterRequest();
-            dataSorter.CaseSensitive = true;
-            dataSorter.HasHeaders = true;
+            try
+            {
+                // Upload source file to aspose cloud storage
+                storageApi.PutCreate(fileName, "", "", System.IO.File.ReadAllBytes(Common.GetDataDir() + fileName));
 
-            CellsKeyList cellsKeyList = new CellsKeyList();
-            cellsKeyList.Key = 0;
-            cellsKeyList.SortOrder = "DESCENDING";
+                // Invoke Aspose.Cells Cloud SDK API to sort worksheet data
+                SaaSposeResponse apiResponse = cellsApi.PostWorksheetRangeSort(fileName, sheetName, cellArea, storage, folder, body);
 
-            dataSorter.KeyList = new List<CellsKeyList>();
+                if (apiResponse != null && apiResponse.Status.Equals("OK"))
+                {
+                    Console.WriteLine("Worksheet data is sorted!");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error:" + ex.Message + "\n" + ex.StackTrace);
+            }
 
-            dataSorter.KeyList.Add(cellsKeyList);
-
-            Common.CellsService.Worksheets.SortWorksheetRange(input, sheetName, "A1:A10", dataSorter, Common.FOLDER, storage: Common.STORAGE);
-
-            Common.StorageService.File.DownloadFile(input, dataDir + output, storage: Common.STORAGE);
-
+            // ExEnd:1
         }
     }
 }
-

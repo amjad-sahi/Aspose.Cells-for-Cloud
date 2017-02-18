@@ -7,8 +7,8 @@
     <ProjectGuid>{E38A9986-F638-453F-8903-79C468D95D00}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSharp</RootNamespace>
-    <AssemblyName>CSharp</AssemblyName>
+    <RootNamespace>Aspose.Cells.Cloud.Examples.CSharp</RootNamespace>
+    <AssemblyName>Aspose.Cells.Cloud.Examples.CSharp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,8 +35,16 @@
     <StartupObject>Aspose.Cells.Cloud.Examples.Common</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.Cloud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7356bd367a1035b1, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aspose.Cloud.SDK.NET.1.0.8\lib\Aspose.Cloud.dll</HintPath>
+    <Reference Include="Aspose.Cells-Cloud, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells-Cloud.1.0.5\lib\Aspose.Cells-Cloud.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Aspose.Storage-Cloud, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Storage-Cloud.1.0.7\lib\Aspose.Storage-Cloud.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -50,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cells\MergeCellsWorksheet.cs" />
-    <Compile Include="Cells\SetCellWorksheet.cs" />
+    <Compile Include="Cells\SetValueOfCell.cs" />
     <Compile Include="Cells\SetFormulaForCellWorksheet.cs" />
     <Compile Include="Cells\SetRangeValueWorksheet.cs" />
     <Compile Include="Cells\UnmergeCellsWorksheet.cs" />
@@ -68,14 +76,14 @@
     <Compile Include="Cells\GetMaxDataColumnWorksheet.cs" />
     <Compile Include="Cells\GetMaxColumnWorksheet.cs" />
     <Compile Include="Cells\GetFirstCellWorksheet.cs" />
-    <Compile Include="Cells\GetEndCellWorksheet.cs" />
+    <Compile Include="Cells\GetLastCellWorksheet.cs" />
     <Compile Include="Cells\GetCellStyleWorksheet.cs" />
     <Compile Include="Charts\UpdateChartLegend.cs" />
     <Compile Include="Charts\UpdateChartTitle.cs" />
     <Compile Include="Charts\SetChartTitle.cs" />
     <Compile Include="Charts\ShowChartLegend.cs" />
     <Compile Include="Charts\HideChartLegend.cs" />
-    <Compile Include="Charts\DeleteOneChart.cs" />
+    <Compile Include="Charts\DeleteChart.cs" />
     <Compile Include="Charts\DeleteChartTitle.cs" />
     <Compile Include="Charts\DeleteAllCharts.cs" />
     <Compile Include="Charts\ConvertChartToImage.cs" />
@@ -85,35 +93,35 @@
     <Compile Include="Charts\GetChart.cs" />
     <Compile Include="Charts\AddChart.cs" />
     <Compile Include="Common.cs" />
-    <Compile Include="hyperlinks\UpdateHyperlinkWorksheet.cs" />
-    <Compile Include="hyperlinks\DeleteHyperlinkWorksheet.cs" />
-    <Compile Include="hyperlinks\AddHyperlinkWorksheet.cs" />
-    <Compile Include="hyperlinks\GetHyperlinkWorksheet.cs" />
+    <Compile Include="Hyperlinks\UpdateHyperlinkWorksheet.cs" />
+    <Compile Include="Hyperlinks\DeleteHyperlinkWorksheet.cs" />
+    <Compile Include="Hyperlinks\AddHyperlinkWorksheet.cs" />
+    <Compile Include="Hyperlinks\GetHyperlinkWorksheet.cs" />
     <Compile Include="Images\AutoShapeToImageWorksheet.cs" />
-    <Compile Include="Oleobjects\ConvertOleObjectToImage.cs" />
-    <Compile Include="Oleobjects\DeleteAllOleObjectsWorksheet.cs" />
-    <Compile Include="Oleobjects\DeleteSpecificOleObjectWorksheet.cs" />
-    <Compile Include="Oleobjects\GetOleObjectWorksheet.cs" />
-    <Compile Include="Oleobjects\UpdateSpecificOleObjectsWorksheet.cs" />
-    <Compile Include="Oleobjects\AddOleObjectsWorksheet.cs" />
+    <Compile Include="OleObjects\ConvertOleObjectToImage.cs" />
+    <Compile Include="OleObjects\DeleteAllOleObjectsWorksheet.cs" />
+    <Compile Include="OleObjects\DeleteSpecificOleObjectWorksheet.cs" />
+    <Compile Include="OleObjects\GetOleObjectWorksheet.cs" />
+    <Compile Include="OleObjects\UpdateSpecificOleObjectsWorksheet.cs" />
+    <Compile Include="OleObjects\AddOleObjectsWorksheet.cs" />
     <Compile Include="Pictures\UpdateSpecificPictureWorksheet.cs" />
     <Compile Include="Pictures\DeleteSpecificPictureWorksheet.cs" />
     <Compile Include="Pictures\DeleteAllPicturesWorksheet.cs" />
     <Compile Include="Pictures\AddPicturesWorksheet.cs" />
-    <Compile Include="Pictures\ConvertPictureToImageWorksheet.cs" />
+    <Compile Include="Pictures\ConvertPictureToImage.cs" />
     <Compile Include="Pictures\GetPictureWorksheet.cs" />
     <Compile Include="PivotTables\AddPivottableWorksheet.cs" />
     <Compile Include="PivotTables\DeleteWorksheetPivotTable.cs" />
     <Compile Include="PivotTables\DeleteWorksheetPivotTableIndex.cs" />
-    <Compile Include="PivotTables\GetPivotTableIndexWorksheet.cs" />
-    <Compile Include="PivotTables\GetPivotTableWorksheet.cs" />
-    <Compile Include="PivotTables\AddPivotFieldInPivottable.cs" />
+    <Compile Include="PivotTables\GetWorksheetPivotTableByIndex.cs" />
+    <Compile Include="PivotTables\GetWorksheetPivotTables.cs" />
+    <Compile Include="PivotTables\AddPivotFieldInPivotTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Property\GetParticularProperty.cs" />
-    <Compile Include="Property\SetParticularProperty.cs" />
-    <Compile Include="Property\RemoveParticularProperty.cs" />
-    <Compile Include="Property\RemoveAllProperties.cs" />
-    <Compile Include="Property\GetAllProperties.cs" />
+    <Compile Include="Document-Properties\GetParticularProperty.cs" />
+    <Compile Include="Document-Properties\SetParticularProperty.cs" />
+    <Compile Include="Document-Properties\RemoveParticularProperty.cs" />
+    <Compile Include="Document-Properties\RemoveAllProperties.cs" />
+    <Compile Include="Document-Properties\GetAllProperties.cs" />
     <Compile Include="Rows\UngroupRowsInWorksheet.cs" />
     <Compile Include="Rows\GroupRowsInWorksheet.cs" />
     <Compile Include="Rows\AutoFitRowsInWorksheet.cs" />
@@ -123,12 +131,14 @@
     <Compile Include="Rows\DeleteRowFromWorksheet.cs" />
     <Compile Include="Rows\AddEmptyRowInWorksheet.cs" />
     <Compile Include="Rows\GetRowFromWorksheet.cs" />
+    <Compile Include="RunExamples.cs" />
     <Compile Include="Text\ReplaceTextWorkbook.cs" />
     <Compile Include="Text\ReplaceTextWorksheet.cs" />
     <Compile Include="Text\GetTextItemWorksheet.cs" />
     <Compile Include="Text\GetTextItemWorkbook.cs" />
     <Compile Include="Text\FindTextWorksheet.cs" />
     <Compile Include="Text\FindTextWorkbook.cs" />
+    <Compile Include="Workbook\CreateWorkbookFromSmartMakerTemplate.cs" />
     <Compile Include="Workbook\DecryptWorkbook.cs" />
     <Compile Include="Workbook\NamesCountWorkbook.cs" />
     <Compile Include="Workbook\RemoveModifyPassword.cs" />
@@ -156,7 +166,7 @@
     <Compile Include="Worksheet\GetValidation.cs" />
     <Compile Include="Worksheet\GetComment.cs" />
     <Compile Include="Worksheet\GetAutoshape.cs" />
-    <Compile Include="Worksheet\DeleteWorksheet .cs" />
+    <Compile Include="Worksheet\RemoveWorksheet .cs" />
     <Compile Include="Worksheet\MoveWorksheet.cs" />
     <Compile Include="Worksheet\UnhideWorksheet.cs" />
     <Compile Include="Worksheet\HideWorksheet.cs" />
