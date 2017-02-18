@@ -16,7 +16,8 @@ class Row
     response = @storage_api.put_create(file_name, File.open("../data/" << file_name,"r") { |io| io.read } )
   end
 
-  def put_insert_worksheet_rows
+  # Insert several new worksheet rows.
+  def insert_new_worksheet_rows
     file_name = "myWorkbook.xlsx"
     upload_file(file_name)
 
@@ -29,4 +30,4 @@ class Row
 end
 
 row = Row.new()
-puts row.put_insert_worksheet_rows
+puts row.insert_new_worksheet_rows

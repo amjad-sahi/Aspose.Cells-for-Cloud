@@ -16,6 +16,7 @@ class Cell
     response = @storage_api.put_create(file_name, File.open("../data/" << file_name,"r") { |io| io.read } )
   end
 
+  # Read cell's style info.
   def get_worksheet_cell_style
     file_name = "myWorkbook.xlsx"
     upload_file(file_name)

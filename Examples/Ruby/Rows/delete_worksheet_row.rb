@@ -16,6 +16,7 @@ class Row
     response = @storage_api.put_create(file_name, File.open("../data/" << file_name,"r") { |io| io.read } )
   end
 
+  # Delete worksheet row.
   def delete_worksheet_row
     file_name = "myWorkbook.xlsx"
     upload_file(file_name)

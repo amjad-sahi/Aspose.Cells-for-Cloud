@@ -16,6 +16,7 @@ class Column
     response = @storage_api.put_create(file_name, File.open("../data/" << file_name,"r") { |io| io.read } )
   end
 
+  # Delete worksheet columns.
   def delete_worksheet_columns
     file_name = "Sample_Test_Book.xls"
     upload_file(file_name)
