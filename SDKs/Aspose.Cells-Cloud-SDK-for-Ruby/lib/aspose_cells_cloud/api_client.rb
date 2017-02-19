@@ -86,6 +86,8 @@ module AsposeCellsCloud
       end
       
       url = sign(url, opts[:query_params])
+      puts "URL is #{url}"
+      puts "req_opts is #{req_opts}"
       Typhoeus::Request.new(url, req_opts)
 
     end
@@ -95,6 +97,7 @@ module AsposeCellsCloud
     
     def sign(url, query_params)
         
+      puts "URL1 #{url}"
       fail "Please set Aspose App key and SID first. You can get App key and App SID from https://cloud.aspose.com" if AsposeApp.app_key.nil? || AsposeApp.app_sid.nil?
       
       url = url[0..-2] if url[-1].eql? '/'
@@ -107,9 +110,11 @@ module AsposeCellsCloud
         url = url[0..-2]
       end
 
+      url = "http://api.aspose.com/1.1/storage/folder/test_folder"  
       url = URI.escape(url)
+      puts "URL2 #{url}"
       parsed_url = URI.parse(url)
-        
+
       url_to_sign = "#{parsed_url.scheme}://#{parsed_url.host}#{parsed_url.path}"
       url_to_sign += "?#{parsed_url.query}" if parsed_url.query
       if parsed_url.query
@@ -117,7 +122,8 @@ module AsposeCellsCloud
       else
         url_to_sign += "?appSID=#{AsposeApp.app_sid}"
       end  
-        
+      
+      puts "URL3 #{url_to_sign}"
       # create a signature using the private key and the URL
       raw_signature = OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha1'), AsposeApp.app_key, url_to_sign)
         
@@ -137,7 +143,6 @@ module AsposeCellsCloud
       
       # prepend the server and append the signature.
       url_to_sign + "&signature=#{signature}"
-
     end
 
     # Deserialize the response to the given return type.

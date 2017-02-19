@@ -10,8 +10,9 @@ class CellsTests < Minitest::Test
 	
 	def setup
         #Get App key and App SID from https://cloud.aspose.com
-        AsposeApp.app_key_and_sid("", "")
-		@cells_api = CellsApi.new
+        #AsposeApp.app_key_and_sid("da77c9f5da014d91faf2961ecec2de66", "B01A15E5-1B83-4B9A-8EB3-0F2BFA6AC766")
+        AsposeApp.app_key_and_sid("23e9d89a967a5f18142221fa8f7cbcd0", "c821f123-1a8b-4b97-925a-9d69a6b2fcd8")
+        @cells_api = CellsApi.new
 	end
 
 	def teardown
@@ -27,6 +28,7 @@ class CellsTests < Minitest::Test
         file_name = "myWorkbook.xlsx"
         convert_to_format = "pdf"
         response = @cells_api.put_convert_work_book(File.open("data/" << file_name,"r") { |io| io.read }, {format: convert_to_format})
+        puts response
 	 	assert(response, message="Failed to convert workbook from request content to {convert_to_format} format.")
 	end
     
@@ -47,7 +49,10 @@ class CellsTests < Minitest::Test
     end
 
     def test_put_workbook_create
-    	response = @cells_api.put_workbook_create("newworkbook.xlsx")
+        #file_name = "calendar.xlsx"
+        #upload_file(file_name)
+    	response = @cells_api.put_workbook_create("newworkbook_02.xlsx", {template_file: "calendar.xlsx"})
+        puts response
     	assert(response, message="Failed to create new workbook.")
     end
 
@@ -58,6 +63,7 @@ class CellsTests < Minitest::Test
     	save_options = SavingSaveOptions.new
     	save_options.clear_data = true
     	response = @cells_api.post_document_save_as(file_name, save_options, {newfilename: "updatedWorkbook.xlsx", isAutoFitRows: true, isAutoFitColumns: true})
+        puts response
         assert(response, message="Failed to convert document and save result to storage.")
     end
 

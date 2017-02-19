@@ -13,7 +13,7 @@ class Workbook
 
   def upload_file(file_name)
     @storage_api = StorageApi.new 
-    response = @storage_api.put_create(file_name, File.open("../data/" << file_name,"r") { |io| io.read } )
+    response = @storage_api.put_create(file_name, File.open("../../../data/" << file_name,"r") { |io| io.read } )
   end
 
   # Smart marker processing result.
@@ -22,7 +22,7 @@ class Workbook
     upload_file(file_name)
     data_file = "Sample_SmartMarker_Data.xml"
 
-    response = @cells_api.post_workbook_get_smart_marker_result(file_name, File.open("../data/" << data_file,"r") { |io| io.read })
+    response = @cells_api.post_workbook_get_smart_marker_result(file_name, File.open("../../../data/" << data_file,"r") { |io| io.read })
   end
 
 end

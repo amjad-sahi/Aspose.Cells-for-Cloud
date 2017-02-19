@@ -781,7 +781,7 @@ module AsposeCellsCloud
       return result
     end
 
-    # Encript document.
+    # Encrypt document.
     # 
     # @param name The document name.
     # @param encryption Encryption parameters.
@@ -8670,7 +8670,7 @@ module AsposeCellsCloud
       return result
     end
 
-    # Delete pivot field into into pivot table
+    # Delete pivot field into pivot table
     # 
     # @param name Document name.
     # @param sheet_name The worksheet name.
