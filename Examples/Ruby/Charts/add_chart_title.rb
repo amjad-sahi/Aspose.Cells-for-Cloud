@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Chart
@@ -32,3 +33,4 @@ end
 
 chart = Chart.new()
 puts chart.add_chart_title
+#ExEnd:

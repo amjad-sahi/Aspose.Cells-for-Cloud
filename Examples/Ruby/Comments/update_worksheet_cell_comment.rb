@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Comment
@@ -33,3 +34,4 @@ end
 
 comment = Comment.new()
 puts comment.update_worksheet_cell_comment
+#ExEnd:

@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Cell
@@ -47,3 +48,4 @@ end
 
 cell = Cell.new()
 puts cell.update_cell_style
+#ExEnd:

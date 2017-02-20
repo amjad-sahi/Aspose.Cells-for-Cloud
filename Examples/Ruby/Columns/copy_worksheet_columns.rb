@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Column
@@ -32,3 +33,4 @@ end
 
 column = Column.new()
 puts column.copy_worksheet_columns
+#ExEnd:

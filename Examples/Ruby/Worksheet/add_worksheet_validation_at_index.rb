@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Worksheet
@@ -29,3 +30,4 @@ end
 
 worksheet = Worksheet.new()
 puts worksheet.add_worksheet_validation_at_index
+#ExEnd:

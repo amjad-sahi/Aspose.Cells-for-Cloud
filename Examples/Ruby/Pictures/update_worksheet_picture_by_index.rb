@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Picture
@@ -35,3 +36,4 @@ end
 
 picture = Picture.new()
 puts picture.update_worksheet_picture_by_index
+#ExEnd:

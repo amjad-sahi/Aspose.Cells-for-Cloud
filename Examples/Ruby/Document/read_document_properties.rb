@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Document
@@ -27,3 +28,4 @@ end
 
 document = Document.new()
 puts document.read_document_properties
+#ExEnd:

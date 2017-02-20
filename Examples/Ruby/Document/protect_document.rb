@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Document
@@ -31,3 +32,4 @@ end
 
 document = Document.new()
 puts document.protect_document
+#ExEnd:

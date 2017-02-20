@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class PivotTable
@@ -37,3 +38,4 @@ end
 
 pivotTable = PivotTable.new()
 puts pivotTable.add_a_pivot_table_into_worksheet
+#ExEnd:

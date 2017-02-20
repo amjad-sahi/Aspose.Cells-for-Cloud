@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Workbook
@@ -26,3 +27,4 @@ end
 
 workbook = Workbook.new()
 puts workbook.get_workbook_settings
+#ExEnd:

@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Chart
@@ -30,3 +31,4 @@ end
 
 chart = Chart.new()
 puts chart.show_legend_in_chart
+#ExEnd:

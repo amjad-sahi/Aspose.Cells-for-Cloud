@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Workbook
@@ -29,3 +30,4 @@ end
 
 workbook = Workbook.new()
 puts workbook.smart_marker_processing_result
+#ExEnd:

@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Column
@@ -30,3 +31,4 @@ end
 
 column = Column.new()
 puts column.read_worksheet_column_data_by_index
+#ExEnd:

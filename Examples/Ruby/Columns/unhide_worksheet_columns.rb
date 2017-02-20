@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Column
@@ -31,3 +32,4 @@ end
 
 column = Column.new()
 puts column.unhide_worksheet_columns
+#ExEnd:

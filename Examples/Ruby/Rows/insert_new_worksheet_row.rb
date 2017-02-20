@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Row
@@ -30,3 +31,4 @@ end
 
 row = Row.new()
 puts row.insert_new_worksheet_row
+#ExEnd:

@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class OLEObject
@@ -28,3 +29,4 @@ end
 
 oleObject = OLEObject.new()
 puts oleObject.delete_worksheet_ole_objects
+#ExEnd:

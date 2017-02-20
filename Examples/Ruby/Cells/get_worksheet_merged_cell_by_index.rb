@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Cell
@@ -30,3 +31,4 @@ end
 
 cell = Cell.new()
 puts cell.get_worksheet_merged_cell_by_index
+#ExEnd:

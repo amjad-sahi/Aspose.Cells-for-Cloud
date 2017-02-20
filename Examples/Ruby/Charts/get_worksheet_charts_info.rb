@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Chart
@@ -29,3 +30,4 @@ end
 
 chart = Chart.new()
 puts chart.get_worksheet_charts_info
+#ExEnd:

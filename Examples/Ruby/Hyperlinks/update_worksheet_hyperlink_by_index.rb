@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Hyperlink
@@ -40,3 +41,4 @@ end
 
 hyperlink = Hyperlink.new()
 puts hyperlink.update_worksheet_hyperlink_by_index
+#ExEnd:

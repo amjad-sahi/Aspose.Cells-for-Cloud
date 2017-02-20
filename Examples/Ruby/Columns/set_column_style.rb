@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Column
@@ -38,3 +39,4 @@ end
 
 column = Column.new()
 puts column.set_column_style
+#ExEnd:

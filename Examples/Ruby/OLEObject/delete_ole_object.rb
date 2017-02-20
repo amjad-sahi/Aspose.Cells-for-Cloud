@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class OLEObject
@@ -30,3 +31,4 @@ end
 
 oleObject = OLEObject.new()
 puts oleObject.delete_ole_object
+#ExEnd:

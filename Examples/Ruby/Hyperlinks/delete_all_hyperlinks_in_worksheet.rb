@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Hyperlink
@@ -29,3 +30,4 @@ end
 
 hyperlink = Hyperlink.new()
 puts hyperlink.delete_all_hyperlinks_in_worksheet
+#ExEnd:

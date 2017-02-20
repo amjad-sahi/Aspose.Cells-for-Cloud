@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Document
@@ -32,3 +33,4 @@ end
 
 document = Document.new()
 puts document.create_document_property
+#ExEnd:

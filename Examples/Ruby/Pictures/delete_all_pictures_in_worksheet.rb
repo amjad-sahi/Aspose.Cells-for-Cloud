@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Picture
@@ -29,3 +30,4 @@ end
 
 picture = Picture.new()
 puts picture.delete_all_pictures_in_worksheet
+#ExEnd:

@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Worksheet
@@ -41,3 +42,4 @@ end
 
 worksheet = Worksheet.new()
 puts worksheet.sort_worksheet_range
+#ExEnd:

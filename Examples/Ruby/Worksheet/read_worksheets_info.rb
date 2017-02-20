@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Worksheet
@@ -28,3 +29,4 @@ end
 
 worksheet = Worksheet.new()
 puts worksheet.read_worksheets_info
+#ExEnd:

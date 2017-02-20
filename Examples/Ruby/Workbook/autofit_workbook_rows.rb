@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Workbook
@@ -31,3 +32,4 @@ end
 
 workbook = Workbook.new()
 puts workbook.autofit_workbook_rows
+#ExEnd:

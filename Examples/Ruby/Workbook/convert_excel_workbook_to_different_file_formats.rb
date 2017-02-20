@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Workbook
@@ -27,3 +28,4 @@ end
 
 workbook = Workbook.new()
 puts workbook.convert_excel_workbook_to_different_file_formats
+#ExEnd:

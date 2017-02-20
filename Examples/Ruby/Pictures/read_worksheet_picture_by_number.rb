@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Picture
@@ -30,3 +31,4 @@ end
 
 picture = Picture.new()
 puts picture.read_worksheet_picture_by_number
+#ExEnd:

@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Chart
@@ -51,3 +52,4 @@ end
 
 chart = Chart.new()
 puts chart.update_chart_legend
+#ExEnd:

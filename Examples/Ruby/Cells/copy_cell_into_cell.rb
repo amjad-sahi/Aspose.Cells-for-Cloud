@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Cell
@@ -31,3 +32,4 @@ end
 
 cell = Cell.new()
 puts cell.copy_cell_into_cell
+#ExEnd:

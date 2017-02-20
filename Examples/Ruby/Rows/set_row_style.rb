@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Row
@@ -38,3 +39,4 @@ end
 
 row = Row.new()
 puts row.set_row_style
+#ExEnd:

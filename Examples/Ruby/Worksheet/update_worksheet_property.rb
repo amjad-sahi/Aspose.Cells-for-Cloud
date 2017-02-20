@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Worksheet
@@ -48,3 +49,4 @@ end
 
 worksheet = Worksheet.new()
 puts worksheet.update_worksheet_property
+#ExEnd:

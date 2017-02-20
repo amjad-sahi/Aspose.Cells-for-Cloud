@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Chart
@@ -30,3 +31,4 @@ end
 
 chart = Chart.new()
 puts chart.delete_worksheet_chart_by_index
+#ExEnd:

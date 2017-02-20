@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Chart
@@ -30,3 +31,4 @@ end
 
 chart = Chart.new()
 puts chart.get_chart_area_border_info
+#ExEnd:

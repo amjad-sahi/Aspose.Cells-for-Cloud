@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class PivotTable
@@ -32,3 +33,4 @@ end
 
 pivotTable = PivotTable.new()
 puts pivotTable.get_pivot_table_field
+#ExEnd:

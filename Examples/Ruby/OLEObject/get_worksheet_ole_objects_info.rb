@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class OLEObject
@@ -29,3 +30,4 @@ end
 
 oleObject = OLEObject.new()
 puts oleObject.get_worksheet_ole_objects_info
+#ExEnd:

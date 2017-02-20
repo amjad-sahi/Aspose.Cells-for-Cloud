@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class PivotTable
@@ -29,3 +30,4 @@ end
 
 pivotTable = PivotTable.new()
 puts pivotTable.delete_worksheet_pivot_table_by_index
+#ExEnd:

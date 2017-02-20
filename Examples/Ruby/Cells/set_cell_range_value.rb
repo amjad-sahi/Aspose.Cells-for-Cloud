@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Cell
@@ -32,3 +33,4 @@ end
 
 cell = Cell.new()
 puts cell.set_cell_range_value
+#ExEnd:

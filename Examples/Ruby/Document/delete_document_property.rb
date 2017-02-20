@@ -1,3 +1,4 @@
+#ExStart:
 require 'aspose_cells_cloud'
 
 class Document
@@ -29,3 +30,4 @@ end
 
 document = Document.new()
 puts document.delete_document_property
+#ExEnd:
