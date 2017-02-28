@@ -1,0 +1,5 @@
+{
+	"require": {
+    	"aspose/cells-sdk-php": "dev-master"
+    }
+}
