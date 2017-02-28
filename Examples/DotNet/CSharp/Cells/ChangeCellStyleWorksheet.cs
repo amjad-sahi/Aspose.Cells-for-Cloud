@@ -19,7 +19,7 @@ namespace Cells
             String storage = "";
             String folder = "";
 
-            Style style = new Style;
+            Style style = new Style();
             
             try
             {
