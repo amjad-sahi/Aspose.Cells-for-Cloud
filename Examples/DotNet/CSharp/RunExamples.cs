@@ -32,7 +32,7 @@ namespace CSharp
             //// =====================================================
             //// =====================================================
 
-            //ConvertToAnotherFormat.Run();
+            ConvertToAnotherFormat.Run();
             //ConvertWorkbookToAnotherFormatWithoutStorage.Run();
             //ConvertWorkbookWithAdditionalSettings.Run();
             //CreateEmptyWorkbook.Run();

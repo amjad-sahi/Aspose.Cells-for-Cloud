@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Aspose.Cells.Cloud.Examples.Common</StartupObject>
+    <StartupObject>CSharp.RunExamples</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.Cells-Cloud, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
