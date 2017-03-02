@@ -78,7 +78,7 @@ namespace CellsTest
 
             string name = "encrypted_Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -104,7 +104,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string storage = null; 
             string folder = null; 
             
@@ -125,7 +125,7 @@ namespace CellsTest
 
             string name = "Sample_Book1.xlsx";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
             string propertyName = "AsposeAuthor"; 
             string storage = null; 
             string folder = null; 
@@ -148,7 +148,7 @@ namespace CellsTest
 
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string storage = null; 
             string folder = null; 
             
@@ -169,7 +169,7 @@ namespace CellsTest
 
             string name = "Sample_Pivot_Table_Example.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet2"; 
             int? pivotTableIndex = 0; 
@@ -197,7 +197,7 @@ namespace CellsTest
 
             string name = "Sample_Protected_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string storage = null; 
             string folder = null; 
@@ -223,7 +223,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -248,7 +248,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string folder = null; 
@@ -269,7 +269,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             string cellName = "a4"; 
@@ -290,7 +290,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? hyperlinkIndex = 0; 
@@ -311,7 +311,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             string storage = null; 
@@ -331,7 +331,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet6"; 
             string storage = null; 
@@ -351,7 +351,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet3"; 
             int? validationIndex = 0; 
@@ -375,7 +375,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -397,7 +397,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             
             string name = "Sample_Test_Book.xls";
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -422,7 +422,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -445,7 +445,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet5"; 
             string storage = null; 
@@ -467,7 +467,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? columnIndex = 1; 
@@ -490,7 +490,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -514,7 +514,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? row = 1; 
@@ -541,7 +541,7 @@ namespace CellsTest
 
             string name = "Embeded_OleObject_Sample_Book1.xlsx";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? oleObjectIndex = 0; 
@@ -565,7 +565,7 @@ namespace CellsTest
 
             string name = "Embeded_OleObject_Sample_Book1.xlsx";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -585,7 +585,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet6"; 
             int? pictureIndex = 0; 
@@ -609,7 +609,7 @@ namespace CellsTest
 
             string name = "Sample_Pivot_Table_Example.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? pivotTableIndex = 0; 
@@ -630,7 +630,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -650,7 +650,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? rowIndex = 0; 
@@ -671,7 +671,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? startrow = 0; 
@@ -694,7 +694,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -715,7 +715,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -736,7 +736,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -757,7 +757,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -780,7 +780,7 @@ namespace CellsTest
 
             string name = "Sample_Book1.xlsx";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string propertyName = "AsposeAuthor"; 
             string storage = null; 
@@ -799,7 +799,7 @@ namespace CellsTest
         public void TestGetExtractBarcodes()
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet6"; 
             int? pictureNumber = 0; 
             string storage = null; 
@@ -822,7 +822,7 @@ namespace CellsTest
 
             string name = "Sample_Pivot_Table_Example.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? pivotTableIndex = 0; 
@@ -845,7 +845,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string password = null; 
             bool? isAutoFit = null;
@@ -866,7 +866,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -885,7 +885,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string nameName = "TestRange"; 
             string storage = null; 
@@ -905,7 +905,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -924,7 +924,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -943,7 +943,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string format = "pdf"; 
             string password = null; 
@@ -966,7 +966,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? verticalResolution = null; 
@@ -990,7 +990,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH); 
             
             string name = "Sample_Test_Book.xls";
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet1";
             string formula = "SUM(A5:A10)";
@@ -1011,7 +1011,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls"; 
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet2";
             string cellName = "A4"; 
@@ -1032,7 +1032,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             string storage = null; 
@@ -1052,7 +1052,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? hyperlinkIndex = 0; 
@@ -1074,7 +1074,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             string storage = null; 
@@ -1094,7 +1094,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls"; 
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? mergedCellIndex = 0; 
@@ -1115,7 +1115,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -1137,7 +1137,7 @@ namespace CellsTest
             
              
              
-            CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet1"; 
             string storage = null; 
             string folder = null; 
@@ -1157,7 +1157,7 @@ namespace CellsTest
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
              
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
             
             string sheetName = "Sheet1";
             int? validationIndex = 0;
@@ -1183,7 +1183,7 @@ namespace CellsTest
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -1201,7 +1201,7 @@ namespace CellsTest
         [TestMethod()]
         public void TestGetWorkSheetWithFormat()
         {
-            CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";  storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";  storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
             string sheetName = "Sheet1";
             string format = "png"; 
             int? verticalResolution = 1; 
@@ -1223,7 +1223,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -1242,7 +1242,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -1261,7 +1261,7 @@ namespace CellsTest
         { 
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet4"; 
             int? autoshapeNumber = 1; 
@@ -1282,7 +1282,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet4"; 
             int? autoshapeNumber = 1; 
@@ -1305,7 +1305,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet4"; 
             string storage = null; 
@@ -1325,7 +1325,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string cellOrMethodName = "a1"; 
@@ -1346,7 +1346,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string cellName = "a1"; 
@@ -1367,7 +1367,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? offest = null; 
@@ -1390,7 +1390,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartNumber = 0; 
@@ -1411,7 +1411,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -1432,7 +1432,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartNumber = 0; 
@@ -1454,7 +1454,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5";
             string storage = null; 
@@ -1474,7 +1474,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? columnIndex = 1; 
@@ -1495,7 +1495,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -1517,7 +1517,7 @@ namespace CellsTest
             
              
              
-            CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet1"; 
             int? objectNumber = null; 
             string storage = null; 
@@ -1540,7 +1540,7 @@ namespace CellsTest
 
             string name = "Embeded_OleObject_Sample_Book1.xlsx";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? objectNumber = 0;
@@ -1565,7 +1565,7 @@ namespace CellsTest
 
             string name = "Embeded_OleObject_Sample_Book1.xlsx";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -1585,7 +1585,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet6"; 
             int? pictureNumber = 0; 
@@ -1608,7 +1608,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls"; 
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet6"; 
             int? pictureNumber = 0; 
@@ -1630,7 +1630,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet6"; 
             string storage = null; 
@@ -1653,7 +1653,7 @@ namespace CellsTest
 
             string name = "Sample_Pivot_Table_Example.xls"; 
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? pivottableIndex = 0; 
@@ -1672,7 +1672,7 @@ namespace CellsTest
         [TestMethod()]
         public void TestGetWorksheetPivotTables()
         {    
-            CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet1"; 
             string storage = null; 
             string folder = null; 
@@ -1691,7 +1691,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? rowIndex = 1; 
@@ -1712,7 +1712,7 @@ namespace CellsTest
         {
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -1735,7 +1735,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             int? startRow = 1; 
             int? endRow = 2; 
@@ -1761,7 +1761,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? startRow = 1; 
@@ -1788,7 +1788,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             
             string name = "Sample_Test_Book.xls";            
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string range = null; 
@@ -1816,7 +1816,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet1"; 
             string range = ""; 
             int? startRow = 1; 
@@ -1842,7 +1842,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? columnIndex = 0; 
@@ -1877,7 +1877,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string destCellName = "a1"; 
             string sheetName = "Sheet1";
@@ -1904,7 +1904,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet7";
             string sourceSheet = "Sheet1"; 
@@ -1928,7 +1928,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet1"; 
             int? sourceColumnIndex = 2; 
             int? destinationColumnIndex = 2; 
@@ -1954,7 +1954,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet1"; 
             int? sourceRowIndex = 2; 
             int? destinationRowIndex = 2; 
@@ -1979,7 +1979,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string newfilename = "Sample_Test_Book.pdf";
             bool? isAutoFitRows = null;
@@ -2004,7 +2004,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string storage = null; 
             string folder = null; 
@@ -2031,7 +2031,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? firstIndex = 1; 
@@ -2057,7 +2057,7 @@ namespace CellsTest
 
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? firstIndex = 1; 
@@ -2081,7 +2081,7 @@ namespace CellsTest
             CellsApi target = new CellsApi(APIKEY, APPSID, BASEPATH);
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? startColumn = 1; 
@@ -2105,7 +2105,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? startrow = 1; 
@@ -2130,7 +2130,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -2153,7 +2153,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -2179,7 +2179,7 @@ namespace CellsTest
 
             string name = "Sample_Pivot_Table_Example.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? pivotTableIndex = 0; 
@@ -2216,7 +2216,7 @@ namespace CellsTest
 
             string name = "Sample_Pivot_Table_Example.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? pivotTableIndex = 0; 
@@ -2250,7 +2250,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string storage = null; 
             string folder = null; 
@@ -2274,7 +2274,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1";
             string newname = "newSheet"; 
@@ -2298,7 +2298,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? rowIndex = 1; 
@@ -2335,13 +2335,13 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string cellName = "a1"; 
             string storage = null; 
             string folder = null;
-            byte[] file = System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + "testfile.txt"); 
+            byte[] file = System.IO.File.ReadAllBytes(Common.GetDataDir() + "testfile.txt"); 
             
             Com.Aspose.Cells.Model.CellResponse actual;
             actual = target.PostSetCellHtmlString(name, sheetName, cellName, storage, folder, file);
@@ -2360,7 +2360,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
 
             string name = "Sample_Test_Book.xls";
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet1";
             string cellarea = "A10:B20";
             string value = "1234";
@@ -2385,7 +2385,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? columnIndex = 1; 
@@ -2410,7 +2410,7 @@ namespace CellsTest
 
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? firstIndex = 1; 
@@ -2435,7 +2435,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? firstIndex = 1; 
@@ -2461,7 +2461,7 @@ namespace CellsTest
 
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? startcolumn = 1; 
@@ -2487,7 +2487,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? startrow = 1; 
@@ -2513,7 +2513,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1";
             string cellName = "A1"; 
@@ -2550,7 +2550,7 @@ namespace CellsTest
 
             string name = "Embeded_OleObject_Sample_Book1.xlsx";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? oleObjectIndex = 0; 
@@ -2589,7 +2589,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string folder = null; 
@@ -2618,7 +2618,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             string range = "a2"; 
@@ -2647,7 +2647,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? rowIndex = 0; 
@@ -2672,7 +2672,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             string cellName = "a4"; 
@@ -2699,7 +2699,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? hyperlinkIndex = 0; 
@@ -2727,7 +2727,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet6"; 
             int? pictureIndex = 0; 
@@ -2754,7 +2754,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             string text = "aspose"; 
@@ -2777,13 +2777,13 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? validationIndex = 1; 
             string storage = null; 
             string folder = null; 
-            byte[] file = System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + "aspose-cloud.png"); 
+            byte[] file = System.IO.File.ReadAllBytes(Common.GetDataDir() + "aspose-cloud.png"); 
 
             Com.Aspose.Cells.Model.ValidationResponse actual;
             //actual = target.PostWorkSheetValidation(name, sheetName, validationIndex, storage, folder, file);
@@ -2802,7 +2802,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string storage = null; 
             string folder = null; 
@@ -2824,13 +2824,13 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string xmlFile = null; 
             string storage = null; 
             string folder = null; 
             string outPath = null;
-            byte[] file = System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + "Sample_SmartMarker_Data.xml"); 
+            byte[] file = System.IO.File.ReadAllBytes(Common.GetDataDir() + "Sample_SmartMarker_Data.xml"); 
             
             Com.Aspose.Cells.Model.ResponseMessage actual;
             actual = target.PostWorkbookGetSmartMarkerResult(name, xmlFile, storage, folder, outPath, file);
@@ -2849,7 +2849,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string storage = null; 
             string folder = null; 
             Com.Aspose.Cells.Model.WorkbookSettings body = new Com.Aspose.Cells.Model.WorkbookSettings(); 
@@ -2873,7 +2873,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string format = "png"; 
             int? from = null; 
@@ -2900,7 +2900,7 @@ namespace CellsTest
 
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string mergeWith = "Sample_Book2.xls"; 
             string storage = null; 
@@ -2923,7 +2923,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string oldValue = "aspose";
             string newValue = "aspose.com"; 
@@ -2947,7 +2947,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string text = "aspose"; 
             string storage = null; 
@@ -2970,7 +2970,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string cellName = "A1"; 
@@ -2997,7 +2997,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
             string storage = null; 
@@ -3022,7 +3022,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
             string storage = null; 
@@ -3047,7 +3047,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet2"; 
             int? startRow = 1; 
@@ -3074,7 +3074,7 @@ namespace CellsTest
 
             string name = "Sample_Pivot_Table_Example.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet2"; 
             int? pivotTableIndex = 0; 
@@ -3098,7 +3098,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1";
             string cellArea = "A5:A10"; 
@@ -3130,7 +3130,7 @@ namespace CellsTest
 
             string name = "MergeCell_Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? startRow = 1; 
@@ -3157,7 +3157,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             string oldValue = "aspose"; 
@@ -3181,7 +3181,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -3205,7 +3205,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             bool? isVisible = false;
@@ -3232,8 +3232,8 @@ namespace CellsTest
             string format = "pdf"; 
             string password = ""; 
             string outPath = null; 
-            byte[] file = System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name);
-            //byte[] data = System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + "Sample_SmartMarker_Data.xml");             
+            byte[] file = System.IO.File.ReadAllBytes(Common.GetDataDir() + name);
+            //byte[] data = System.IO.File.ReadAllBytes(Common.GetDataDir() + "Sample_SmartMarker_Data.xml");             
 
             Com.Aspose.Cells.Model.ResponseMessage actual;
             actual = target.PutConvertWorkBook(format, password, outPath, file);
@@ -3252,7 +3252,7 @@ namespace CellsTest
 
             string name = "Sample_Book1.xlsx";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string propertyName = "AsposeAuthor"; 
             string storage = null; 
@@ -3279,7 +3279,7 @@ namespace CellsTest
 
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string storage = null; 
             string folder = null; 
@@ -3304,7 +3304,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? columnIndex = 1; 
@@ -3329,7 +3329,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? rowIndex = 0; 
@@ -3354,7 +3354,7 @@ namespace CellsTest
 
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? startrow = 0; 
@@ -3380,7 +3380,7 @@ namespace CellsTest
             
             string name = "Sample_Pivot_Table_Example.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet2"; 
             int? pivotTableIndex = 0; 
@@ -3407,7 +3407,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 
@@ -3431,12 +3431,12 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             string folder = null; 
             string storage = null;
-            byte[] file = System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + "aspose-cloud.png"); 
+            byte[] file = System.IO.File.ReadAllBytes(Common.GetDataDir() + "aspose-cloud.png"); 
             
             Com.Aspose.Cells.Model.SaaSposeResponse actual;
             actual = target.PutWorkSheetBackground(name, sheetName, folder, storage, file);
@@ -3455,7 +3455,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet2";
             string cellName = "A4"; 
@@ -3483,7 +3483,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
 
             string sheetName = "Sheet1"; 
             int? firstRow = 2; 
@@ -3511,13 +3511,13 @@ namespace CellsTest
 
             //string name = "Sample_Test_Book.xls";
 
-            //storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            //storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             //string sheetName = "Sheet1"; 
             //string range = null; 
             //string storage = null; 
             //string folder = null; 
-            //byte[] file = System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + "aspose-cloud.png"); 
+            //byte[] file = System.IO.File.ReadAllBytes(Common.GetDataDir() + "aspose-cloud.png"); 
             
             //Com.Aspose.Cells.Model.ValidationResponse actual;
             //actual = target.PutWorkSheetValidation(name, sheetName, range, storage, folder, file);
@@ -3559,7 +3559,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet5"; 
             string chartType = "bar"; 
@@ -3602,8 +3602,8 @@ namespace CellsTest
             string folder = null; 
             byte[] file = null;
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
-            storageApi.PutCreate(picturePath, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + picturePath));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
+            storageApi.PutCreate(picturePath, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + picturePath));
 
             Com.Aspose.Cells.Model.PicturesResponse actual;
             actual = target.PutWorksheetAddPicture(name, sheetName, upperLeftRow, upperLeftColumn, lowerRightRow, lowerRightColumn, picturePath, storage, folder, file);
@@ -3622,7 +3622,7 @@ namespace CellsTest
             StorageApi storageApi = new StorageApi(APIKEY, APPSID, BASEPATH);
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -3646,7 +3646,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
 
             string sheetName = "Sheet5"; 
             int? chartIndex = 0; 
@@ -3672,7 +3672,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             int? row = 1; 
@@ -3701,9 +3701,9 @@ namespace CellsTest
             string sourceFileName = "Sample_Book2.xls";
             string imageFileName = "aspose-logo.png";
 
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name));
-            storageApi.PutCreate(sourceFileName, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + sourceFileName));
-            storageApi.PutCreate(imageFileName, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + imageFileName)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name));
+            storageApi.PutCreate(sourceFileName, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + sourceFileName));
+            storageApi.PutCreate(imageFileName, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + imageFileName)); 
 
             string sheetName = "Sheet1"; 
             int? upperLeftRow = null; 
@@ -3745,7 +3745,7 @@ namespace CellsTest
             
             string name = "Sample_Test_Book.xls";
             
-            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes("\\temp\\cells\\resources\\" + name)); 
+            storageApi.PutCreate(name, null, null, System.IO.File.ReadAllBytes(Common.GetDataDir() + name)); 
             
             string sheetName = "Sheet1"; 
             string storage = null; 

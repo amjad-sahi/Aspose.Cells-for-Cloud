@@ -3,22 +3,22 @@ var StorageApi = require('asposestoragecloud');
 var CellsApi = require('../lib/CellsApi');
 var assert = require('assert');
 
-var AppSID = 'XXXX'; //sepcify App Key
-var AppKey = 'XXXX'; //sepcify App SID
+var AppSID = '6dd37866-34c8-4449-9331-befa3e86bd6f'; //sepcify App Key
+var AppKey = '1ddbe7208305c55333e690284419cd2b'; //sepcify App SID
 var config = {'appSid':AppSID,'apiKey':AppKey , 'debug' : true};
-var data_path = './data/';
+
 
 var storageApi = new StorageApi(config); 
 var cellsApi = new CellsApi(config);
 var nodeunit = require('nodeunit');
-
+var data_path = '../../../Data/';
 exports.testPutConvertDocument = function(test){
 	
 	test.expect(2);	
 	var filename = "Sample_Test_Book";
 	var name = filename + ".xls";
 	var format = "pdf";
-	
+	console.log(data_path + name);
 	storageApi.PutCreate(name, null, null, data_path + name , function(responseMessage) {
 	
 		test.equal(responseMessage.status, 'OK', '');		

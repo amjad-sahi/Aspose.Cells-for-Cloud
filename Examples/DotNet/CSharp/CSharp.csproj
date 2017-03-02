@@ -98,6 +98,7 @@
     <Compile Include="Hyperlinks\AddHyperlinkWorksheet.cs" />
     <Compile Include="Hyperlinks\GetHyperlinkWorksheet.cs" />
     <Compile Include="Images\AutoShapeToImageWorksheet.cs" />
+    <Compile Include="ImportData\ImportBatchData.cs" />
     <Compile Include="OleObjects\ConvertOleObjectToImage.cs" />
     <Compile Include="OleObjects\DeleteAllOleObjectsWorksheet.cs" />
     <Compile Include="OleObjects\DeleteSpecificOleObjectWorksheet.cs" />
