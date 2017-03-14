@@ -12,35 +12,37 @@ import java.nio.file.StandardCopyOption;
 
 public class AddEmptyRowInWorksheet {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: add-empty-row-in-worksheet
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "sample1.xlsx";
-			Path inputFile = Utils.getPath(AddEmptyRowInWorksheet.class, input);
-			String output = "sample2.xlsx";
-			Path outputFile = Utils.getPath(AddEmptyRowInWorksheet.class, output);
-			String sheetName = "Sheet1";
-			Integer rowIndex = 1;
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "sample1.xlsx";
+            Path inputFile = Utils.getPath(AddEmptyRowInWorksheet.class, input);
+            String output = "sample2.xlsx";
+            Path outputFile = Utils.getPath(AddEmptyRowInWorksheet.class, output);
+            String sheetName = "Sheet1";
+            Integer rowIndex = 1;
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-			com.aspose.cells.model.RowResponse apiResponse = cellsApi.PutInsertWorksheetRow(input, sheetName, rowIndex,
-					Utils.STORAGE, null);
+            com.aspose.cells.model.RowResponse apiResponse = cellsApi.PutInsertWorksheetRow(input, sheetName, rowIndex,
+                    Utils.STORAGE, null);
 
-			System.out.println(" Row Href : " + apiResponse.getRow().getLink().getHref());
+            System.out.println(" Row Href : " + apiResponse.getRow().getLink().getHref());
 
-			com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(input, null, Utils.STORAGE);
+            com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(input, null, Utils.STORAGE);
 
-			Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
-		}
+            Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: add-empty-row-in-worksheet
 
-	}
+    }
 }

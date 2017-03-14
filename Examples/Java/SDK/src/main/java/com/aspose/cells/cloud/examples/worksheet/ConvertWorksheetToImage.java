@@ -12,31 +12,33 @@ import java.nio.file.StandardCopyOption;
 
 public class ConvertWorksheetToImage {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: convert-worksheet-to-image
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "Sample1.xlsx";
-			Path inputFile = Utils.getPath(ConvertWorksheetToImage.class, input);
-			String output = "output.png";
-			Path outputFile = Utils.getPath(ConvertWorksheetToImage.class, output);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "Sample1.xlsx";
+            Path inputFile = Utils.getPath(ConvertWorksheetToImage.class, input);
+            String output = "output.png";
+            Path outputFile = Utils.getPath(ConvertWorksheetToImage.class, output);
 
-			String sheetName = "Sheet1";
-			String format = "png";
-			Integer verticalResolution = null;
-			Integer horizontalResolution = null;
+            String sheetName = "Sheet1";
+            String format = "png";
+            Integer verticalResolution = null;
+            Integer horizontalResolution = null;
 
-			com.aspose.cells.model.ResponseMessage apiResponse = cellsApi.GetWorkSheetWithFormat(input,
-					sheetName, format, verticalResolution, horizontalResolution, Utils.STORAGE, Utils.FOLDER);
+            com.aspose.cells.model.ResponseMessage apiResponse = cellsApi.GetWorkSheetWithFormat(input, sheetName,
+                    format, verticalResolution, horizontalResolution, Utils.STORAGE, Utils.FOLDER);
 
-			Files.copy(apiResponse.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
-		}
+            Files.copy(apiResponse.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: convert-worksheet-to-image
+    }
 }

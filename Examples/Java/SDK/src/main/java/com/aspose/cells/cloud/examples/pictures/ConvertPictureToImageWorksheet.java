@@ -13,35 +13,36 @@ import java.nio.file.StandardCopyOption;
 
 public class ConvertPictureToImageWorksheet {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: convert-pictures-to-image-worksheet
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "sample1.xlsx";
-			Path inputFile = Utils.getPath(ConvertPictureToImageWorksheet.class, input);
-			String output = "output.png";
-			Path outputFile = Utils.getPath(ConvertPictureToImageWorksheet.class, output);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "sample1.xlsx";
+            Path inputFile = Utils.getPath(ConvertPictureToImageWorksheet.class, input);
+            String output = "output.png";
+            Path outputFile = Utils.getPath(ConvertPictureToImageWorksheet.class, output);
 
-			String sheetName = "Sheet1";
-			Integer pictureNumber = 0;
-			String format = "png";
+            String sheetName = "Sheet1";
+            Integer pictureNumber = 0;
+            String format = "png";
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-			ResponseMessage sr = cellsApi.GetWorksheetPictureWithFormat(input, sheetName, pictureNumber, format,
-					Utils.STORAGE, Utils.FOLDER);
+            ResponseMessage sr = cellsApi.GetWorksheetPictureWithFormat(input, sheetName, pictureNumber, format,
+                    Utils.STORAGE, Utils.FOLDER);
 
-			Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
 
-		}
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: convert-pictures-to-image-worksheet
+    }
 
 }

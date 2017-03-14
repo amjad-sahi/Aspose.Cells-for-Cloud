@@ -12,41 +12,43 @@ import java.nio.file.StandardCopyOption;
 
 public class AddHyperlinkWorksheet {
 
-	public static void main(String... args) throws IOException {
+    public static void main(String... args) throws IOException {
+        // ExStart: add-hyperlinks-to-worksheet
 
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "sample1.xlsx";
-			Path inputFile = Utils.getPath(AddHyperlinkWorksheet.class, input);
-			String output = "sample2.xlsx";
-			Path outputFile = Utils.getPath(AddHyperlinkWorksheet.class, output);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "sample1.xlsx";
+            Path inputFile = Utils.getPath(AddHyperlinkWorksheet.class, input);
+            String output = "sample2.xlsx";
+            Path outputFile = Utils.getPath(AddHyperlinkWorksheet.class, output);
 
-			String sheetName = "Sheet1";
-			Integer firstRow = 2;
-			Integer firstColumn = 2;
-			Integer totalRows = 2;
-			Integer totalColumns = 2;
-			String address = "http://www.aspose.com/cloud/total-api.aspx";
+            String sheetName = "Sheet1";
+            Integer firstRow = 2;
+            Integer firstColumn = 2;
+            Integer totalRows = 2;
+            Integer totalColumns = 2;
+            String address = "http://www.aspose.com/cloud/total-api.aspx";
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-			cellsApi.PutWorkSheetHyperlink(input, sheetName, firstRow, firstColumn, totalRows, totalColumns, address,
-					Utils.STORAGE, Utils.FOLDER);
+            cellsApi.PutWorkSheetHyperlink(input, sheetName, firstRow, firstColumn, totalRows, totalColumns, address,
+                    Utils.STORAGE, Utils.FOLDER);
 
-			com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(input, null, Utils.STORAGE);
+            com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(input, null, Utils.STORAGE);
 
-			Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
 
-		}
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: add-hyperlinks-to-worksheet
 
-	}
+    }
 
 }

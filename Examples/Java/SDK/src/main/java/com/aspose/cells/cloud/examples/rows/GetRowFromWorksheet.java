@@ -10,30 +10,32 @@ import java.nio.file.Path;
 
 public class GetRowFromWorksheet {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: get-row-from-worksheet
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "Sample1.xlsx";
-			Path inputFile = Utils.getPath(GetRowFromWorksheet.class, input);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "Sample1.xlsx";
+            Path inputFile = Utils.getPath(GetRowFromWorksheet.class, input);
 
-			String sheetName = "Sheet1";
-			Integer rowIndex = 1;
+            String sheetName = "Sheet1";
+            Integer rowIndex = 1;
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-			com.aspose.cells.model.RowResponse apiResponse = cellsApi.GetWorksheetRow(input, sheetName, rowIndex,
-					Utils.STORAGE, null);
+            com.aspose.cells.model.RowResponse apiResponse = cellsApi.GetWorksheetRow(input, sheetName, rowIndex,
+                    Utils.STORAGE, null);
 
-			System.out.println(" Row Href : " + apiResponse.getRow().getLink().getHref());
-		}
+            System.out.println(" Row Href : " + apiResponse.getRow().getLink().getHref());
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: get-row-from-worksheet
 
-	}
+    }
 }

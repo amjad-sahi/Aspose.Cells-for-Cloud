@@ -13,24 +13,27 @@ import java.util.UUID;
 
 public class CreateEmptyWorkbook {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: create-empty-workbook
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
 
-			String output = "Sample-" + UUID.randomUUID().toString() + ".xlsx";
-			Path outputFile = Utils.getPath(CreateEmptyWorkbook.class, output);
+            String output = "Sample-" + UUID.randomUUID().toString() + ".xlsx";
+            Path outputFile = Utils.getPath(CreateEmptyWorkbook.class, output);
 
-			cellsApi.PutWorkbookCreate(output, null, null, Utils.STORAGE, null, null);
+            cellsApi.PutWorkbookCreate(output, null, null, Utils.STORAGE, null, null);
 
-			com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(output, null, Utils.STORAGE);
+            com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(output, null, Utils.STORAGE);
 
-			Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-	}
+        // ExEnd: create-empty-workbook
+
+    }
 }

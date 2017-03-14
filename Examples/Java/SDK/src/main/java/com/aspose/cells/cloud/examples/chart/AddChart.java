@@ -1,55 +1,58 @@
 package com.aspose.cells.cloud.examples.chart;
 
+import java.io.IOException;
+import java.nio.file.Path;
+
 import com.aspose.cells.api.CellsApi;
 import com.aspose.cells.cloud.examples.Configuration;
 import com.aspose.cells.cloud.examples.Utils;
+import com.aspose.cells.model.ChartsResponse;
 import com.aspose.storage.api.StorageApi;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 
 public class AddChart {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // For complete examples and data files, please go to
+        // https://github.com/aspose-cells/Aspose.Cells-for-Cloud
+        // ExStart: 1
+        
+        String fileName = "Sample_Test_Book.xls";
+        String sheetName = "Sheet6";
+        String chartType = "bar";
+        int upperLeftRow = 12;
+        int upperLeftColumn = 12;
+        int lowerRightRow = 20;
+        int lowerRightColumn = 20;
+        String area = "A1:A3";
+        Boolean isVertical = false;
+        String categoryData = "";
+        Boolean isAutoGetSerialName = true;
+        String title = "SalesState";
+        String storage = "";
+        String folder = "";
+        Path inputFile = Utils.getPath(AddChart.class, "Sample.xlsx");
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "Sample1.xlsx";
-			String output = "Sample2.xlsx";
-			Path inputFile = Utils.getPath(AddChart.class, input);
-			Path outputFile = Utils.getPath(AddChart.class, output);
-			String sheet = "Sheet1";
-			String chartType = "bar";
-			Integer upperLeftRow = 12;
-			Integer upperLeftColumn = 12;
-			Integer lowerRightRow = 20;
-			Integer lowerRightColumn = 20;
-			String area = "A1:A3";
-			Boolean isVertical = false;
-			String categoryData = "";
-			Boolean isAutoGetSerialName = true;
-			String title = "SalesState";
+        try {
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            // Upload source file to aspose cloud storage
+            storageApi.PutCreate(fileName, "", "", inputFile.toFile());
 
-			com.aspose.cells.model.ChartsResponse apiResposne = cellsApi.PutWorksheetAddChart(input, sheet, chartType,
-					upperLeftRow, upperLeftColumn, lowerRightRow, lowerRightColumn, area, isVertical, categoryData,
-					isAutoGetSerialName, title, Utils.STORAGE, Utils.FOLDER);
+            // Invoke Aspose.Cells Cloud SDK API to add chart in worksheet
+            ChartsResponse apiResponse = cellsApi.PutWorksheetAddChart(fileName, sheetName, chartType, upperLeftRow,
+                    upperLeftColumn, lowerRightRow, lowerRightColumn, area, isVertical, categoryData,
+                    isAutoGetSerialName, title, storage, folder);
 
-			com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(input, null, Utils.STORAGE);
+            if (apiResponse != null && apiResponse.getStatus().equals("OK")) {
+                System.out.println("Add a Chart in a Worksheet, Done!");
 
-			Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        // ExEnd: 1
 
-		}
-
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
+    }
 }

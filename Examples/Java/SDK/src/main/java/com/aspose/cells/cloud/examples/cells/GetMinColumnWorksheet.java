@@ -10,29 +10,31 @@ import java.nio.file.Path;
 
 public class GetMinColumnWorksheet {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: get-min-column-from-worksheet
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "sample1.xlsx";
-			Path inputFile = Utils.getPath(GetMinColumnWorksheet.class, input);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "sample1.xlsx";
+            Path inputFile = Utils.getPath(GetMinColumnWorksheet.class, input);
 
-			String sheetName = "Sheet1";
-			String cellOrMethodName = "mincolumn";
+            String sheetName = "Sheet1";
+            String cellOrMethodName = "mincolumn";
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-			Integer apiResponse = cellsApi.GetWorksheetCellProperty(input, sheetName, cellOrMethodName, Utils.STORAGE,
-					Utils.FOLDER);
-			System.out.println(" MinColumn :: " + apiResponse);
-		}
+            Integer apiResponse = cellsApi.GetWorksheetCellProperty(input, sheetName, cellOrMethodName, Utils.STORAGE,
+                    Utils.FOLDER);
+            System.out.println(" MinColumn :: " + apiResponse);
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: get-min-column-from-worksheet
 
-	}
+    }
 }

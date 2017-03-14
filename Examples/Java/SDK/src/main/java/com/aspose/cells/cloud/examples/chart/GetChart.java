@@ -10,30 +10,32 @@ import java.nio.file.Path;
 
 public class GetChart {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: get-chart-from-worksheet
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "Sample1.xlsx";
-			Path inputFile = Utils.getPath(GetChart.class, input);
-			String sheet = "Sheet1";
-			int chart = 0;
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "Sample1.xlsx";
+            Path inputFile = Utils.getPath(GetChart.class, input);
+            String sheet = "Sheet1";
+            int chart = 0;
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-			com.aspose.cells.model.ChartResponse r = cellsApi.GetWorksheetChart(input, sheet, chart, Utils.STORAGE,
-					Utils.FOLDER);
+            com.aspose.cells.model.ChartResponse r = cellsApi.GetWorksheetChart(input, sheet, chart, Utils.STORAGE,
+                    Utils.FOLDER);
 
-			System.out.println("Name: " + r.getChart().getName());
-			System.out.println("Type: " + r.getChart().getType());
+            System.out.println("Name: " + r.getChart().getName());
+            System.out.println("Type: " + r.getChart().getType());
 
-		}
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: get-chart-from-worksheet
+    }
 }

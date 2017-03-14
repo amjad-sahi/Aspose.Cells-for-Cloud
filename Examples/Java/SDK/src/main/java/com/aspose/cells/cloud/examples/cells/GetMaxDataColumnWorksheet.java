@@ -10,29 +10,31 @@ import java.nio.file.Path;
 
 public class GetMaxDataColumnWorksheet {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: get-max-data-column
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "sample1.xlsx";
-			Path inputFile = Utils.getPath(GetMaxDataColumnWorksheet.class, input);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "sample1.xlsx";
+            Path inputFile = Utils.getPath(GetMaxDataColumnWorksheet.class, input);
 
-			String sheetName = "Sheet1";
-			String cellOrMethodName = "maxdatacolumn";
+            String sheetName = "Sheet1";
+            String cellOrMethodName = "maxdatacolumn";
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-			Integer apiResponse = cellsApi.GetWorksheetCellProperty(input, sheetName, cellOrMethodName, Utils.STORAGE,
-					Utils.FOLDER);
-			System.out.println(" MaxDataColumn :: " + apiResponse);
-		}
+            Integer apiResponse = cellsApi.GetWorksheetCellProperty(input, sheetName, cellOrMethodName, Utils.STORAGE,
+                    Utils.FOLDER);
+            System.out.println(" MaxDataColumn :: " + apiResponse);
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: get-max-data-column
 
-	}
+    }
 }

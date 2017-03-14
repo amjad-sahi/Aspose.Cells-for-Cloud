@@ -6,8 +6,6 @@ import java.util.logging.Logger;
 
 public class Utils {
 
-    
-  
     public static final String STORAGE = null;
     public static final String FOLDER = null;
     public static final String BASE_PATH = null;
@@ -27,6 +25,4 @@ public class Utils {
         return p;
     }
 
-   
-    
 }

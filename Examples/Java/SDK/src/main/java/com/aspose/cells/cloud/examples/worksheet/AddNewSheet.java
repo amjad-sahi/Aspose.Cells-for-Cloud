@@ -12,29 +12,31 @@ import java.nio.file.StandardCopyOption;
 
 public class AddNewSheet {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: add-new-excel-worksheet
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			Path inputFile = Utils.getPath(AddNewSheet.class, "Sample.xlsx");
-			Path outputFile = Utils.getPath(AddNewSheet.class, "Sample2.xlsx");
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            Path inputFile = Utils.getPath(AddNewSheet.class, "Sample.xlsx");
+            Path outputFile = Utils.getPath(AddNewSheet.class, "Sample2.xlsx");
 
-			storageApi.PutCreate(inputFile.getFileName().toString(), null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(inputFile.getFileName().toString(), null, Utils.STORAGE, inputFile.toFile());
 
-			cellsApi.PutAddNewWorksheet(inputFile.getFileName().toString(), "NewSheet", Utils.STORAGE, null);
+            cellsApi.PutAddNewWorksheet(inputFile.getFileName().toString(), "NewSheet", Utils.STORAGE, null);
 
-			com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(inputFile.getFileName().toString(),
-					null, Utils.STORAGE);
+            com.aspose.storage.model.ResponseMessage sr = storageApi.GetDownload(inputFile.getFileName().toString(),
+                    null, Utils.STORAGE);
 
-			Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
-		}
+            Files.copy(sr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: add-new-excel-worksheet
 
-	}
+    }
 }

@@ -13,27 +13,29 @@ import java.nio.file.StandardCopyOption;
 
 public class ConvertChartToImage {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: convert-chart-to-image
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			Path inputFile = Utils.getPath(ConvertChartToImage.class, "Sample.xlsx");
-			Path outputFile = Utils.getPath(ConvertChartToImage.class, "Chart.png");
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            Path inputFile = Utils.getPath(ConvertChartToImage.class, "Sample.xlsx");
+            Path outputFile = Utils.getPath(ConvertChartToImage.class, "Chart.png");
 
-			storageApi.PutCreate(inputFile.getFileName().toString(), null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(inputFile.getFileName().toString(), null, Utils.STORAGE, inputFile.toFile());
 
-			ResponseMessage cr = cellsApi.GetWorksheetChartWithFormat(inputFile.getFileName().toString(), "Sheet1", 0,
-					"png", Utils.STORAGE, Utils.FOLDER);
+            ResponseMessage cr = cellsApi.GetWorksheetChartWithFormat(inputFile.getFileName().toString(), "Sheet1", 0,
+                    "png", Utils.STORAGE, Utils.FOLDER);
 
-			Files.copy(cr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(cr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
 
-		}
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: convert-chart-to-image
+    }
 }
