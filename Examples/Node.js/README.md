@@ -11,8 +11,6 @@ This repository contains Node.js SDK and REST examples for [Aspose.Cells for Clo
 
 ## How to Run the Examples?
 
-
-
 After you have downloaded the ZIP file from the [Download ZIP](https://github.com/aspose-cells/Aspose.Cells-for-Cloud/archive/master.zip) link above, extract the contents of ZIP file to any folder on your computer. 
 
 
