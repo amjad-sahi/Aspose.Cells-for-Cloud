@@ -11,9 +11,7 @@ This repository contains C# examples for [Aspose.Cells for Cloud](http://www.asp
 
 ## How to Run the Examples?
 
-After you have downloaded the ZIP file from the [Download ZIP](https://github.com/aspose-cells/Aspose.Cells-for-Cloud/archive/master.zip) link above, extract the contents of ZIP file to any folder on your computer. 
-
-Please follow the steps below to run the examples
+After you have downloaded the ZIP file from the [Download ZIP](https://github.com/aspose-cells/Aspose.Cells-for-Cloud/archive/master.zip) link above, extract the contents of ZIP file to any folder on your computer and please follow the steps below to run the examples
 <ul>
 <li>There is one Visual Studio solution file for C#.</li>
 <li>The project is created in Visual Studio 2013, but the solution file is compatible with Visual Studio 2010 SP1 and higher.</li>
