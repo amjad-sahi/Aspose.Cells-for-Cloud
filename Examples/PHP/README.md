@@ -7,7 +7,7 @@ This directory contains examples for [Aspose.Cells for Cloud PHP SDK](https://gi
    [Create New App and Get App Key and SID](https://docs.asposeptyltd.com/display/totalcloud/Create+New+App+and+Get+App+Key+and+SID).
 
 2. Edit [Utils.php](https://github.com/aspose-cells/Aspose.Cells-for-Cloud/blob/master/Examples/PHP/Utils.php) class and set values of const variables apiKey and appSID.
-3. Install Aspose.Words for Cloud SDK by launching your command line in the [root directory](https://github.com/aspose-cells/Aspose.Cells-for-Cloud/tree/master/Examples/PHP) and and run 
+3. Install Aspose.Words for Cloud SDK by launching your command line in the [root directory](https://github.com/aspose-cells/Aspose.Cells-for-Cloud/tree/master/Examples/PHP) and run 
 ```ruby
 composer install --no-dev
 ```
