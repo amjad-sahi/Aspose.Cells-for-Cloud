@@ -1,14 +1,14 @@
 package com.aspose.cells.cloud.examples.cells;
 
-import com.aspose.cells.api.CellsApi;
-import com.aspose.cells.cloud.examples.Configuration;
-import com.aspose.cells.cloud.examples.Utils;
-import com.aspose.storage.api.StorageApi;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+
+import com.aspose.cells.api.CellsApi;
+import com.aspose.cells.cloud.examples.Configuration;
+import com.aspose.cells.cloud.examples.Utils;
+import com.aspose.storage.api.StorageApi;
 
 public class ChangeCellStyleWorksheet {
 
