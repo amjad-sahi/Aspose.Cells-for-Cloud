@@ -658,7 +658,6 @@ class CellsApiTest extends PHPUnit_Framework_TestCase {
                     }
                   }';
         $result = $this->cells->PostPivotTableCellStyle($name="sample.xlsx", $sheetName="Sheet6", $pivotTableIndex="0", $column=1, $row=1, $storage = null, $folder = null, $body);
-        print_r($result);
         $this->assertEquals(200, $result->Code);
     }
     

@@ -1,0 +1,718 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3003EB501E7BB63400E999DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EB4F1E7BB63400E999DA /* main.m */; };
+		3003EB531E7BB63400E999DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EB521E7BB63400E999DA /* AppDelegate.m */; };
+		3003EB591E7BB63400E999DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB571E7BB63400E999DA /* Main.storyboard */; };
+		3003EB5B1E7BB63400E999DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB5A1E7BB63400E999DA /* Assets.xcassets */; };
+		3003EB5E1E7BB63400E999DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB5C1E7BB63400E999DA /* LaunchScreen.storyboard */; };
+		3003EB671E7BD77600E999DA /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EB661E7BD77600E999DA /* Utils.m */; };
+		3003EB8B1E7BD7C200E999DA /* aspose-cloud.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB691E7BD7C200E999DA /* aspose-cloud.JPG */; };
+		3003EB8C1E7BD7C200E999DA /* aspose-cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB6A1E7BD7C200E999DA /* aspose-cloud.png */; };
+		3003EB8D1E7BD7C200E999DA /* aspose-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB6B1E7BD7C200E999DA /* aspose-logo.png */; };
+		3003EB8E1E7BD7C200E999DA /* Book1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB6C1E7BD7C200E999DA /* Book1.xlsx */; };
+		3003EB8F1E7BD7C200E999DA /* calendar.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB6D1E7BD7C200E999DA /* calendar.xlsx */; };
+		3003EB901E7BD7C200E999DA /* Creative.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB6E1E7BD7C200E999DA /* Creative.jpg */; };
+		3003EB911E7BD7C200E999DA /* Embeded_OleObject_Sample_Book1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB6F1E7BD7C200E999DA /* Embeded_OleObject_Sample_Book1.xlsx */; };
+		3003EB921E7BD7C200E999DA /* encrypted_Sample_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB701E7BD7C200E999DA /* encrypted_Sample_Test_Book.xls */; };
+		3003EB931E7BD7C200E999DA /* Group_Rows_Sample_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB711E7BD7C200E999DA /* Group_Rows_Sample_Test_Book.xls */; };
+		3003EB941E7BD7C200E999DA /* Hidden-WorkSheet-Sample_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB721E7BD7C200E999DA /* Hidden-WorkSheet-Sample_Test_Book.xls */; };
+		3003EB951E7BD7C200E999DA /* Hide_Row_Sample_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB731E7BD7C200E999DA /* Hide_Row_Sample_Test_Book.xls */; };
+		3003EB961E7BD7C200E999DA /* HomeInventory1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB741E7BD7C200E999DA /* HomeInventory1.xlsx */; };
+		3003EB971E7BD7C200E999DA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB751E7BD7C200E999DA /* index.html */; };
+		3003EB981E7BD7C200E999DA /* Marker.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB761E7BD7C200E999DA /* Marker.xml */; };
+		3003EB991E7BD7C200E999DA /* MergeCell_Sample_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB771E7BD7C200E999DA /* MergeCell_Sample_Test_Book.xls */; };
+		3003EB9A1E7BD7C200E999DA /* myWorkbook.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB781E7BD7C200E999DA /* myWorkbook.xlsx */; };
+		3003EB9B1E7BD7C200E999DA /* password_protected_Sample_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB791E7BD7C200E999DA /* password_protected_Sample_Test_Book.xls */; };
+		3003EB9C1E7BD7C200E999DA /* Sample_Book1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB7A1E7BD7C200E999DA /* Sample_Book1.xlsx */; };
+		3003EB9D1E7BD7C200E999DA /* Sample_Book2.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB7B1E7BD7C200E999DA /* Sample_Book2.xls */; };
+		3003EB9E1E7BD7C200E999DA /* Sample_OleObject_Book1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB7C1E7BD7C200E999DA /* Sample_OleObject_Book1.xlsx */; };
+		3003EB9F1E7BD7C200E999DA /* Sample_Pivot_Table_Example.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB7D1E7BD7C200E999DA /* Sample_Pivot_Table_Example.xls */; };
+		3003EBA01E7BD7C200E999DA /* Sample_Protected_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB7E1E7BD7C200E999DA /* Sample_Protected_Test_Book.xls */; };
+		3003EBA11E7BD7C200E999DA /* Sample_SmartMarker_Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB7F1E7BD7C200E999DA /* Sample_SmartMarker_Data.xml */; };
+		3003EBA21E7BD7C200E999DA /* Sample_SmartMarker.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB801E7BD7C200E999DA /* Sample_SmartMarker.xlsx */; };
+		3003EBA31E7BD7C200E999DA /* Sample_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB811E7BD7C200E999DA /* Sample_Test_Book.xls */; };
+		3003EBA41E7BD7C200E999DA /* sample.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB821E7BD7C200E999DA /* sample.xlsx */; };
+		3003EBA51E7BD7C200E999DA /* sample1.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB831E7BD7C200E999DA /* sample1.xlsx */; };
+		3003EBA61E7BD7C200E999DA /* SmartMarker.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB841E7BD7C200E999DA /* SmartMarker.xlsx */; };
+		3003EBA71E7BD7C200E999DA /* test_cells.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB851E7BD7C200E999DA /* test_cells.xlsx */; };
+		3003EBA81E7BD7C200E999DA /* test_convert_cell.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB861E7BD7C200E999DA /* test_convert_cell.xlsx */; };
+		3003EBA91E7BD7C200E999DA /* test.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB871E7BD7C200E999DA /* test.xlsx */; };
+		3003EBAA1E7BD7C200E999DA /* testfile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB881E7BD7C200E999DA /* testfile.txt */; };
+		3003EBAB1E7BD7C200E999DA /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB891E7BD7C200E999DA /* watermark.png */; };
+		3003EBAC1E7BD7C200E999DA /* WorkSheetBackground_Sample_Test_Book.xls in Resources */ = {isa = PBXBuildFile; fileRef = 3003EB8A1E7BD7C200E999DA /* WorkSheetBackground_Sample_Test_Book.xls */; };
+		3003EBBC1E7BD8CA00E999DA /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBBB1E7BD8CA00E999DA /* Cell.m */; };
+		3003EBBF1E7BD9BF00E999DA /* Chart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBBE1E7BD9BF00E999DA /* Chart.m */; };
+		3003EBC21E7BD9E700E999DA /* DocumentProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBC11E7BD9E700E999DA /* DocumentProperty.m */; };
+		3003EBC51E7BDA0800E999DA /* Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBC41E7BDA0800E999DA /* Hyperlink.m */; };
+		3003EBC81E7BDB2700E999DA /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBC71E7BDB2700E999DA /* Image.m */; };
+		3003EBCB1E7BDB4800E999DA /* ImportData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBCA1E7BDB4800E999DA /* ImportData.m */; };
+		3003EBCE1E7BDB6500E999DA /* OLEObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBCD1E7BDB6500E999DA /* OLEObject.m */; };
+		3003EBD11E7BDB8100E999DA /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBD01E7BDB8100E999DA /* Picture.m */; };
+		3003EBD41E7BDB9E00E999DA /* PivotTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBD31E7BDB9E00E999DA /* PivotTable.m */; };
+		3003EBD71E7BDBBB00E999DA /* Row.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBD61E7BDBBB00E999DA /* Row.m */; };
+		3003EBDA1E7BDBD900E999DA /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBD91E7BDBD900E999DA /* Text.m */; };
+		3003EBDD1E7BDBF300E999DA /* Workbook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBDC1E7BDBF300E999DA /* Workbook.m */; };
+		3003EBE01E7BDC4500E999DA /* Worksheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBDF1E7BDC4500E999DA /* Worksheet.m */; };
+		8A677C18CCA67C8748E8DB88 /* libPods-Aspose.Cells.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7FEB667F4DD1FE22643D49 /* libPods-Aspose.Cells.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3003EB4B1E7BB63400E999DA /* Aspose.Cells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aspose.Cells.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3003EB4F1E7BB63400E999DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3003EB511E7BB63400E999DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3003EB521E7BB63400E999DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3003EB581E7BB63400E999DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3003EB5A1E7BB63400E999DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3003EB5D1E7BB63400E999DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3003EB5F1E7BB63400E999DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3003EB651E7BD77600E999DA /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		3003EB661E7BD77600E999DA /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		3003EB691E7BD7C200E999DA /* aspose-cloud.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "aspose-cloud.JPG"; path = "Data/aspose-cloud.JPG"; sourceTree = "<group>"; };
+		3003EB6A1E7BD7C200E999DA /* aspose-cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aspose-cloud.png"; path = "Data/aspose-cloud.png"; sourceTree = "<group>"; };
+		3003EB6B1E7BD7C200E999DA /* aspose-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aspose-logo.png"; path = "Data/aspose-logo.png"; sourceTree = "<group>"; };
+		3003EB6C1E7BD7C200E999DA /* Book1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = Book1.xlsx; path = Data/Book1.xlsx; sourceTree = "<group>"; };
+		3003EB6D1E7BD7C200E999DA /* calendar.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = calendar.xlsx; path = Data/calendar.xlsx; sourceTree = "<group>"; };
+		3003EB6E1E7BD7C200E999DA /* Creative.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Creative.jpg; path = Data/Creative.jpg; sourceTree = "<group>"; };
+		3003EB6F1E7BD7C200E999DA /* Embeded_OleObject_Sample_Book1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = Embeded_OleObject_Sample_Book1.xlsx; path = Data/Embeded_OleObject_Sample_Book1.xlsx; sourceTree = "<group>"; };
+		3003EB701E7BD7C200E999DA /* encrypted_Sample_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = encrypted_Sample_Test_Book.xls; path = Data/encrypted_Sample_Test_Book.xls; sourceTree = "<group>"; };
+		3003EB711E7BD7C200E999DA /* Group_Rows_Sample_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = Group_Rows_Sample_Test_Book.xls; path = Data/Group_Rows_Sample_Test_Book.xls; sourceTree = "<group>"; };
+		3003EB721E7BD7C200E999DA /* Hidden-WorkSheet-Sample_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Hidden-WorkSheet-Sample_Test_Book.xls"; path = "Data/Hidden-WorkSheet-Sample_Test_Book.xls"; sourceTree = "<group>"; };
+		3003EB731E7BD7C200E999DA /* Hide_Row_Sample_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = Hide_Row_Sample_Test_Book.xls; path = Data/Hide_Row_Sample_Test_Book.xls; sourceTree = "<group>"; };
+		3003EB741E7BD7C200E999DA /* HomeInventory1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = HomeInventory1.xlsx; path = Data/HomeInventory1.xlsx; sourceTree = "<group>"; };
+		3003EB751E7BD7C200E999DA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Data/index.html; sourceTree = "<group>"; };
+		3003EB761E7BD7C200E999DA /* Marker.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Marker.xml; path = Data/Marker.xml; sourceTree = "<group>"; };
+		3003EB771E7BD7C200E999DA /* MergeCell_Sample_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = MergeCell_Sample_Test_Book.xls; path = Data/MergeCell_Sample_Test_Book.xls; sourceTree = "<group>"; };
+		3003EB781E7BD7C200E999DA /* myWorkbook.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = myWorkbook.xlsx; path = Data/myWorkbook.xlsx; sourceTree = "<group>"; };
+		3003EB791E7BD7C200E999DA /* password_protected_Sample_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = password_protected_Sample_Test_Book.xls; path = Data/password_protected_Sample_Test_Book.xls; sourceTree = "<group>"; };
+		3003EB7A1E7BD7C200E999DA /* Sample_Book1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sample_Book1.xlsx; path = Data/Sample_Book1.xlsx; sourceTree = "<group>"; };
+		3003EB7B1E7BD7C200E999DA /* Sample_Book2.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sample_Book2.xls; path = Data/Sample_Book2.xls; sourceTree = "<group>"; };
+		3003EB7C1E7BD7C200E999DA /* Sample_OleObject_Book1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sample_OleObject_Book1.xlsx; path = Data/Sample_OleObject_Book1.xlsx; sourceTree = "<group>"; };
+		3003EB7D1E7BD7C200E999DA /* Sample_Pivot_Table_Example.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sample_Pivot_Table_Example.xls; path = Data/Sample_Pivot_Table_Example.xls; sourceTree = "<group>"; };
+		3003EB7E1E7BD7C200E999DA /* Sample_Protected_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sample_Protected_Test_Book.xls; path = Data/Sample_Protected_Test_Book.xls; sourceTree = "<group>"; };
+		3003EB7F1E7BD7C200E999DA /* Sample_SmartMarker_Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Sample_SmartMarker_Data.xml; path = Data/Sample_SmartMarker_Data.xml; sourceTree = "<group>"; };
+		3003EB801E7BD7C200E999DA /* Sample_SmartMarker.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sample_SmartMarker.xlsx; path = Data/Sample_SmartMarker.xlsx; sourceTree = "<group>"; };
+		3003EB811E7BD7C200E999DA /* Sample_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sample_Test_Book.xls; path = Data/Sample_Test_Book.xls; sourceTree = "<group>"; };
+		3003EB821E7BD7C200E999DA /* sample.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample.xlsx; path = Data/sample.xlsx; sourceTree = "<group>"; };
+		3003EB831E7BD7C200E999DA /* sample1.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample1.xlsx; path = Data/sample1.xlsx; sourceTree = "<group>"; };
+		3003EB841E7BD7C200E999DA /* SmartMarker.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = SmartMarker.xlsx; path = Data/SmartMarker.xlsx; sourceTree = "<group>"; };
+		3003EB851E7BD7C200E999DA /* test_cells.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = test_cells.xlsx; path = Data/test_cells.xlsx; sourceTree = "<group>"; };
+		3003EB861E7BD7C200E999DA /* test_convert_cell.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = test_convert_cell.xlsx; path = Data/test_convert_cell.xlsx; sourceTree = "<group>"; };
+		3003EB871E7BD7C200E999DA /* test.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; name = test.xlsx; path = Data/test.xlsx; sourceTree = "<group>"; };
+		3003EB881E7BD7C200E999DA /* testfile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testfile.txt; path = Data/testfile.txt; sourceTree = "<group>"; };
+		3003EB891E7BD7C200E999DA /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watermark.png; path = Data/watermark.png; sourceTree = "<group>"; };
+		3003EB8A1E7BD7C200E999DA /* WorkSheetBackground_Sample_Test_Book.xls */ = {isa = PBXFileReference; lastKnownFileType = file; name = WorkSheetBackground_Sample_Test_Book.xls; path = Data/WorkSheetBackground_Sample_Test_Book.xls; sourceTree = "<group>"; };
+		3003EBBA1E7BD8CA00E999DA /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cell.h; path = Cells/Cell.h; sourceTree = "<group>"; };
+		3003EBBB1E7BD8CA00E999DA /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cell.m; path = Cells/Cell.m; sourceTree = "<group>"; };
+		3003EBBD1E7BD9BF00E999DA /* Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chart.h; path = Charts/Chart.h; sourceTree = "<group>"; };
+		3003EBBE1E7BD9BF00E999DA /* Chart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Chart.m; path = Charts/Chart.m; sourceTree = "<group>"; };
+		3003EBC01E7BD9E700E999DA /* DocumentProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentProperty.h; path = "Document Properties/DocumentProperty.h"; sourceTree = "<group>"; };
+		3003EBC11E7BD9E700E999DA /* DocumentProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentProperty.m; path = "Document Properties/DocumentProperty.m"; sourceTree = "<group>"; };
+		3003EBC31E7BDA0800E999DA /* Hyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hyperlink.h; path = Hyperlinks/Hyperlink.h; sourceTree = "<group>"; };
+		3003EBC41E7BDA0800E999DA /* Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hyperlink.m; path = Hyperlinks/Hyperlink.m; sourceTree = "<group>"; };
+		3003EBC61E7BDB2700E999DA /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = Images/Image.h; sourceTree = "<group>"; };
+		3003EBC71E7BDB2700E999DA /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image.m; path = Images/Image.m; sourceTree = "<group>"; };
+		3003EBC91E7BDB4800E999DA /* ImportData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImportData.h; path = "Import Data/ImportData.h"; sourceTree = "<group>"; };
+		3003EBCA1E7BDB4800E999DA /* ImportData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImportData.m; path = "Import Data/ImportData.m"; sourceTree = "<group>"; };
+		3003EBCC1E7BDB6500E999DA /* OLEObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OLEObject.h; path = OLEObject/OLEObject.h; sourceTree = "<group>"; };
+		3003EBCD1E7BDB6500E999DA /* OLEObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OLEObject.m; path = OLEObject/OLEObject.m; sourceTree = "<group>"; };
+		3003EBCF1E7BDB8100E999DA /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Picture.h; path = Pictures/Picture.h; sourceTree = "<group>"; };
+		3003EBD01E7BDB8100E999DA /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Picture.m; path = Pictures/Picture.m; sourceTree = "<group>"; };
+		3003EBD21E7BDB9E00E999DA /* PivotTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PivotTable.h; path = "Pivot Tables/PivotTable.h"; sourceTree = "<group>"; };
+		3003EBD31E7BDB9E00E999DA /* PivotTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PivotTable.m; path = "Pivot Tables/PivotTable.m"; sourceTree = "<group>"; };
+		3003EBD51E7BDBBB00E999DA /* Row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Row.h; path = Rows/Row.h; sourceTree = "<group>"; };
+		3003EBD61E7BDBBB00E999DA /* Row.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Row.m; path = Rows/Row.m; sourceTree = "<group>"; };
+		3003EBD81E7BDBD900E999DA /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Text.h; path = Text/Text.h; sourceTree = "<group>"; };
+		3003EBD91E7BDBD900E999DA /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Text.m; path = Text/Text.m; sourceTree = "<group>"; };
+		3003EBDB1E7BDBF300E999DA /* Workbook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workbook.h; path = Workbook/Workbook.h; sourceTree = "<group>"; };
+		3003EBDC1E7BDBF300E999DA /* Workbook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workbook.m; path = Workbook/Workbook.m; sourceTree = "<group>"; };
+		3003EBDE1E7BDC4500E999DA /* Worksheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Worksheet.h; path = Worksheet/Worksheet.h; sourceTree = "<group>"; };
+		3003EBDF1E7BDC4500E999DA /* Worksheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Worksheet.m; path = Worksheet/Worksheet.m; sourceTree = "<group>"; };
+		364138EB6028633E4046D958 /* Pods-Aspose.Cells.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspose.Cells.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aspose.Cells/Pods-Aspose.Cells.release.xcconfig"; sourceTree = "<group>"; };
+		3E8B8F3423070428C7721297 /* Pods-Aspose.Cells.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspose.Cells.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aspose.Cells/Pods-Aspose.Cells.debug.xcconfig"; sourceTree = "<group>"; };
+		7F7FEB667F4DD1FE22643D49 /* libPods-Aspose.Cells.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Aspose.Cells.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3003EB481E7BB63400E999DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A677C18CCA67C8748E8DB88 /* libPods-Aspose.Cells.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3003EB421E7BB63400E999DA = {
+			isa = PBXGroup;
+			children = (
+				3003EB4D1E7BB63400E999DA /* Aspose.Cells */,
+				3003EB4C1E7BB63400E999DA /* Products */,
+				8BD187865160F5A9A3AF6662 /* Pods */,
+				4D2FE8412C2FAF2085EDF5D3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3003EB4C1E7BB63400E999DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3003EB4B1E7BB63400E999DA /* Aspose.Cells.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3003EB4D1E7BB63400E999DA /* Aspose.Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBAD1E7BD7E800E999DA /* Cells */,
+				3003EBAE1E7BD7F000E999DA /* Charts */,
+				3003EBAF1E7BD7F600E999DA /* Document Properties */,
+				3003EBB01E7BD80200E999DA /* Hyperlinks */,
+				3003EBB11E7BD80C00E999DA /* Images */,
+				3003EBB21E7BD81500E999DA /* Import Data */,
+				3003EBB31E7BD81F00E999DA /* OLEObjects */,
+				3003EBB41E7BD82700E999DA /* Pictures */,
+				3003EBB51E7BD82E00E999DA /* Pivot Tables */,
+				3003EBB61E7BD83500E999DA /* Rows */,
+				3003EBB71E7BD83D00E999DA /* Text */,
+				3003EBB81E7BD84400E999DA /* Workbook */,
+				3003EBB91E7BD84C00E999DA /* Worksheet */,
+				3003EB681E7BD78200E999DA /* Data */,
+				3003EB651E7BD77600E999DA /* Utils.h */,
+				3003EB661E7BD77600E999DA /* Utils.m */,
+				3003EB511E7BB63400E999DA /* AppDelegate.h */,
+				3003EB521E7BB63400E999DA /* AppDelegate.m */,
+				3003EB571E7BB63400E999DA /* Main.storyboard */,
+				3003EB5A1E7BB63400E999DA /* Assets.xcassets */,
+				3003EB5C1E7BB63400E999DA /* LaunchScreen.storyboard */,
+				3003EB5F1E7BB63400E999DA /* Info.plist */,
+				3003EB4E1E7BB63400E999DA /* Supporting Files */,
+			);
+			path = Aspose.Cells;
+			sourceTree = "<group>";
+		};
+		3003EB4E1E7BB63400E999DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3003EB4F1E7BB63400E999DA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3003EB681E7BD78200E999DA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3003EB691E7BD7C200E999DA /* aspose-cloud.JPG */,
+				3003EB6A1E7BD7C200E999DA /* aspose-cloud.png */,
+				3003EB6B1E7BD7C200E999DA /* aspose-logo.png */,
+				3003EB6C1E7BD7C200E999DA /* Book1.xlsx */,
+				3003EB6D1E7BD7C200E999DA /* calendar.xlsx */,
+				3003EB6E1E7BD7C200E999DA /* Creative.jpg */,
+				3003EB6F1E7BD7C200E999DA /* Embeded_OleObject_Sample_Book1.xlsx */,
+				3003EB701E7BD7C200E999DA /* encrypted_Sample_Test_Book.xls */,
+				3003EB711E7BD7C200E999DA /* Group_Rows_Sample_Test_Book.xls */,
+				3003EB721E7BD7C200E999DA /* Hidden-WorkSheet-Sample_Test_Book.xls */,
+				3003EB731E7BD7C200E999DA /* Hide_Row_Sample_Test_Book.xls */,
+				3003EB741E7BD7C200E999DA /* HomeInventory1.xlsx */,
+				3003EB751E7BD7C200E999DA /* index.html */,
+				3003EB761E7BD7C200E999DA /* Marker.xml */,
+				3003EB771E7BD7C200E999DA /* MergeCell_Sample_Test_Book.xls */,
+				3003EB781E7BD7C200E999DA /* myWorkbook.xlsx */,
+				3003EB791E7BD7C200E999DA /* password_protected_Sample_Test_Book.xls */,
+				3003EB7A1E7BD7C200E999DA /* Sample_Book1.xlsx */,
+				3003EB7B1E7BD7C200E999DA /* Sample_Book2.xls */,
+				3003EB7C1E7BD7C200E999DA /* Sample_OleObject_Book1.xlsx */,
+				3003EB7D1E7BD7C200E999DA /* Sample_Pivot_Table_Example.xls */,
+				3003EB7E1E7BD7C200E999DA /* Sample_Protected_Test_Book.xls */,
+				3003EB7F1E7BD7C200E999DA /* Sample_SmartMarker_Data.xml */,
+				3003EB801E7BD7C200E999DA /* Sample_SmartMarker.xlsx */,
+				3003EB811E7BD7C200E999DA /* Sample_Test_Book.xls */,
+				3003EB821E7BD7C200E999DA /* sample.xlsx */,
+				3003EB831E7BD7C200E999DA /* sample1.xlsx */,
+				3003EB841E7BD7C200E999DA /* SmartMarker.xlsx */,
+				3003EB851E7BD7C200E999DA /* test_cells.xlsx */,
+				3003EB861E7BD7C200E999DA /* test_convert_cell.xlsx */,
+				3003EB871E7BD7C200E999DA /* test.xlsx */,
+				3003EB881E7BD7C200E999DA /* testfile.txt */,
+				3003EB891E7BD7C200E999DA /* watermark.png */,
+				3003EB8A1E7BD7C200E999DA /* WorkSheetBackground_Sample_Test_Book.xls */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		3003EBAD1E7BD7E800E999DA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBBA1E7BD8CA00E999DA /* Cell.h */,
+				3003EBBB1E7BD8CA00E999DA /* Cell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		3003EBAE1E7BD7F000E999DA /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBBD1E7BD9BF00E999DA /* Chart.h */,
+				3003EBBE1E7BD9BF00E999DA /* Chart.m */,
+			);
+			name = Charts;
+			sourceTree = "<group>";
+		};
+		3003EBAF1E7BD7F600E999DA /* Document Properties */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBC01E7BD9E700E999DA /* DocumentProperty.h */,
+				3003EBC11E7BD9E700E999DA /* DocumentProperty.m */,
+			);
+			name = "Document Properties";
+			sourceTree = "<group>";
+		};
+		3003EBB01E7BD80200E999DA /* Hyperlinks */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBC31E7BDA0800E999DA /* Hyperlink.h */,
+				3003EBC41E7BDA0800E999DA /* Hyperlink.m */,
+			);
+			name = Hyperlinks;
+			sourceTree = "<group>";
+		};
+		3003EBB11E7BD80C00E999DA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBC61E7BDB2700E999DA /* Image.h */,
+				3003EBC71E7BDB2700E999DA /* Image.m */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		3003EBB21E7BD81500E999DA /* Import Data */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBC91E7BDB4800E999DA /* ImportData.h */,
+				3003EBCA1E7BDB4800E999DA /* ImportData.m */,
+			);
+			name = "Import Data";
+			sourceTree = "<group>";
+		};
+		3003EBB31E7BD81F00E999DA /* OLEObjects */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBCC1E7BDB6500E999DA /* OLEObject.h */,
+				3003EBCD1E7BDB6500E999DA /* OLEObject.m */,
+			);
+			name = OLEObjects;
+			sourceTree = "<group>";
+		};
+		3003EBB41E7BD82700E999DA /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBCF1E7BDB8100E999DA /* Picture.h */,
+				3003EBD01E7BDB8100E999DA /* Picture.m */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
+		3003EBB51E7BD82E00E999DA /* Pivot Tables */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBD21E7BDB9E00E999DA /* PivotTable.h */,
+				3003EBD31E7BDB9E00E999DA /* PivotTable.m */,
+			);
+			name = "Pivot Tables";
+			sourceTree = "<group>";
+		};
+		3003EBB61E7BD83500E999DA /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBD51E7BDBBB00E999DA /* Row.h */,
+				3003EBD61E7BDBBB00E999DA /* Row.m */,
+			);
+			name = Rows;
+			sourceTree = "<group>";
+		};
+		3003EBB71E7BD83D00E999DA /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBD81E7BDBD900E999DA /* Text.h */,
+				3003EBD91E7BDBD900E999DA /* Text.m */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
+		3003EBB81E7BD84400E999DA /* Workbook */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBDB1E7BDBF300E999DA /* Workbook.h */,
+				3003EBDC1E7BDBF300E999DA /* Workbook.m */,
+			);
+			name = Workbook;
+			sourceTree = "<group>";
+		};
+		3003EBB91E7BD84C00E999DA /* Worksheet */ = {
+			isa = PBXGroup;
+			children = (
+				3003EBDE1E7BDC4500E999DA /* Worksheet.h */,
+				3003EBDF1E7BDC4500E999DA /* Worksheet.m */,
+			);
+			name = Worksheet;
+			sourceTree = "<group>";
+		};
+		4D2FE8412C2FAF2085EDF5D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F7FEB667F4DD1FE22643D49 /* libPods-Aspose.Cells.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BD187865160F5A9A3AF6662 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E8B8F3423070428C7721297 /* Pods-Aspose.Cells.debug.xcconfig */,
+				364138EB6028633E4046D958 /* Pods-Aspose.Cells.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3003EB4A1E7BB63400E999DA /* Aspose.Cells */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3003EB621E7BB63400E999DA /* Build configuration list for PBXNativeTarget "Aspose.Cells" */;
+			buildPhases = (
+				460AAC44A6912364C88D77B1 /* [CP] Check Pods Manifest.lock */,
+				3003EB471E7BB63400E999DA /* Sources */,
+				3003EB481E7BB63400E999DA /* Frameworks */,
+				3003EB491E7BB63400E999DA /* Resources */,
+				B65DEDD10A202680EFC288F2 /* [CP] Embed Pods Frameworks */,
+				FA95D8A69AB184FC8DD79E06 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Aspose.Cells;
+			productName = Aspose.Cells;
+			productReference = 3003EB4B1E7BB63400E999DA /* Aspose.Cells.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3003EB431E7BB63400E999DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Aspose;
+				TargetAttributes = {
+					3003EB4A1E7BB63400E999DA = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3003EB461E7BB63400E999DA /* Build configuration list for PBXProject "Aspose.Cells" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3003EB421E7BB63400E999DA;
+			productRefGroup = 3003EB4C1E7BB63400E999DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3003EB4A1E7BB63400E999DA /* Aspose.Cells */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3003EB491E7BB63400E999DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3003EBAC1E7BD7C200E999DA /* WorkSheetBackground_Sample_Test_Book.xls in Resources */,
+				3003EB901E7BD7C200E999DA /* Creative.jpg in Resources */,
+				3003EB9C1E7BD7C200E999DA /* Sample_Book1.xlsx in Resources */,
+				3003EB5E1E7BB63400E999DA /* LaunchScreen.storyboard in Resources */,
+				3003EB5B1E7BB63400E999DA /* Assets.xcassets in Resources */,
+				3003EBA91E7BD7C200E999DA /* test.xlsx in Resources */,
+				3003EBA21E7BD7C200E999DA /* Sample_SmartMarker.xlsx in Resources */,
+				3003EB8E1E7BD7C200E999DA /* Book1.xlsx in Resources */,
+				3003EB9D1E7BD7C200E999DA /* Sample_Book2.xls in Resources */,
+				3003EB8B1E7BD7C200E999DA /* aspose-cloud.JPG in Resources */,
+				3003EB971E7BD7C200E999DA /* index.html in Resources */,
+				3003EBAB1E7BD7C200E999DA /* watermark.png in Resources */,
+				3003EBA81E7BD7C200E999DA /* test_convert_cell.xlsx in Resources */,
+				3003EB9B1E7BD7C200E999DA /* password_protected_Sample_Test_Book.xls in Resources */,
+				3003EB8F1E7BD7C200E999DA /* calendar.xlsx in Resources */,
+				3003EBAA1E7BD7C200E999DA /* testfile.txt in Resources */,
+				3003EB911E7BD7C200E999DA /* Embeded_OleObject_Sample_Book1.xlsx in Resources */,
+				3003EB8D1E7BD7C200E999DA /* aspose-logo.png in Resources */,
+				3003EBA61E7BD7C200E999DA /* SmartMarker.xlsx in Resources */,
+				3003EB9A1E7BD7C200E999DA /* myWorkbook.xlsx in Resources */,
+				3003EB981E7BD7C200E999DA /* Marker.xml in Resources */,
+				3003EB591E7BB63400E999DA /* Main.storyboard in Resources */,
+				3003EB9E1E7BD7C200E999DA /* Sample_OleObject_Book1.xlsx in Resources */,
+				3003EB9F1E7BD7C200E999DA /* Sample_Pivot_Table_Example.xls in Resources */,
+				3003EB931E7BD7C200E999DA /* Group_Rows_Sample_Test_Book.xls in Resources */,
+				3003EB921E7BD7C200E999DA /* encrypted_Sample_Test_Book.xls in Resources */,
+				3003EBA51E7BD7C200E999DA /* sample1.xlsx in Resources */,
+				3003EBA11E7BD7C200E999DA /* Sample_SmartMarker_Data.xml in Resources */,
+				3003EB951E7BD7C200E999DA /* Hide_Row_Sample_Test_Book.xls in Resources */,
+				3003EBA01E7BD7C200E999DA /* Sample_Protected_Test_Book.xls in Resources */,
+				3003EB961E7BD7C200E999DA /* HomeInventory1.xlsx in Resources */,
+				3003EBA31E7BD7C200E999DA /* Sample_Test_Book.xls in Resources */,
+				3003EB991E7BD7C200E999DA /* MergeCell_Sample_Test_Book.xls in Resources */,
+				3003EB8C1E7BD7C200E999DA /* aspose-cloud.png in Resources */,
+				3003EBA41E7BD7C200E999DA /* sample.xlsx in Resources */,
+				3003EBA71E7BD7C200E999DA /* test_cells.xlsx in Resources */,
+				3003EB941E7BD7C200E999DA /* Hidden-WorkSheet-Sample_Test_Book.xls in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		460AAC44A6912364C88D77B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B65DEDD10A202680EFC288F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aspose.Cells/Pods-Aspose.Cells-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA95D8A69AB184FC8DD79E06 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aspose.Cells/Pods-Aspose.Cells-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3003EB471E7BB63400E999DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3003EBBF1E7BD9BF00E999DA /* Chart.m in Sources */,
+				3003EBC21E7BD9E700E999DA /* DocumentProperty.m in Sources */,
+				3003EBE01E7BDC4500E999DA /* Worksheet.m in Sources */,
+				3003EBDD1E7BDBF300E999DA /* Workbook.m in Sources */,
+				3003EBC51E7BDA0800E999DA /* Hyperlink.m in Sources */,
+				3003EBD71E7BDBBB00E999DA /* Row.m in Sources */,
+				3003EB671E7BD77600E999DA /* Utils.m in Sources */,
+				3003EBD11E7BDB8100E999DA /* Picture.m in Sources */,
+				3003EBD41E7BDB9E00E999DA /* PivotTable.m in Sources */,
+				3003EBCB1E7BDB4800E999DA /* ImportData.m in Sources */,
+				3003EBDA1E7BDBD900E999DA /* Text.m in Sources */,
+				3003EBBC1E7BD8CA00E999DA /* Cell.m in Sources */,
+				3003EBC81E7BDB2700E999DA /* Image.m in Sources */,
+				3003EBCE1E7BDB6500E999DA /* OLEObject.m in Sources */,
+				3003EB531E7BB63400E999DA /* AppDelegate.m in Sources */,
+				3003EB501E7BB63400E999DA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3003EB571E7BB63400E999DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3003EB581E7BB63400E999DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3003EB5C1E7BB63400E999DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3003EB5D1E7BB63400E999DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3003EB601E7BB63400E999DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3003EB611E7BB63400E999DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3003EB631E7BB63400E999DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E8B8F3423070428C7721297 /* Pods-Aspose.Cells.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Aspose.Cells/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aspose.Aspose-Cells";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3003EB641E7BB63400E999DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 364138EB6028633E4046D958 /* Pods-Aspose.Cells.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Aspose.Cells/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aspose.Aspose-Cells";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3003EB461E7BB63400E999DA /* Build configuration list for PBXProject "Aspose.Cells" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3003EB601E7BB63400E999DA /* Debug */,
+				3003EB611E7BB63400E999DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3003EB621E7BB63400E999DA /* Build configuration list for PBXNativeTarget "Aspose.Cells" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3003EB631E7BB63400E999DA /* Debug */,
+				3003EB641E7BB63400E999DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3003EB431E7BB63400E999DA /* Project object */;
+}

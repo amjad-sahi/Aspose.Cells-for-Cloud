@@ -9,6 +9,7 @@ class Cell
   def initialize
     #Get App key and App SID from https://cloud.aspose.com
     AsposeApp.app_key_and_sid("APP_KEY", "APP_SID")
+
     @cells_api = CellsApi.new  
   end
 
