@@ -13,4 +13,11 @@
 
 @property(nonatomic, strong) ASPCellsApi *cellsApi;
 
+- (void)getWorkBookTextItems;
+- (void)getWorkSheetTextItems;
+- (void)postWorkSheetTextSearch;
+- (void)postWorkbooksTextReplace;
+- (void)postWorkbooksTextSearch;
+- (void)postWorsheetTextReplace;
+
 @end

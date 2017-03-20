@@ -13,4 +13,18 @@
 
 @property(nonatomic, strong) ASPCellsApi *cellsApi;
 
+- (void)deleteWorksheetRow;
+- (void)deleteWorksheetRows;
+- (void)getWorksheetRow;
+- (void)postAutofitWorkbookRows;
+- (void)postCopyWorksheetRows;
+- (void)postGroupWorksheetRows;
+- (void)postHideWorksheetRows;
+- (void)postRowStyle;
+- (void)postUngroupWorksheetRows;
+- (void)postUnhideWorksheetRows;
+- (void)postUpdateWorksheetRow;
+- (void)putInsertWorksheetRow;
+- (void)putInsertWorksheetRows;
+
 @end

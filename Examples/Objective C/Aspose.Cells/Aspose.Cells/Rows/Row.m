@@ -20,89 +20,61 @@
     return self;
 }
 
-/*public function deleteWorksheetRow() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->DeleteWorksheetRow($name=$fileName, $sheetName="Sheet1", $rowIndex=1, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)testCellsDeleteWorksheetRow
-{
+- (void)deleteWorksheetRow {
     
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    [self.cellsApi deleteWorksheetRowWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" rowIndex:[NSNumber numberWithInt:1] storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to delete worksheet row");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi deleteWorksheetRowWithCompletionBlock:fileName
+                                               sheetName:@"Sheet1"
+                                                rowIndex:[NSNumber numberWithInt:1]
+                                                 storage:nil
+                                                  folder:nil
+                                       completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                           NSLog(@"%@", output);
+                                       }];
 }
 
-
-/*public function deleteWorksheetRows() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->DeleteWorksheetRows($name=$fileName, $sheetName="Sheet1", $startrow=2, $totalRows=10, $updateReference = true, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)deleteWorksheetRowsWithCompletionBlock
-{
+- (void)deleteWorksheetRows {
     
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    [self.cellsApi deleteWorksheetRowsWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" startrow:[NSNumber numberWithInt:2] totalRows:[NSNumber numberWithInt:5] updateReference:[NSNumber numberWithBool:YES] storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to delete worksheet rows");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi deleteWorksheetRowsWithCompletionBlock:fileName
+                                                sheetName:@"Sheet1"
+                                                 startrow:[NSNumber numberWithInt:2]
+                                                totalRows:[NSNumber numberWithInt:5]
+                                          updateReference:[NSNumber numberWithBool:YES]
+                                                  storage:nil
+                                                   folder:nil
+                                        completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                            NSLog(@"%@", output);
+                                        }];
 }
 
-/*public function getWorksheetRow() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->GetWorksheetRow($name=$fileName, $sheetName="Sheet1", $rowIndex="1", $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)getWorksheetRow
-{
+- (void)getWorksheetRow {
     
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    [self.cellsApi getWorksheetRowWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" rowIndex:[NSNumber numberWithInt:1] storage:nil folder:nil completionHandler:^(ASPRowResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to read worksheet row data by row's index");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi getWorksheetRowWithCompletionBlock:fileName
+                                            sheetName:@"Sheet1"
+                                             rowIndex:[NSNumber numberWithInt:1]
+                                              storage:nil folder:nil
+                                    completionHandler:^(ASPRowResponse *output, NSError *error) {
+                                        NSLog(@"%@", output);
+                                    }];
 }
 
-/*public function postAutofitWorkbookRows() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "test_cells.xlsx";
-    Utils::uploadFile($fileName);
-    $body = '{
-    "AutoFitMergedCells": true,
-    "IgnoreHidden": true,
-    "OnlyAuto": true
-}';
-$result = $this->cells->PostAutofitWorkbookRows($name=$fileName, $startRow = null, $endRow = null, $onlyAuto = null, $storage = null, $folder = null, $body);
-print_r($result);
-}*/
-
-- (void)postAutofitWorkbookRows
-{
-    
+- (void)postAutofitWorkbookRows {
+    NSString *fileName = @"test_cells.xlsx";
+    [Utils uploadFile:fileName];
     
     ASPAutoFitterOptions *autoFitterOptions = [[ASPAutoFitterOptions alloc] init];
     autoFitterOptions.autoFitMergedCells = [NSNumber numberWithBool:YES];
     autoFitterOptions.ignoreHidden = [NSNumber numberWithBool:YES];
     
-    [self.cellsApi postAutofitWorkbookRowsWithCompletionBlock:@"myWorkBook.xlsx"
+    [self.cellsApi postAutofitWorkbookRowsWithCompletionBlock:fileName
                                             autoFitterOptions:autoFitterOptions
                                                      startRow:[NSNumber numberWithInt:1]
                                                        endRow:[NSNumber numberWithInt:300]
@@ -110,95 +82,61 @@ print_r($result);
                                                       storage:nil
                                                        folder:nil
                                             completionHandler:^(ASPBaseResponse *output, NSError *error) {
-                                                XCTAssertNotNil(output, @"Failed to autofit workbook rows");
-                                                XCTAssertEqualObjects(output.status, @"OK");
-                                                
+                                                NSLog(@"%@", output);
                                             }];
-    
 }
 
-
-/*public function postCopyWorksheetRows() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->PostCopyWorksheetRows($name=$fileName, $sheetName="Sheet1", $sourceRowIndex=5, $destinationRowIndex=7, $rowNumber=3, $worksheet = null, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)postCopyWorksheetRows
-{
+- (void)postCopyWorksheetRows {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    
-    [self.cellsApi postCopyWorksheetRowsWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" sourceRowIndex:[NSNumber numberWithInt:5] destinationRowIndex:[NSNumber numberWithInt:7] rowNumber:[NSNumber numberWithInt:3] worksheet:nil storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to copy worksheet rows");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi postCopyWorksheetRowsWithCompletionBlock:fileName
+                                                  sheetName:@"Sheet1"
+                                             sourceRowIndex:[NSNumber numberWithInt:5]
+                                        destinationRowIndex:[NSNumber numberWithInt:7]
+                                                  rowNumber:[NSNumber numberWithInt:3]
+                                                  worksheet:nil
+                                                    storage:nil
+                                                     folder:nil
+                                          completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                              NSLog(@"%@", output);
+                                          }];
 }
 
-
-/*public function postGroupWorksheetRows() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->PostGroupWorksheetRows($name=$fileName, $sheetName="Sheet1", $firstIndex=1, $lastIndex=5, $hide = null, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)postGroupWorksheetRows
-{
+- (void)postGroupWorksheetRows {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    
-    [self.cellsApi postGroupWorksheetRowsWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" firstIndex:[NSNumber numberWithInt:1] lastIndex:[NSNumber numberWithInt:5] hide:[NSNumber numberWithBool:NO] storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to group worksheet rows");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi postGroupWorksheetRowsWithCompletionBlock:fileName
+                                                   sheetName:@"Sheet1"
+                                                  firstIndex:[NSNumber numberWithInt:1]
+                                                   lastIndex:[NSNumber numberWithInt:5]
+                                                        hide:[NSNumber numberWithBool:NO]
+                                                     storage:nil
+                                                      folder:nil
+                                           completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                               NSLog(@"%@", output);
+                                           }];
 }
 
-
-/*public function postHideWorksheetRows() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->PostHideWorksheetRows($name=$fileName, $sheetName="Sheet1", $startrow=1, $totalRows=5, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)postHideWorksheetRows
-{
+- (void)postHideWorksheetRows {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    
-    [self.cellsApi postHideWorksheetRowsWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" startrow:[NSNumber numberWithInt:1] totalRows:[NSNumber numberWithInt:5] storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to hide worksheet rows");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi postHideWorksheetRowsWithCompletionBlock:fileName
+                                                  sheetName:@"Sheet1"
+                                                   startrow:[NSNumber numberWithInt:1]
+                                                  totalRows:[NSNumber numberWithInt:5]
+                                                    storage:nil
+                                                     folder:nil
+                                          completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                              NSLog(@"%@", output);
+                                          }];
 }
 
-/*public function postRowStyle() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $body = '{
-    "BackgroundColor": {
-        "A": "1",
-        "R": "245",
-        "G": "200",
-        "B": "178"
-    }
-}';
-$result = $this->cells->PostRowStyle($name="myWorkbook.xlsx", $sheetName="Sheet1", $rowIndex=1, $storage = null, $folder = null, $body);
-print_r($result);
-}*/
-
-- (void)postRowStyle
-{
-    
+- (void)postRowStyle {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
     ASPStyle *rowStyle = [[ASPStyle alloc] init];
     ASPColor* backgroundColor = [[ASPColor alloc] init];
@@ -208,118 +146,92 @@ print_r($result);
     backgroundColor.B = @"178";
     rowStyle.backgroundColor = backgroundColor;
     
-    [self.cellsApi postRowStyleWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" rowIndex:[NSNumber numberWithInt:1] style:rowStyle storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to set row style");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi postRowStyleWithCompletionBlock:fileName
+                                         sheetName:@"Sheet1"
+                                          rowIndex:[NSNumber numberWithInt:1]
+                                             style:rowStyle
+                                           storage:nil
+                                            folder:nil
+                                 completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                     NSLog(@"%@", output);
+                                 }];
 }
 
-/*public function postUngroupWorksheetRows() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->PostUngroupWorksheetRows($name=$fileName, $sheetName="Sheet1", $firstIndex=1, $lastIndex=5, $isAll = true, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)postUngroupWorksheetRows
-{
+- (void)postUngroupWorksheetRows {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    
-    [self.cellsApi postUngroupWorksheetRowsWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" firstIndex:[NSNumber numberWithInt:1] lastIndex:[NSNumber numberWithInt:5] isAll:[NSNumber numberWithBool:YES] storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to ungroup worksheet rows");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi postUngroupWorksheetRowsWithCompletionBlock:fileName
+                                                     sheetName:@"Sheet1"
+                                                    firstIndex:[NSNumber numberWithInt:1]
+                                                     lastIndex:[NSNumber numberWithInt:5]
+                                                         isAll:[NSNumber numberWithBool:YES]
+                                                       storage:nil
+                                                        folder:nil
+                                             completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                                 NSLog(@"%@", output);
+                                             }];
 }
 
-/*public function postUnhideWorksheetRows() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->PostUnhideWorksheetRows($name=$fileName, $sheetName="Sheet1", $startrow=1, $totalRows=3, $height = 30.0, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)postUnhideWorksheetRowsWithCompletionBlock
-{
+- (void)postUnhideWorksheetRows {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    
-    [self.cellsApi postUnhideWorksheetRowsWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" startrow:[NSNumber numberWithInt:1] totalRows:[NSNumber numberWithInt:3] height:[NSNumber numberWithDouble:30.0] storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to unhide worksheet rows");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi postUnhideWorksheetRowsWithCompletionBlock:fileName
+                                                    sheetName:@"Sheet1"
+                                                     startrow:[NSNumber numberWithInt:1]
+                                                    totalRows:[NSNumber numberWithInt:3]
+                                                       height:[NSNumber numberWithDouble:30.0]
+                                                      storage:nil
+                                                       folder:nil
+                                            completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                                NSLog(@"%@", output);
+                                            }];
 }
 
-
-/*public function postUpdateWorksheetRow() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->PostUpdateWorksheetRow($name=$fileName, $sheetName="Sheet1", $rowIndex=1, $height=25.0, $storage = null, $folder = null);
-    print_r($result);
-}*/
-- (void)postUpdateWorksheetRow
-{
+- (void)postUpdateWorksheetRow {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    
-    [self.cellsApi postUpdateWorksheetRowWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" rowIndex:[NSNumber numberWithInt:1] height:[NSNumber numberWithDouble:25.0] storage:nil folder:nil completionHandler:^(ASPRowResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to update worksheet row");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi postUpdateWorksheetRowWithCompletionBlock:fileName
+                                                   sheetName:@"Sheet1"
+                                                    rowIndex:[NSNumber numberWithInt:1]
+                                                      height:[NSNumber numberWithDouble:25.0]
+                                                     storage:nil
+                                                      folder:nil
+                                           completionHandler:^(ASPRowResponse *output, NSError *error) {
+                                               NSLog(@"%@", output);
+                                           }];
 }
 
-/*public function putInsertWorksheetRow() {
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->PutInsertWorksheetRow($name=$fileName, $sheetName="Sheet1", $rowIndex=10, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)putInsertWorksheetRow
-{
+- (void)putInsertWorksheetRow {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    
-    [self.cellsApi putInsertWorksheetRowWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" rowIndex:[NSNumber numberWithInt:10] storage:nil folder:nil completionHandler:^(ASPRowResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to insert new worksheet row");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
-    
-    
-    
-    
+    [self.cellsApi putInsertWorksheetRowWithCompletionBlock:fileName
+                                                  sheetName:@"Sheet1"
+                                                   rowIndex:[NSNumber numberWithInt:10]
+                                                    storage:nil
+                                                     folder:nil
+                                          completionHandler:^(ASPRowResponse *output, NSError *error) {
+                                              NSLog(@"%@", output);
+                                          }];
 }
 
-/*public function putInsertWorksheetRows() {
+- (void)putInsertWorksheetRows {
+    NSString *fileName = @"myWorkBook.xlsx";
+    [Utils uploadFile:fileName];
     
-    // Upload file to Aspose Cloud Storage
-    $fileName = "myWorkbook.xlsx";
-    Utils::uploadFile($fileName);
-    $result = $this->cells->PutInsertWorksheetRows($name=$fileName, $sheetName="Sheet1", $startrow=10, $totalRows=10, $updateReference = true, $storage = null, $folder = null);
-    print_r($result);
-}*/
-
-- (void)putInsertWorksheetRows
-{
-    
-    
-    [self.cellsApi putInsertWorksheetRowsWithCompletionBlock:@"myWorkBook.xlsx" sheetName:@"Sheet1" startrow:[NSNumber numberWithInt:10] totalRows:[NSNumber numberWithInt:10] updateReference:[NSNumber numberWithBool:YES] storage:nil folder:nil completionHandler:^(ASPBaseResponse *output, NSError *error) {
-        XCTAssertNotNil(output, @"Failed to insert new worksheet rows");
-        XCTAssertEqualObjects(output.status, @"OK");
-        
-    }];
-    
+    [self.cellsApi putInsertWorksheetRowsWithCompletionBlock:fileName
+                                                   sheetName:@"Sheet1"
+                                                    startrow:[NSNumber numberWithInt:10]
+                                                   totalRows:[NSNumber numberWithInt:10]
+                                             updateReference:[NSNumber numberWithBool:YES]
+                                                     storage:nil
+                                                      folder:nil
+                                           completionHandler:^(ASPBaseResponse *output, NSError *error) {
+                                               NSLog(@"%@", output);
+                                           }];
 }
-
 
 @end

@@ -60,7 +60,6 @@
 		3003EBDA1E7BDBD900E999DA /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBD91E7BDBD900E999DA /* Text.m */; };
 		3003EBDD1E7BDBF300E999DA /* Workbook.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBDC1E7BDBF300E999DA /* Workbook.m */; };
 		3003EBE01E7BDC4500E999DA /* Worksheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EBDF1E7BDC4500E999DA /* Worksheet.m */; };
-		8A677C18CCA67C8748E8DB88 /* libPods-Aspose.Cells.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7FEB667F4DD1FE22643D49 /* libPods-Aspose.Cells.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,9 +133,6 @@
 		3003EBDC1E7BDBF300E999DA /* Workbook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workbook.m; path = Workbook/Workbook.m; sourceTree = "<group>"; };
 		3003EBDE1E7BDC4500E999DA /* Worksheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Worksheet.h; path = Worksheet/Worksheet.h; sourceTree = "<group>"; };
 		3003EBDF1E7BDC4500E999DA /* Worksheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Worksheet.m; path = Worksheet/Worksheet.m; sourceTree = "<group>"; };
-		364138EB6028633E4046D958 /* Pods-Aspose.Cells.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspose.Cells.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aspose.Cells/Pods-Aspose.Cells.release.xcconfig"; sourceTree = "<group>"; };
-		3E8B8F3423070428C7721297 /* Pods-Aspose.Cells.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspose.Cells.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aspose.Cells/Pods-Aspose.Cells.debug.xcconfig"; sourceTree = "<group>"; };
-		7F7FEB667F4DD1FE22643D49 /* libPods-Aspose.Cells.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Aspose.Cells.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +140,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A677C18CCA67C8748E8DB88 /* libPods-Aspose.Cells.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,8 +151,6 @@
 			children = (
 				3003EB4D1E7BB63400E999DA /* Aspose.Cells */,
 				3003EB4C1E7BB63400E999DA /* Products */,
-				8BD187865160F5A9A3AF6662 /* Pods */,
-				4D2FE8412C2FAF2085EDF5D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -365,23 +358,6 @@
 			name = Worksheet;
 			sourceTree = "<group>";
 		};
-		4D2FE8412C2FAF2085EDF5D3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7F7FEB667F4DD1FE22643D49 /* libPods-Aspose.Cells.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8BD187865160F5A9A3AF6662 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3E8B8F3423070428C7721297 /* Pods-Aspose.Cells.debug.xcconfig */,
-				364138EB6028633E4046D958 /* Pods-Aspose.Cells.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,12 +365,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3003EB621E7BB63400E999DA /* Build configuration list for PBXNativeTarget "Aspose.Cells" */;
 			buildPhases = (
-				460AAC44A6912364C88D77B1 /* [CP] Check Pods Manifest.lock */,
 				3003EB471E7BB63400E999DA /* Sources */,
 				3003EB481E7BB63400E999DA /* Frameworks */,
 				3003EB491E7BB63400E999DA /* Resources */,
-				B65DEDD10A202680EFC288F2 /* [CP] Embed Pods Frameworks */,
-				FA95D8A69AB184FC8DD79E06 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -484,54 +457,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		460AAC44A6912364C88D77B1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		B65DEDD10A202680EFC288F2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aspose.Cells/Pods-Aspose.Cells-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA95D8A69AB184FC8DD79E06 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aspose.Cells/Pods-Aspose.Cells-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3003EB471E7BB63400E999DA /* Sources */ = {
@@ -669,7 +594,6 @@
 		};
 		3003EB631E7BB63400E999DA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E8B8F3423070428C7721297 /* Pods-Aspose.Cells.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aspose.Cells/Info.plist;
@@ -681,7 +605,6 @@
 		};
 		3003EB641E7BB63400E999DA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 364138EB6028633E4046D958 /* Pods-Aspose.Cells.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aspose.Cells/Info.plist;
