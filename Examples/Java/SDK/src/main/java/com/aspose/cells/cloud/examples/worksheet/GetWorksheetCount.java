@@ -10,25 +10,27 @@ import java.nio.file.Path;
 
 public class GetWorksheetCount {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: get-worksheet-count
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			Path inputFile = Utils.getPath(GetWorksheetCount.class, "Sample.xlsx");
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            Path inputFile = Utils.getPath(GetWorksheetCount.class, "Sample.xlsx");
 
-			storageApi.PutCreate(inputFile.getFileName().toString(), null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(inputFile.getFileName().toString(), null, Utils.STORAGE, inputFile.toFile());
 
-			com.aspose.cells.model.WorksheetsResponse wr = cellsApi.GetWorkSheets(inputFile.getFileName().toString(),
-					Utils.STORAGE, null);
+            com.aspose.cells.model.WorksheetsResponse wr = cellsApi.GetWorkSheets(inputFile.getFileName().toString(),
+                    Utils.STORAGE, null);
 
-			System.out.println("Count: " + wr.getWorksheets().getWorksheetList().size());
-		}
+            System.out.println("Count: " + wr.getWorksheets().getWorksheetList().size());
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: get-worksheet-count
+    }
 }

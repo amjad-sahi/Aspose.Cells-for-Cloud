@@ -6,19 +6,19 @@ var assert = require('assert');
 var AppSID = 'XXXX'; //sepcify App Key
 var AppKey = 'XXXX'; //sepcify App SID
 var config = {'appSid':AppSID,'apiKey':AppKey , 'debug' : true};
-var data_path = './data/';
+
 
 var storageApi = new StorageApi(config); 
 var cellsApi = new CellsApi(config);
 var nodeunit = require('nodeunit');
-
+var data_path = '../../../Data/';
 exports.testPutConvertDocument = function(test){
 	
 	test.expect(2);	
 	var filename = "Sample_Test_Book";
 	var name = filename + ".xls";
 	var format = "pdf";
-	
+	console.log(data_path + name);
 	storageApi.PutCreate(name, null, null, data_path + name , function(responseMessage) {
 	
 		test.equal(responseMessage.status, 'OK', '');		

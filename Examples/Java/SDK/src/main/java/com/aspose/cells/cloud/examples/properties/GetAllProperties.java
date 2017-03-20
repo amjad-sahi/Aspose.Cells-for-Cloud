@@ -10,35 +10,37 @@ import java.nio.file.Path;
 
 public class GetAllProperties {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: get-all-document-properties
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "sample1.xlsx";
-			Path inputFile = Utils.getPath(GetAllProperties.class, input);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "sample1.xlsx";
+            Path inputFile = Utils.getPath(GetAllProperties.class, input);
 
-			storageApi.PutCreate(input, Utils.STORAGE, null, inputFile.toFile());
+            storageApi.PutCreate(input, Utils.STORAGE, null, inputFile.toFile());
 
-			com.aspose.cells.model.CellsDocumentPropertiesResponse apiResponse = cellsApi.GetDocumentProperties(input,
-					Utils.STORAGE, null);
+            com.aspose.cells.model.CellsDocumentPropertiesResponse apiResponse = cellsApi.GetDocumentProperties(input,
+                    Utils.STORAGE, null);
 
-			for (com.aspose.cells.model.CellsDocumentProperty docProperty : apiResponse.getDocumentProperties()
-					.getDocumentPropertyList()) {
-				System.out.println("Name: " + docProperty.getName());
-				System.out.println("Value: " + docProperty.getValue());
-				System.out.println("BuiltIn: " + docProperty.getBuiltIn());
-				System.out.println("");
-			}
+            for (com.aspose.cells.model.CellsDocumentProperty docProperty : apiResponse.getDocumentProperties()
+                    .getDocumentPropertyList()) {
+                System.out.println("Name: " + docProperty.getName());
+                System.out.println("Value: " + docProperty.getValue());
+                System.out.println("BuiltIn: " + docProperty.getBuiltIn());
+                System.out.println("");
+            }
 
-		}
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: get-all-document-properties
 
-	}
+    }
 
 }

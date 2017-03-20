@@ -13,28 +13,29 @@ import com.aspose.storage.api.StorageApi;
 
 public class ConvertWorkbookToAnotherFormat {
 
-	public static void main(String... args) throws IOException {
+    public static void main(String... args) throws IOException {
+        // ExStart: convert-workbook-to-different-format
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            Path inputFile = Utils.getPath(ConvertWorkbookToAnotherFormat.class, "Workbook1.xlsx");
+            Path outputFile = Utils.getPath(ConvertWorkbookToAnotherFormat.class, "Workbook1.pdf");
 
-			Path inputFile = Utils.getPath(ConvertWorkbookToAnotherFormat.class, "Workbook1.xlsx");
-			Path outputFile = Utils.getPath(ConvertWorkbookToAnotherFormat.class, "Workbook1.pdf");
+            storageApi.PutCreate(inputFile.getFileName().toString(), null, Utils.STORAGE, inputFile.toFile());
 
-			storageApi.PutCreate(inputFile.getFileName().toString(), null, Utils.STORAGE, inputFile.toFile());
+            ResponseMessage cr = cellsApi.GetWorkBookWithFormat(inputFile.getFileName().toString(), "pdf", null, true,
+                    Utils.STORAGE, Utils.FOLDER, null);
 
-			ResponseMessage cr = cellsApi.GetWorkBookWithFormat(inputFile.getFileName().toString(), "pdf", null, true,
-					Utils.STORAGE, Utils.FOLDER, null);
+            Files.copy(cr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
+        }
 
-			Files.copy(cr.getInputStream(), outputFile, StandardCopyOption.REPLACE_EXISTING);
-		}
-
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: convert-workbook-to-different-format
+    }
 }

@@ -10,29 +10,30 @@ import java.nio.file.Path;
 
 public class GetPivotTableWorksheet {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: GetPivotTableWorksheet-12345
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "sample1.xlsx";
-			Path inputFile = Utils.getPath(GetPivotTableWorksheet.class, input);
-			String sheetName = "Sheet1";
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "sample1.xlsx";
+            Path inputFile = Utils.getPath(GetPivotTableWorksheet.class, input);
+            String sheetName = "Sheet1";
 
-			storageApi.PutCreate(input, null, null, inputFile.toFile());
+            storageApi.PutCreate(input, null, null, inputFile.toFile());
 
-			com.aspose.cells.model.PivotTablesResponse apiResponse = cellsApi.GetWorksheetPivotTables(input, sheetName,
-					null, null);
+            com.aspose.cells.model.PivotTablesResponse apiResponse = cellsApi.GetWorksheetPivotTables(input, sheetName,
+                    null, null);
 
-			System.out.println(" Pivot Table " + apiResponse.getPivotTables().getClass().toString());
-		}
+            System.out.println(" Pivot Table " + apiResponse.getPivotTables().getClass().toString());
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: GetPivotTableWorksheet-12345
+    }
 
 }

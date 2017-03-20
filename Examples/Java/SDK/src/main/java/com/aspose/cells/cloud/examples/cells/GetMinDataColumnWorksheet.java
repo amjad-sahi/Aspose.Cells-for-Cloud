@@ -10,29 +10,30 @@ import java.nio.file.Path;
 
 public class GetMinDataColumnWorksheet {
 
-	public static void main(String... args) throws IOException {
-		try {
-			// Instantiate Aspose Storage API SDK
-			StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
+    public static void main(String... args) throws IOException {
+        // ExStart: get-min-data-column
+        try {
+            // Instantiate Aspose Storage API SDK
+            StorageApi storageApi = new StorageApi(Configuration.apiKey, Configuration.appSID, true);
 
-			// Instantiate Aspose Words API SDK
-			CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
-			String input = "sample1.xlsx";
-			Path inputFile = Utils.getPath(GetMinDataColumnWorksheet.class, input);
+            // Instantiate Aspose Words API SDK
+            CellsApi cellsApi = new CellsApi(Configuration.apiKey, Configuration.appSID, true);
+            String input = "sample1.xlsx";
+            Path inputFile = Utils.getPath(GetMinDataColumnWorksheet.class, input);
 
-			String sheetName = "Sheet1";
-			String cellOrMethodName = "mindatacolumn";
+            String sheetName = "Sheet1";
+            String cellOrMethodName = "mindatacolumn";
 
-			storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
+            storageApi.PutCreate(input, null, Utils.STORAGE, inputFile.toFile());
 
-			Integer apiResponse = cellsApi.GetWorksheetCellProperty(input, sheetName, cellOrMethodName, Utils.STORAGE,
-					Utils.FOLDER);
-			System.out.println(" MinDataColumn :: " + apiResponse);
-		}
+            Integer apiResponse = cellsApi.GetWorksheetCellProperty(input, sheetName, cellOrMethodName, Utils.STORAGE,
+                    Utils.FOLDER);
+            System.out.println(" MinDataColumn :: " + apiResponse);
+        }
 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        // ExEnd: get-min-data-column
+    }
 }

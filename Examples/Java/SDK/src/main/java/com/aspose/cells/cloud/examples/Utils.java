@@ -1,32 +1,24 @@
 package com.aspose.cells.cloud.examples;
 
-import java.nio.file.FileSystems;
+import java.io.File;
 import java.nio.file.Path;
-import java.util.logging.Logger;
+import java.nio.file.Paths;
 
 public class Utils {
 
-    
-  
     public static final String STORAGE = null;
     public static final String FOLDER = null;
     public static final String BASE_PATH = null;
 
-    private static final Logger LOGGER = Logger.getLogger(Utils.class.getName());
-
     public static Path getPath(Class example, String filename) {
-        Path p = FileSystems.getDefault().getPath(System.getProperty("user.dir"), "src", "main", "resources");
-        p = FileSystems.getDefault().getPath(p.toString(), example.getName().split("\\."));
-        if (filename != null) {
-            p = FileSystems.getDefault().getPath(p.toString(), filename);
-            LOGGER.info(String.format("Using file %s", p));
-        } else {
-            LOGGER.info(String.format("Using directory %s", p));
-        }
+        final File f = new File(example.getProtectionDomain().getCodeSource().getLocation().getPath());
+        String path=f.getAbsolutePath();
+        int subPathIndex=path.indexOf("Examples");
+        String subPath=path.substring(0, subPathIndex) + "Data/" + filename;
 
+        Path p=Paths.get(subPath);
         return p;
     }
-
-   
     
+
 }
