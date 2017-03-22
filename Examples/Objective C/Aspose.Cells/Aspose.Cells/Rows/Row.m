@@ -21,6 +21,7 @@
 }
 
 - (void)deleteWorksheetRow {
+//ExStart:DeleteWorksheetRow
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -33,9 +34,11 @@
                                        completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                            NSLog(@"%@", output);
                                        }];
+//ExEnd:DeleteWorksheetRow
 }
 
 - (void)deleteWorksheetRows {
+//ExStart:DeleteWorksheetRows
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -50,9 +53,11 @@
                                         completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                             NSLog(@"%@", output);
                                         }];
+//ExEnd:DeleteWorksheetRows
 }
 
 - (void)getWorksheetRow {
+//ExStart:GetWorksheetRow
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -64,9 +69,11 @@
                                     completionHandler:^(ASPRowResponse *output, NSError *error) {
                                         NSLog(@"%@", output);
                                     }];
+//ExEnd:GetWorksheetRow
 }
 
 - (void)postAutofitWorkbookRows {
+//ExStart:PostAutofitWorkbookRows
     NSString *fileName = @"test_cells.xlsx";
     [Utils uploadFile:fileName];
     
@@ -84,9 +91,11 @@
                                             completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:PostAutofitWorkbookRows
 }
 
 - (void)postCopyWorksheetRows {
+//ExStart:PostCopyWorksheetRows
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -101,9 +110,11 @@
                                           completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:PostCopyWorksheetRows
 }
 
 - (void)postGroupWorksheetRows {
+//ExStart:PostGroupWorksheetRows
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -117,9 +128,11 @@
                                            completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:PostGroupWorksheetRows
 }
 
 - (void)postHideWorksheetRows {
+//ExStart:PostHideWorksheetRows
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -132,9 +145,11 @@
                                           completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:PostHideWorksheetRows
 }
 
 - (void)postRowStyle {
+//ExStart:PostRowStyle
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -155,9 +170,11 @@
                                  completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                      NSLog(@"%@", output);
                                  }];
+//ExEnd:PostRowStyle
 }
 
 - (void)postUngroupWorksheetRows {
+//ExStart:PostUngroupWorksheetRows
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -171,9 +188,11 @@
                                              completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                  NSLog(@"%@", output);
                                              }];
+//ExEnd:PostUngroupWorksheetRows
 }
 
 - (void)postUnhideWorksheetRows {
+//ExStart:PostUnhideWorksheetRows
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -187,9 +206,11 @@
                                             completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:PostUnhideWorksheetRows
 }
 
 - (void)postUpdateWorksheetRow {
+//ExStart:PostUpdateWorksheetRow
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -202,9 +223,11 @@
                                            completionHandler:^(ASPRowResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:PostUpdateWorksheetRow
 }
 
 - (void)putInsertWorksheetRow {
+//ExStart:PutInsertWorksheetRow
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -216,9 +239,11 @@
                                           completionHandler:^(ASPRowResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:PutInsertWorksheetRow
 }
 
 - (void)putInsertWorksheetRows {
+//ExStart:PutInsertWorksheetRows
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -232,6 +257,7 @@
                                            completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:PutInsertWorksheetRows
 }
 
 @end

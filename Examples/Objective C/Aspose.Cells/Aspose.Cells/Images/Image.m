@@ -21,6 +21,7 @@
 }
 
 - (void)getWorksheetAutoshapeWithFormat {
+//ExStart:GetWorksheetAutoshapeWithFormat
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -35,6 +36,7 @@
                                                     completionHandler:^(NSURL *output, NSError *error) {
                                                         NSLog(@"%@", output);
                                                     }];
+//ExEnd:GetWorksheetAutoshapeWithFormat
 }
 
 @end

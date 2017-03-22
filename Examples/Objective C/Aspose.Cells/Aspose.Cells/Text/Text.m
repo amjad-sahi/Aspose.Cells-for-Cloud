@@ -21,6 +21,7 @@
 }
 
 - (void)getWorkBookTextItems {
+//ExStart:GetWorkBookTextItems
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -30,9 +31,11 @@
                                          completionHandler:^(ASPTextItemsResponse *output, NSError *error) {
                                              NSLog(@"%@", output);
                                          }];
+//ExEnd:GetWorkBookTextItems
 }
 
 - (void)getWorkSheetTextItems {
+//ExStart:GetWorkSheetTextItems
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
     
@@ -43,9 +46,11 @@
                                           completionHandler:^(ASPTextItemsResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:GetWorkSheetTextItems
 }
 
 - (void)postWorkSheetTextSearch {
+//ExStart:PostWorkSheetTextSearch
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -57,9 +62,11 @@
                                             completionHandler:^(ASPTextItemsResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:PostWorkSheetTextSearch
 }
 
 - (void)postWorkbooksTextReplace {
+//ExStart:PostWorkbooksTextReplace
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -71,9 +78,11 @@
                                              completionHandler:^(ASPWorkbookReplaceResponse *output, NSError *error) {
                                                  NSLog(@"%@", output);
                                              }];
+//ExEnd:PostWorkbooksTextReplace
 }
 
 - (void)postWorkbooksTextSearch {
+//ExStart:PostWorkbooksTextSearch
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -84,9 +93,11 @@
                                             completionHandler:^(ASPTextItemsResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:PostWorkbooksTextSearch
 }
 
 - (void)postWorsheetTextReplace {
+//ExStart:PostWorsheetTextReplace
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -99,6 +110,7 @@
                                             completionHandler:^(ASPWorksheetReplaceResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:PostWorsheetTextReplace
 }
 
 @end

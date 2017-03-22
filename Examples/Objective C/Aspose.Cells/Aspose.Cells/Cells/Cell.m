@@ -21,6 +21,7 @@
 }
 
 - (void)getWorkSheetMergedCell {
+//ExStart:GetWorkSheetMergedCell
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -33,9 +34,11 @@
                                            completionHandler:^(ASPMergedCellResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:GetWorkSheetMergedCell
 }
 
 - (void)getWorkSheetMergedCells {
+//ExStart:GetWorkSheetMergedCells
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -47,9 +50,11 @@
                                             completionHandler:^(ASPMergedCellsResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:GetWorkSheetMergedCells
 }
 
 - (void)getWorksheetCell {
+//ExStart:GetWorksheetCell
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -62,9 +67,11 @@
                                      completionHandler:^(ASPCellResponse *output, NSError *error) {
                                          NSLog(@"%@", output);
                                      }];
+//ExEnd:GetWorksheetCell
 }
 
 - (void)getWorksheetCellStyle {
+//ExStart:GetWorksheetCellStyle
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -76,9 +83,11 @@
                                           completionHandler:^(ASPStyleResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:GetWorksheetCellStyle
 }
 
 - (void)getWorksheetCellsWithCompletionBlock {
+//ExStart:GetWorksheetCellsWithCompletionBlock
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -91,9 +100,11 @@
                                       completionHandler:^(ASPCellsResponse *output, NSError *error) {
                                           NSLog(@"%@", output);
                                       }];
+//ExEnd:GetWorksheetCellsWithCompletionBlock
 }
 
 - (void)postClearContents {
+//ExStart:PostClearContents
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -109,9 +120,11 @@
                                       completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                           NSLog(@"%@", output);
                                       }];
+//ExEnd:PostClearContents
 }
 
 - (void)postClearFormats {
+//ExStart:PostClearFormats
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -127,9 +140,11 @@
                                      completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                          NSLog(@"%@", output);
                                      }];
+//ExEnd:PostClearFormats
 }
 
 - (void)postCopyCellIntoCell {
+//ExStart:PostCopyCellIntoCell
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -145,9 +160,11 @@
                                          completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                              NSLog(@"%@", output);
                                          }];
+//ExEnd:PostCopyCellIntoCell
 }
 
 - (void)postSetCellHtmlString {
+//ExStart:PostSetCellHtmlString
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -159,9 +176,11 @@
                                           completionHandler:^(ASPCellResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:PostSetCellHtmlString
 }
 
 - (void)postSetCellRangeValue {
+//ExStart:PostSetCellRangeValue
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -176,9 +195,11 @@
                                           completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:PostSetCellRangeValue
 }
 
 - (void)postUpdateWorksheetCellStyle {
+//ExStart:PostUpdateWorksheetCellStyle
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -208,9 +229,11 @@
                                                  completionHandler:^(ASPStyleResponse *output, NSError *error) {
                                                      NSLog(@"%@", output);
                                                  }];
+//ExEnd:PostUpdateWorksheetCellStyle
 }
 
 - (void)postWorksheetCellSetValue {
+//ExStart:PostWorksheetCellSetValue
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -226,9 +249,11 @@
                                               completionHandler:^(ASPCellResponse *output, NSError *error) {
                                                   NSLog(@"%@", output);
                                               }];
+//ExEnd:PostWorksheetCellSetValue
 }
 
 - (void)postWorksheetMerge {
+//ExStart:PostWorksheetMerge
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -243,9 +268,11 @@
                                        completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                            NSLog(@"%@", output);
                                        }];
+//ExEnd:PostWorksheetMerge
 }
 
 - (void)postWorksheetUnmerge {
+//ExStart:PostWorksheetUnmerge
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -260,6 +287,7 @@
                                          completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                              NSLog(@"%@", output);
                                          }];
+//ExEnd:PostWorksheetUnmerge
 }
 
 @end

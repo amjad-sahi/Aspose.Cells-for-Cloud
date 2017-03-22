@@ -21,6 +21,7 @@
 }
 
 - (void)deleteWorksheetPivotTable {
+//ExStart:DeleteWorksheetPivotTable
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -33,9 +34,11 @@
                                               completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                   NSLog(@"%@", output);
                                               }];
+//ExEnd:DeleteWorksheetPivotTable
 }
 
 - (void)deleteWorksheetPivotTablesWithCompletionBlock {
+//ExStart:DeleteWorksheetPivotTablesWithCompletionBlock
     
     NSString *fileName = @"Sample_Pivot_Table_Example.xls";
     [Utils uploadFile:fileName];
@@ -47,9 +50,11 @@
                                                completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                    NSLog(@"%@", output);
                                                }];
+//ExEnd:DeleteWorksheetPivotTablesWithCompletionBlock
 }
 
 - (void)getWorksheetPivotTable {
+//ExStart:GetWorksheetPivotTable
     
     NSString *fileName = @"Sample_Pivot_Table_Example.xls";
     [Utils uploadFile:fileName];
@@ -62,9 +67,11 @@
                                            completionHandler:^(ASPPivotTableResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:GetWorksheetPivotTable
 }
 
 - (void)getWorksheetPivotTables {
+//ExStart:GetWorksheetPivotTables
     
     NSString *fileName = @"Sample_Pivot_Table_Example.xls";
     [Utils uploadFile:fileName];
@@ -76,9 +83,11 @@
                                             completionHandler:^(ASPPivotTablesResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:GetWorksheetPivotTables
 }
 
 - (void)postPivotTableCellStyle {
+//ExStart:PostPivotTableCellStyle
     
     NSString *fileName = @"Sample_Pivot_Table_Example.xls";
     [Utils uploadFile:fileName];
@@ -99,9 +108,11 @@
                                             completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:PostPivotTableCellStyle
 }
 
 - (void)postPivotTableStyle {
+//ExStart:PostPivotTableStyle
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -120,9 +131,11 @@
                                         completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                             NSLog(@"%@", output);
                                         }];
+//ExEnd:PostPivotTableStyle
 }
 
 - (void)putWorksheetPivotTable {
+//ExStart:PutWorksheetPivotTable
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -148,6 +161,7 @@
                                            completionHandler:^(ASPPivotTableResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:PutWorksheetPivotTable
 }
 
 @end

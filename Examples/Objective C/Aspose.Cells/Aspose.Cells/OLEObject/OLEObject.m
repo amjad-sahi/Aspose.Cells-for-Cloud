@@ -21,6 +21,7 @@
 }
 
 - (void)deleteWorksheetOleObject {
+//ExStart:DeleteWorksheetOleObject
     
     NSString *fileName = @"Embeded_OleObject_Sample_Book1.xlsx";
     [Utils uploadFile:fileName];
@@ -33,9 +34,11 @@
                                              completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                  NSLog(@"%@", output);
                                              }];
+//ExEnd:DeleteWorksheetOleObject
 }
 
 - (void)deleteWorksheetOleObjects {
+//ExStart:DeleteWorksheetOleObjects
     
     NSString *fileName = @"Embeded_OleObject_Sample_Book1.xlsx";
     [Utils uploadFile:fileName];
@@ -47,9 +50,11 @@
                                               completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                   NSLog(@"%@", output);
                                               }];
+//ExEnd:DeleteWorksheetOleObjects
 }
 
 - (void)getWorksheetOleObject {
+//ExStart:GetWorksheetOleObject
     
     NSString *fileName = @"Embeded_OleObject_Sample_Book1.xlsx";
     [Utils uploadFile:fileName];
@@ -62,9 +67,11 @@
                                           completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:GetWorksheetOleObject
 }
 
 - (void)getWorksheetOleObjectWithFormat {
+//ExStart:GetWorksheetOleObjectWithFormat
     
     NSString *fileName = @"Embeded_OleObject_Sample_Book1.xlsx";
     [Utils uploadFile:fileName];
@@ -79,9 +86,11 @@
                                                     completionHandler:^(NSURL *output, NSError *error) {
                                                         NSLog(@"%@", output);
                                                     }];
+//ExEnd:GetWorksheetOleObjectWithFormat
 }
 
 - (void)getWorksheetOleObjects {
+//ExStart:GetWorksheetOleObjects
     
     NSString *fileName = @"Embeded_OleObject_Sample_Book1.xlsx";
     [Utils uploadFile:fileName];
@@ -93,9 +102,11 @@
                                            completionHandler:^(ASPOleObjectsResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:GetWorksheetOleObjects
 }
 
 - (void)postUpdateWorksheetOleObject {
+//ExStart:PostUpdateWorksheetOleObject
     
     NSString *fileName = @"Embeded_OleObject_Sample_Book1.xlsx";
     [Utils uploadFile:fileName];
@@ -123,9 +134,11 @@
                                                  completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                      NSLog(@"%@", output);
                                                  }];
+//ExEnd:PostUpdateWorksheetOleObject
 }
 
 - (void)putWorksheetOleObject {
+//ExStart:PutWorksheetOleObject
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -158,6 +171,7 @@
                                           completionHandler:^(ASPOleObjectResponse *output, NSError *error) {
                                             NSLog(@"%@", output);
                                           }];
+//ExEnd:PutWorksheetOleObject
 }
 
 @end

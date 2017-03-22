@@ -21,6 +21,7 @@
 }
 
 - (void)deleteWorksheetChartLegend {
+//ExStart:DeleteWorksheetChartLegend
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -33,9 +34,11 @@
                                                completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                    NSLog(@"%@", output);
                                                }];
+//ExEnd:DeleteWorksheetChartLegend
 }
 
 - (void)deleteWorksheetChartTitle {
+//ExStart:DeleteWorksheetChartTitle
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -48,9 +51,11 @@
                                               completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                   NSLog(@"%@", output);
                                               }];
+//ExEnd:DeleteWorksheetChartTitle
 }
 
 - (void)deleteWorksheetClearCharts {
+//ExStart:DeleteWorksheetClearCharts
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -62,9 +67,11 @@
                                                completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                    NSLog(@"%@", output);
                                                }];
+//ExEnd:DeleteWorksheetClearCharts
 }
 
 - (void)deleteWorksheetDeleteChart {
+//ExStart:DeleteWorksheetDeleteChart
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -77,9 +84,11 @@
                                                completionHandler:^(ASPChartsResponse *output, NSError *error) {
                                                    NSLog(@"%@", output);
                                                }];
+//ExEnd:DeleteWorksheetDeleteChart
 }
 
 - (void)getChartArea {
+//ExStart:GetChartArea
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -92,9 +101,11 @@
                                  completionHandler:^(ASPChartAreaResponse *output, NSError *error) {
                                      NSLog(@"%@", output);
                                  }];
+//ExEnd:GetChartArea
 }
 
 - (void)getChartAreaBorderWithCompletionBlock {
+//ExStart:GetChartAreaBorderWithCompletionBlock
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -107,9 +118,11 @@
                                        completionHandler:^(ASPLineResponse *output, NSError *error) {
                                            NSLog(@"%@", output);
                                        }];
+//ExEnd:GetChartAreaBorderWithCompletionBlock
 }
 
 - (void)getChartAreaFillFormat {
+//ExStart:GetChartAreaFillFormat
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -122,9 +135,11 @@
                                            completionHandler:^(ASPFillFormatResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:GetChartAreaFillFormat
 }
 
 - (void)getWorksheetChart {
+//ExStart:GetWorksheetChart
     
     NSString *fileName = @"test_cells.xlsx";
     [Utils uploadFile:fileName];
@@ -137,9 +152,11 @@
                                       completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                         NSLog(@"%@", output);
                                     }];
+//ExEnd:GetWorksheetChart
 }
 
 - (void)getWorksheetChartLegend {
+//ExStart:GetWorksheetChartLegend
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -152,9 +169,11 @@
                                             completionHandler:^(ASPLegendResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:GetWorksheetChartLegend
 }
 
 - (void)getWorksheetChartWithFormat {
+//ExStart:GetWorksheetChartWithFormat
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -169,9 +188,11 @@
                                                 completionHandler:^(NSURL *output, NSError *error) {
                                                     NSLog(@"%@", output);
                                                 }];
+//ExEnd:GetWorksheetChartWithFormat
 }
 
 - (void)getWorksheetCharts {
+//ExStart:GetWorksheetCharts
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -183,9 +204,11 @@
                                        completionHandler:^(ASPChartsResponse *output, NSError *error) {
                                            NSLog(@"%@", output);
                                        }];
+//ExEnd:GetWorksheetCharts
 }
 
 - (void)postWorksheetChartLegend {
+//ExStart:PostWorksheetChartLegend
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -221,9 +244,11 @@
                                              completionHandler:^(ASPLegendResponse *output, NSError *error) {
                                                  NSLog(@"%@", output);
                                              }];
+//ExEnd:PostWorksheetChartLegend
 }
 
 - (void)postWorksheetChartTitle {
+//ExStart:PostWorksheetChartTitle
     
     NSString *fileName = @"test_cells.xlsx";
     [Utils uploadFile:fileName];
@@ -240,9 +265,11 @@
                                             completionHandler:^(ASPTitleResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:PostWorksheetChartTitle
 }
 
 - (void)putWorksheetAddChart {
+//ExStart:PutWorksheetAddChart
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -264,9 +291,11 @@
                                          completionHandler:^(ASPChartsResponse *output, NSError *error) {
                                              NSLog(@"%@", output);
                                          }];
+//ExEnd:PutWorksheetAddChart
 }
 
 - (void)putWorksheetChartLegend {
+//ExStart:PutWorksheetChartLegend
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -279,9 +308,11 @@
                                             completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:PutWorksheetChartLegend
 }
 
 - (void)putWorksheetChartTitle {
+//ExStart:PutWorksheetChartTitle
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -298,6 +329,7 @@
                                            completionHandler:^(ASPTitleResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:PutWorksheetChartTitle
 }
 
 @end

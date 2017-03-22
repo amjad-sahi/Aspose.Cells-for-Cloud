@@ -21,6 +21,7 @@
 }
 
 - (void)deleteDocumentProperties {
+//ExStart:DeleteDocumentProperties
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -31,9 +32,11 @@
                                              completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
                                                  NSLog(@"%@", output);
                                              }];
+//ExEnd:DeleteDocumentProperties
 }
 
 - (void)deleteDocumentProperty {
+//ExStart:DeleteDocumentProperty
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -45,9 +48,11 @@
                                            completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:DeleteDocumentProperty
 }
 
 - (void)getDocumentProperties {
+//ExStart:GetDocumentProperties
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -58,9 +63,11 @@
                                           completionHandler:^(ASPCellsDocumentPropertiesResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:GetDocumentProperties
 }
 
 - (void)getDocumentProperty {
+//ExStart:GetDocumentProperty
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -72,9 +79,11 @@
                                         completionHandler:^(ASPCellsDocumentPropertyResponse *output, NSError *error) {
                                             NSLog(@"%@", output);
                                         }];
+//ExEnd:GetDocumentProperty
 }
 
 - (void)putDocumentProperty {
+//ExStart:PutDocumentProperty
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -91,6 +100,7 @@
                                         completionHandler:^(ASPCellsDocumentPropertyResponse *output, NSError *error) {
                                             NSLog(@"%@", output);
                                         }];
+//ExEnd:PutDocumentProperty
 }
 
 @end

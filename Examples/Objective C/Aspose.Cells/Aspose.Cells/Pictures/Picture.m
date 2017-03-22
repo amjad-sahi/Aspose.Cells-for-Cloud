@@ -21,6 +21,7 @@
 }
 
 - (void)deleteWorkSheetPictures {
+//ExStart:DeleteWorkSheetPictures
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -32,9 +33,11 @@
                                             completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                 NSLog(@"%@", output);
                                             }];
+//ExEnd:DeleteWorkSheetPictures
 }
 
 - (void)deleteWorksheetPicture {
+//ExStart:DeleteWorksheetPicture
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -47,9 +50,11 @@
                                            completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:DeleteWorksheetPicture
 }
 
 - (void)getWorksheetPicture {
+//ExStart:GetWorksheetPicture
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -62,9 +67,11 @@
                                         completionHandler:^(ASPPictureResponse* output, NSError *error) {
                                             NSLog(@"%@", output);
                                         }];
+//ExEnd:GetWorksheetPicture
 }
 
 - (void)getWorksheetPictureWithFormat {
+//ExStart:GetWorksheetPictureWithFormat
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -79,9 +86,11 @@
                                                   completionHandler:^(NSURL *output, NSError *error) {
                                                       NSLog(@"%@", output);
                                                   }];
+//ExEnd:GetWorksheetPictureWithFormat
 }
 
 - (void)getWorksheetPictures {
+//ExStart:GetWorksheetPictures
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -93,9 +102,11 @@
                                          completionHandler:^(ASPPicturesResponse *output, NSError *error) {
                                              NSLog(@"%@", output);
                                          }];
+//ExEnd:GetWorksheetPictures
 }
 
 - (void)postWorkSheetPicture {
+//ExStart:PostWorkSheetPicture
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -143,9 +154,11 @@
                                          completionHandler:^(ASPPictureResponse *output, NSError *error) {
                                              NSLog(@"%@", output);
                                          }];
+//ExEnd:PostWorkSheetPicture
 }
 
 - (void)putWorksheetAddPicture {
+//ExStart:PutWorksheetAddPicture
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -165,6 +178,7 @@
                                            completionHandler:^(ASPPicturesResponse *output, NSError *error) {
                                                     NSLog(@"%@", output);
                                                 }];
+//ExEnd:PutWorksheetAddPicture
 }
 
 @end

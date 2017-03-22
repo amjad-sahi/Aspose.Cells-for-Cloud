@@ -21,6 +21,7 @@
 }
 
 - (void)deleteWorkSheetHyperlink {
+//ExStart:DeleteWorkSheetHyperlink
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -33,9 +34,11 @@
                                              completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                  NSLog(@"%@", output);
                                              }];
+//ExEnd:DeleteWorkSheetHyperlink
 }
 
 - (void)deleteWorkSheetHyperlinks {
+//ExStart:DeleteWorkSheetHyperlinks
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -47,9 +50,11 @@
                                               completionHandler:^(ASPBaseResponse *output, NSError *error) {
                                                   NSLog(@"%@", output);
                                               }];
+//ExEnd:DeleteWorkSheetHyperlinks
 }
 
 - (void)getWorkSheetHyperlink {
+//ExStart:GetWorkSheetHyperlink
     
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
@@ -62,9 +67,11 @@
                                           completionHandler:^(ASPHyperlinkResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:GetWorkSheetHyperlink
 }
 
 - (void)getWorkSheetHyperlinks {
+//ExStart:GetWorkSheetHyperlinks
     NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
     
@@ -75,9 +82,11 @@
                                            completionHandler:^(ASPHyperlinksResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:GetWorkSheetHyperlinks
 }
 
 - (void)postWorkSheetHyperlink {
+//ExStart:PostWorkSheetHyperlink
     NSString *fileName = @"myWorkbook.xlsx";
     [Utils uploadFile:fileName];
     
@@ -101,9 +110,11 @@
                                            completionHandler:^(ASPHyperlinkResponse *output, NSError *error) {
                                                NSLog(@"%@", output);
                                            }];
+//ExEnd:PostWorkSheetHyperlink
 }
 
 - (void)putWorkSheetHyperlink {
+//ExStart:PutWorkSheetHyperlink
     
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];
@@ -120,6 +131,7 @@
                                           completionHandler:^(ASPHyperlinkResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
+//ExEnd:PutWorkSheetHyperlink
 }
 
 @end
