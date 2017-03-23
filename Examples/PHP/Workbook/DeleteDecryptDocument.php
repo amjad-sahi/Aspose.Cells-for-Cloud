@@ -1,3 +1,4 @@
+//ExStart:
 <?php
 require_once realpath(__DIR__ . '/..') . '/vendor/autoload.php';
 require_once realpath(__DIR__ . '/..') . '/Utils.php';
@@ -18,7 +19,7 @@ class Workbook {
 	public function deleteDecryptDocument() {
     	// Upload file to Aspose Cloud Storage
 		$fileName = "test_cells.xlsx";
-		Utils::uploadFile($fileName);
+		//Utils::uploadFile($fileName);
 
         $body = array("Password" => "123456");
         $result = $this->cells->DeleteDecryptDocument($name=$fileName, $storage = null, $folder = null, $body);        
@@ -30,3 +31,4 @@ $workbook = new Workbook();
 $workbook->deleteDecryptDocument();
 
 ?>
+//ExEnd:
