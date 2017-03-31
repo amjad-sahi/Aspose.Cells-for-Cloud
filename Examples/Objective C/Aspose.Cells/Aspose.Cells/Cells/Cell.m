@@ -70,23 +70,176 @@
 //ExEnd:GetWorksheetCell
 }
 
-- (void)getWorksheetCellStyle {
-//ExStart:GetWorksheetCellStyle
-    NSString *fileName = @"myWorkBook.xlsx";
+- (void)getWorksheetFirstCell {
+    //ExStart:GetWorksheetFirstCell
+    
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellWithCompletionBlock:fileName
+                                             sheetName:@"Sheet2"
+                                      cellOrMethodName:@"firstcell"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPCellResponse *output, NSError *error) {
+                                         NSLog(@"%@", output);
+                                     }];
+    //ExEnd:GetWorksheetFirstCell
+}
+    
+- (void)getWorksheetLastCell {
+    //ExStart:GetWorksheetLastCell
+    
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellWithCompletionBlock:fileName
+                                             sheetName:@"Sheet2"
+                                      cellOrMethodName:@"endcell"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPCellResponse *output, NSError *error) {
+                                         NSLog(@"%@", output);
+                                     }];
+    //ExEnd:GetWorksheetLastCell
+}
+    
+- (void)getWorksheetMaxRow {
+    //ExStart:GetWorksheetMaxRow
+    
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellWithCompletionBlock:fileName
+                                             sheetName:@"Sheet2"
+                                      cellOrMethodName:@"maxrow"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPCellResponse *output, NSError *error) {
+                                         NSLog(@"%@", output);
+                                     }];
+    //ExEnd:GetWorksheetMaxRow
+}
+    
+- (void)getWorksheetMaxDataRow {
+    //ExStart:GetWorksheetMaxDataRow
+    
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellWithCompletionBlock:fileName
+                                             sheetName:@"Sheet2"
+                                      cellOrMethodName:@"maxdatarow"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPCellResponse *output, NSError *error) {
+                                         NSLog(@"%@", output);
+                                     }];
+    //ExEnd:GetWorksheetMaxDataRow
+}
+    
+- (void)getWorksheetMaxColumn {
+    //ExStart:GetWorksheetMaxColumn
+    
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellWithCompletionBlock:fileName
+                                             sheetName:@"maxcolumn"
+                                      cellOrMethodName:@"A3"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPCellResponse *output, NSError *error) {
+                                         NSLog(@"%@", output);
+                                     }];
+    //ExEnd:GetWorksheetMaxColumn
+}
+    
+    
+- (void)getWorksheetMaxDataColumn {
+    //ExStart:GetWorksheetMaxDataColumn
+    
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellWithCompletionBlock:fileName
+                                             sheetName:@"maxdatacolumn"
+                                      cellOrMethodName:@"A3"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPCellResponse *output, NSError *error) {
+                                         NSLog(@"%@", output);
+                                     }];
+    //ExEnd:GetWorksheetMaxDataColumn
+}
+    
+- (void)getWorksheetMinRow {
+    //ExStart:GetWorksheetMinRow
+    
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellWithCompletionBlock:fileName
+                                             sheetName:@"minrow"
+                                      cellOrMethodName:@"A3"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPCellResponse *output, NSError *error) {
+                                         NSLog(@"%@", output);
+                                     }];
+    //ExEnd:GetWorksheetMinRow
+}
+    
+- (void)getWorksheetMinDataRow {
+    //ExStart:GetWorksheetMinDataRow
+    
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellWithCompletionBlock:fileName
+                                             sheetName:@"mindatarow"
+                                      cellOrMethodName:@"A3"
+                                               storage:nil
+                                                folder:nil
+                                     completionHandler:^(ASPCellResponse *output, NSError *error) {
+                                         NSLog(@"%@", output);
+                                     }];
+    //ExEnd:GetWorksheetMinDataRow
+}
+    
+- (void)getWorksheetMinColumn {
+//ExStart:GetWorksheetMinColumn
+    NSString *fileName = @"Sample_Test_Book.xls";
     [Utils uploadFile:fileName];
     
     [self.cellsApi getWorksheetCellStyleWithCompletionBlock:fileName
-                                                  sheetName:@"Sheet1"
+                                                  sheetName:@"mincolumn"
                                                    cellName:@"A7"
                                                     storage:nil
                                                      folder:nil
                                           completionHandler:^(ASPStyleResponse *output, NSError *error) {
                                               NSLog(@"%@", output);
                                           }];
-//ExEnd:GetWorksheetCellStyle
+//ExEnd:GetWorksheetMinColumn
 }
 
-- (void)getWorksheetCellsWithCompletionBlock {
+- (void)getWorksheetMinDataColumn {
+    //ExStart:GetWorksheetMinDataColumn
+    NSString *fileName = @"Sample_Test_Book.xls";
+    [Utils uploadFile:fileName];
+    
+    [self.cellsApi getWorksheetCellStyleWithCompletionBlock:fileName
+                                                  sheetName:@"mindatacolumn"
+                                                   cellName:@"A7"
+                                                    storage:nil
+                                                     folder:nil
+                                          completionHandler:^(ASPStyleResponse *output, NSError *error) {
+                                              NSLog(@"%@", output);
+                                          }];
+    //ExEnd:GetWorksheetMinDataColumn
+}
+    
+- (void)getWorksheetCells {
 //ExStart:GetWorksheetCellsWithCompletionBlock
     NSString *fileName = @"myWorkBook.xlsx";
     [Utils uploadFile:fileName];

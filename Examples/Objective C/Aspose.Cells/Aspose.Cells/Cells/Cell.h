@@ -17,7 +17,7 @@
 - (void)getWorkSheetMergedCells;
 - (void)getWorksheetCell;
 - (void)getWorksheetCellStyle;
-- (void)getWorksheetCellsWithCompletionBlock;
+- (void)getWorksheetCells;
 - (void)postClearContents;
 - (void)postClearFormats;
 - (void)postCopyCellIntoCell;
@@ -27,5 +27,15 @@
 - (void)postWorksheetCellSetValue;
 - (void)postWorksheetMerge;
 - (void)postWorksheetUnmerge;
-
+- (void)getWorksheetFirstCell;
+- (void)getWorksheetLastCell;
+- (void)getWorksheetMaxRow;
+- (void)getWorksheetMaxDataRow;
+- (void)getWorksheetMaxColumn;
+- (void)getWorksheetMaxDataColumn;
+- (void)getWorksheetMinRow;
+- (void)getWorksheetMinDataRow;
+- (void)getWorksheetMinColumn;
+- (void)getWorksheetMinDataColumn;
+    
 @end
