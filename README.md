@@ -1,6 +1,6 @@
 ## Aspose.Cells for Cloud
 
-[Aspose.Cells for Cloud](http://www.aspose.com/products/cells/cloud) is a REST API that helps you create, manipulate and convert spreadsheets in the cloud. Developers can convert Excel XLS and XLSX spreadsheets to different formats like PDF, HTML, ODS, XPS, CSV, TIFF and others.
+[Aspose.Cells for Cloud](http://www.aspose.com/products/cells/cloud) is a REST API that helps you create, manipulate and convert spreadsheets in the cloud. Developers can convert Excel XLS, XLSX, XLSB, XLTX and XLTM spreadsheets to different formats like PDF, HTML, ODS, XPS, CSV, TIFF and others.
 
 This repository contains [Examples](Examples), Plugins and [SDKs](SDKs) for [Aspose.Cells for Cloud](http://www.aspose.com/products/cells/cloud)
 
